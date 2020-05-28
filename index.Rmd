@@ -1,0 +1,20 @@
+--- 
+title: "The Data Scientist’s Toolbox final assement"
+author: "Juan Sebastian D"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: ""
+---
+
+# final assement
+As part of the final accessment one needs to demostrate that has succesfully set up and  R installation with a working Rstudio. for me both installation whent flawless and rstudio detected the R program without any issue
+configure
+Now that you’ve learned about the basic tools found in the data scientist’s toolbox, we want to make sure that you’ve assembled those tools and are ready to begin using them. This easy project is your chance to demonstrate that you’ve done the basic software setup (R, RStudio, and Github) that will get you through the rest of the Data Science Specialization.
+
+
+
+
