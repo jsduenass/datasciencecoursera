@@ -1,13 +1,13 @@
 --- 
-title: "The Data Scientist’s Toolbox final assement"
+title: "The Data Scientists Toolbox final assement"
 author: "Juan Sebastian D"
 date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
+description: ''
 documentclass: book
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
 link-citations: yes
-description: ""
+bibliography: ../reference/Notes_bibliography.bib
+site: bookdown::bookdown_site
+biblio-style: apalike
 ---
 
 # final assement
