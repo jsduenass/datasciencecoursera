@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 description: ''
 documentclass: book
 link-citations: yes
-bibliography: ../reference/Notes_bibliography.bib
+bibliography: bibliography.bib
 site: bookdown::bookdown_site
 github-repo: jsduenass/datasciencecoursera
 biblio-style: apalike

@@ -1,10 +1,11 @@
-# final assement
-As part of the final accessment while coursing the [Data Science espcialization course](https://www.coursera.org/specializations/jhu-data-science)   one needs to demostrate that has succesfully set up and  R installation with a working Rstudio.
+#Welcome 
 
-![Rstudio screenshot]("../../media/images/Rstudio_screenshot.png")
+This repository is a collection of notes and implementations made while coursing the [Data Science espcialization course](https://www.coursera.org/specializations/jhu-data-science) 
 
-demostrate the creation of a github account mine can be found as [jsduenass](https://github.com/jsduenass/). 
+It covers topics such as the use of the R language, particulary using Rstudio IDE
 
-create a [markdown file](HelloWorld.md)
 
-and make a fork from jtleek's  [How to share data with a statistician](https://github.com/jsduenass/datasharing)
+here are the [web-based ](https://jsduenass.github.io/datasciencecoursera)
+version of these notes. hope you find it usefull. 
+
+

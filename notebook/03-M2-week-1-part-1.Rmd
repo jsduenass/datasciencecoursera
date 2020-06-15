@@ -1,0 +1,140 @@
+# week 1 Part I
+the lectures concentrated on basic R syntax, different data types, some built-in functions and methods for reading data from external files.   
+
+Thanks to the @Rstudio
+
+## Getting to know R
+R is object orientated.R suports some constants such pi, and can work with imaginary numbers. Some intersting litle thing is that do to limit pression on flotting points sometimes results that doesn't look zero  actually mean 0. The __?__ symbol and __help__ can be used to access the documentation page of built-in functions.
+
+```{r eval=FALSE}
+cos(pi/2)
+1+0i -3i
+
+? dimnames()
+help("mean")
+ls()                 # list of variables
+
+args(read.table)    # get arguments from a function
+my_vector <-c(1,2)
+attributes(my_vector) # get the attributes of an object
+class(my_vector)
+```
+
+
+
+working with the system 
+```{r eval=FALSE}
+getwd()
+# setwd(~)
+
+list.files()
+file.info('journal.Rmd')
+
+```
+
+__control + L__ clear console
+
+Sessions store information about the working directory, this configuration can be seen __.Rdat file__.
+
+## Vector operations
+When dealing with vector operations they are made element by element. One thing to be cautious about is that __when doing operation with vectors of different size R repeats the smaller vector until their sizes match__. they need be mutplies of one another in order to work, otherwise it would produce an error. This behavior extends the program's functionality, but can also can create difficult to spot uninteded behavior if not being carefull. 
+
+```{r eval=FALSE}
+x <- 1:4
+x*x
+x^x
+x^(1:2)
+M<-x%o%x
+det(M)
+t(M)
+
+seq(1,10, by=0.3)
+seq(1,10, length=7)
+seq(along.with=x)
+seq_along(x)
+
+```
+
+When working with vectors there can be numerical indexing (where elements of the array are retrive if it matches it's position) as well as logical indexing where the element is retrieve if the condition set, is satisfy by the element.
+
+## Data types
+The primary data types in the R language are character, numeric, integer, complex, and logical. R's basic data structures include the vector, list, matrix, data frame, and factors. when writting numbers they are __numeric__ as default, but can forced to the integer type by ending the number with an L.
+
+__matrices:__ are constructed column-wise, but can be set to be row-wise by the parameter byrow = TRUE.
+
+```{r  eval=FALSE}
+
+x <- 1:10L
+y <- 11:20
+M <-cbind(x,y)
+typeof(M)
+dim(M)
+
+Mt<- rbind(x,y)
+
+A <- matrix(1:10, nrow = 2, byrow = TRUE)
+
+```
+
+__factor__ variables allow to easily describe categories, for example imagine you make some poll to messure people's satisfaction with some policy. Normally this types of question doesn't just have a numeric value to be rated but can be more descriptive like for example having the options ["really bad","bad","good","really good"] when  asking about how they feel the policy has been carried out. factor data types allow to easily express these subtle descriptive answers. if some analisys needs to be carried out and assing a value to each one for example to find the mean of the answers. they can easily be ranked from lower to higher using levels. 
+
+```{r}
+x<- factor(c("yes","no","yes","no","yes","yes","no","no"))
+table(x)
+unclass(x)
+answers <- c("good","bad","really good","really bad","bad","really bad","good")
+satisfaction <- factor(answers, levels=c("really bad","bad","good","really good"))
+print(satisfaction)
+```
+
+
+
+### Exotic data 
+there as wel some not as comonly used data types as date, raster, raw and others. raw for example creates a vector used to store information in binary form into bytes written as hexadecimal pairs. 
+```{r}
+text <- "a word with length 21"
+binary <- charToRaw(text)
+is.raw(binary)
+typeof(binary)
+
+```
+
+
+
+### Data convertion 
+
+Data types have some herarchy from particular to general they can be orgnaized as folows logical, integer, numeric, character. one can make data type conversion from a particular one to a more general. All of the elements of a matrix must be of the same type, when different types are used inside a matrix R automaticly does this conversion so they all be the same type. Manual conversion can also be done using the functions __as.x()__ 
+
+```{r}
+
+as.character(5)
+as.numeric(TRUE)
+as.logical(1)
+
+```
+
+### Data frames
+Data frames are structures design to store tabular data, for example imagine you want to run a poll and store the data of each participant for further analysis, then a data frame structure can be used to organize this information.
+
+```{r}
+opinion_poll <- data.frame(name=c("karen", "brayan"), age=c(27,36),opinion=c("agree","disagree"))
+
+print(opinion_poll)
+names(opinion_poll)
+names(opinion_poll) <- NULL
+newnames<- c("first name","age","opinion")
+colnames(opinion_poll)<- newnames
+
+```
+
+ you can always erase the names by setting them to null. 
+ 
+ 
+ 
+a __list__ can name each of it's elements. for example you can create a geometric object as a list an set that each element is a dimension.
+```{r }
+dimensions<- list(height=5, width=4, depth=3)
+names(dimensions)
+```
+
+

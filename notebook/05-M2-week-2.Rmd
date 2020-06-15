@@ -1,10 +1,5 @@
 
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-# R Programming week 2: scripting 
+# week 2: scripting 
 Now that we have get acquaintance with the R language, some of it's built-in functions, data types and structures, it's time to learn about the building blocks of programming control structures, cicles, and functions.
 
 Argument of function can be partially matched. if the argument is to long the firsts letters migth be enougth to select it assuming it is the only one that matched those letters. 

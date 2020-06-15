@@ -1,0 +1,88 @@
+# week 1 Part II
+
+## Missing data NaN, NA and NULL   
+The world tends to be messy and missing data tends to be the norm instead of the exception,  R's way of dealing with this, is defining the __NaN__ and __NA__ data type. NaN is more especific and used when the missing values is a numeric one, NA on the other hand is more general and cover any missing value. __NA__ because of having a more broder definition is considered to cover __NaN__ values as well. So any __NaN__ is simultaniusly __NA__ as well. For example in the following example the function __is.na()__ and __is.NaN()__ are used to identify this types of data, the NaN value is reconized to be TRUE for both functions. 
+
+
+```{r}
+answers <- c("good","bad","really good","really bad","bad","really bad","good")
+satisfaction <- factor(answers, levels=c("really bad","bad","good","really good"))
+
+satisfaction[3]=NA
+satisfaction[4]=NaN    # numeric not define 
+is.na(satisfaction)
+is.nan(satisfaction)
+```
+
+other important data type related with missing values is __null__, while it migth prompt confusion, I'd like to refer to the following saying to address the difference:
+    
+    >NA represents the absence of presence while null represents the presence of absence
+
+Missing data tend to cause problems during analysis thankfully there is a simple trick that can be applied in order to remove the NA. 
+```{r}
+data<- c(1:4, NA ,6:10, NaN, NA ,1 , NA, 3:6)
+missing <-is.na(data)
+clean_data<- data[!missing]
+
+data2<- c(3:7, 6:10,NA ,3:1, NaN, NA,1,5 )
+
+good<- complete.cases(data,data2)
+data[good]
+data2[good]
+```
+
+
+
+## functions
+some of the build in function that make R special are statistics one for example sample can get a random sample with the specified size, by default there is no replacement but this behavior can easily be modified. 
+```{r}
+sample(x = 1:4, size = 2)
+factorial(5)
+
+y <-sample(x = 1:4, size = 100, replace=TRUE)
+PI<-round(pi, digits = 2)
+# clear the clutter and remove objects
+remove(PI)
+
+y<- rnorm(1000)     #normal distribution
+```
+
+```{r eval=FALSE}
+# remove all
+rm(list = ls())
+```
+
+
+## plot
+
+```{r}
+library('ggplot2')
+x <- c(-1, -0.8, -0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8, 1)
+y <- x^3
+qplot(x, y)
+```
+
+
+> bias can easily occur without anyone noticing it in the short run.
+@hands_on_R
+
+
+
+
+
+
+
+
+## read info with read table
+data can be produce in different forms, it can be structured or unstructured, regarless of the format, being able to interact with this data and organize it in a useful manner is important process that needs to be done, so it can be feed to upcoming analysis. this process of organizing the data is known as pipelining. Some common formats for data storage are csv (Coma Separated Values) files.
+
+R has some built in function for reading this type of files through the read.csv() or read.table().here is an examples of some students data read from an csv file. this function has some paramethers that help to specify the behavior of the function for example one can determine what symbol would be used as separator or either th file has headers or not. for more info on other suported arguments please read [the documentation](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/read.table). Things to be aware when dealing with large dataset is RAM if the dataset is larger that you RAM memory capacity it will create troubles. 
+
+When working with large data set especifing the data type by the parameter colClasses
+```{r eval=FALSE}
+initial <- read.csv("./data/student_info.csv",sep=";",header=TRUE, nrows=100)
+classes<- sapply(initial,class)
+
+students <- read.table("./data/student_info.csv",sep=";",header=TRUE, colClasses = classes)
+print(students)
+```
