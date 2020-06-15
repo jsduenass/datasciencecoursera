@@ -1,0 +1,28 @@
+# The Data Scientists Toolbox
+
+In this module one is introduced to the basics of what is data science, here is disscusses about: types of data, the job of the data scientist, and the process needed to cure these data and information into usable knowlege.
+
+It also has a practical component by introducing you to one important tool at the data scientist disposal, it was the [R language](www.r-project.org) and it's IDE [Rstudio](rstudio.com). They touch a little appond version control and showed the basics of git and github. The lectures where completly autonomus which stroke my curisity, they were far from perfect, but it displayed a practical application of what can be done with R, while also keeping in the spirit of making work that is reproducable. 
+
+
+One of content that striked my as more meaninful was at the introduction, answering the question why we need data science: 
+
+> One of the reasons for the rise of data science in recent years is the vast amount of data currently available and being generated. Not only are massive amounts of data being collected about many aspects of the world and our lives,but we simultaneously have the rise of inexpensive computing. This has created the perfect storm in which we have rich data and the tools to analyze it, rising computer memory capabilities, better processors, more software and now, more data scientists with the skills to put this to use and answer questions using this data. 
+
+
+
+
+## final assement
+
+As part of the final accessment one needs to demostrate that has succesfully set up a  R installation with a working Rstudio. for me both installations went flawless and rstudio detected the R program without any configuration issues. 
+
+![Rstudio screenshot](https://raw.githubusercontent.com/jsduenass/datasciencecoursera/master/media/images/Rstudio_screenshot.png)
+
+One also need to demostrate the creation of a github account mine can be found as [jsduenass](https://github.com/jsduenass/). 
+
+create a [markdown file](https://github.com/jsduenass/datasciencecoursera/blob/master/HelloWorld.md)
+
+and make a fork from jtleek's  [How to share data with a statistician](https://github.com/jsduenass/datasharing)
+
+
+I found interesting the peer review methodology used in this final assigment that encourage students participate and interact. 

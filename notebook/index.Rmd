@@ -1,5 +1,5 @@
 --- 
-title: "The Data Scientists Toolbox final assement"
+title: " Data Science course notes"
 author: "Juan Sebastian D"
 date: "`r Sys.Date()`"
 description: ''
@@ -7,13 +7,17 @@ documentclass: book
 link-citations: yes
 bibliography: ../reference/Notes_bibliography.bib
 site: bookdown::bookdown_site
+github-repo: jsduenass/datasciencecoursera
 biblio-style: apalike
+#description: " a small description" 
 ---
 
-# final assement
-As part of the final accessment one needs to demostrate that has succesfully set up and  R installation with a working Rstudio. for me both installation whent flawless and rstudio detected the R program without any issue
-configure
-Now that you’ve learned about the basic tools found in the data scientist’s toolbox, we want to make sure that you’ve assembled those tools and are ready to begin using them. This easy project is your chance to demonstrate that you’ve done the basic software setup (R, RStudio, and Github) that will get you through the rest of the Data Science Specialization.
+# Introduction 
+
+These are notes and work done while coursing the [Data Science especialization courses](https://www.coursera.org/specializations/jhu-data-science), A Coursera and John Hopkins joint effort  towards teaching data science.  
+
+
+
 
 
 

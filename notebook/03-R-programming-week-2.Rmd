@@ -1,0 +1,21 @@
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# R Programming week 2: scripting 
+Now that we have get acquaintance with the R language, some of it's built-in functions, data types and structures, it's time to learn about the building blocks of programming control structures, cicles, and functions.
+
+Argument of function can be partially matched. if the argument is to long the firsts letters migth be enougth to select it assuming it is the only one that matched those letters. 
+
+three dot "..." can be used to assign unspecified arguments ussualy used when extending an exisiting function. one is that the remainder arguments have to be named or else they will be passed to teh "...".
+
+R sort out the names of functions a by a herachy that can be display by the command __search()__ first global, second place is taken by the loaded libraries and then the rest of the build packages. Scopping rules and free variables.
+ 
+
+
+
+
+
+
