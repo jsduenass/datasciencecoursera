@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 The Data Scientists Toolbox | Data Scientists course notes</title>
-  <meta name="description" content="Chapter 2 The Data Scientists Toolbox | Data Scientists course notes" />
+  <title>Chapter 2 The Data Scientists Toolbox | Data Science course notes</title>
+  <meta name="description" content="Chapter 2 The Data Scientists Toolbox | Data Science course notes" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 The Data Scientists Toolbox | Data Scientists course notes" />
+  <meta property="og:title" content="Chapter 2 The Data Scientists Toolbox | Data Science course notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jsduenass/datasciencecoursera" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 The Data Scientists Toolbox | Data Scientists course notes" />
+  <meta name="twitter:title" content="Chapter 2 The Data Scientists Toolbox | Data Science course notes" />
   
   
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Juan Sebastian D" />
 
 
-<meta name="date" content="2020-06-14" />
+<meta name="date" content="2020-06-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="r-programming-week-1.html"/>
+<link rel="next" href="about-r-programming.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,6 +52,68 @@
 
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -66,20 +128,32 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A notebook through my learning jorney</a></li>
+<li><a href="https://github.com/jsduenass">A notebook through my learning journey</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="part"><span><b>I Module 1</b></span></li>
 <li class="chapter" data-level="2" data-path="the-data-scientists-toolbox.html"><a href="the-data-scientists-toolbox.html"><i class="fa fa-check"></i><b>2</b> The Data Scientists Toolbox</a><ul>
 <li class="chapter" data-level="2.1" data-path="the-data-scientists-toolbox.html"><a href="the-data-scientists-toolbox.html#final-assement"><i class="fa fa-check"></i><b>2.1</b> final assement</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="r-programming-week-1.html"><a href="r-programming-week-1.html"><i class="fa fa-check"></i><b>3</b> R Programming week 1</a><ul>
-<li class="chapter" data-level="3.1" data-path="r-programming-week-1.html"><a href="r-programming-week-1.html#getting-to-know-r"><i class="fa fa-check"></i><b>3.1</b> Getting to know R</a></li>
-<li class="chapter" data-level="3.2" data-path="r-programming-week-1.html"><a href="r-programming-week-1.html#vector-operations"><i class="fa fa-check"></i><b>3.2</b> Vector operations</a></li>
-<li class="chapter" data-level="3.3" data-path="r-programming-week-1.html"><a href="r-programming-week-1.html#data-types"><i class="fa fa-check"></i><b>3.3</b> Data types</a></li>
-<li class="chapter" data-level="3.4" data-path="r-programming-week-1.html"><a href="r-programming-week-1.html#missing-data-nan-na-and-null"><i class="fa fa-check"></i><b>3.4</b> Missing data NaN, NA and NULL</a></li>
+<li class="part"><span><b>II Module 2</b></span></li>
+<li class="chapter" data-level="3" data-path="about-r-programming.html"><a href="about-r-programming.html"><i class="fa fa-check"></i><b>3</b> About R Programming</a></li>
+<li class="chapter" data-level="4" data-path="week-1-part-i.html"><a href="week-1-part-i.html"><i class="fa fa-check"></i><b>4</b> week 1 Part I</a><ul>
+<li class="chapter" data-level="4.1" data-path="week-1-part-i.html"><a href="week-1-part-i.html#getting-to-know-r"><i class="fa fa-check"></i><b>4.1</b> Getting to know R</a></li>
+<li class="chapter" data-level="4.2" data-path="week-1-part-i.html"><a href="week-1-part-i.html#vector-operations"><i class="fa fa-check"></i><b>4.2</b> Vector operations</a></li>
+<li class="chapter" data-level="4.3" data-path="week-1-part-i.html"><a href="week-1-part-i.html#data-types"><i class="fa fa-check"></i><b>4.3</b> Data types</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="week-1-part-i.html"><a href="week-1-part-i.html#exotic-data"><i class="fa fa-check"></i><b>4.3.1</b> Exotic data</a></li>
+<li class="chapter" data-level="4.3.2" data-path="week-1-part-i.html"><a href="week-1-part-i.html#data-convertion"><i class="fa fa-check"></i><b>4.3.2</b> Data convertion</a></li>
+<li class="chapter" data-level="4.3.3" data-path="week-1-part-i.html"><a href="week-1-part-i.html#data-frames"><i class="fa fa-check"></i><b>4.3.3</b> Data frames</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="star-programming-in-r.html"><a href="star-programming-in-r.html"><i class="fa fa-check"></i><b>4</b> Star programming in R</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="week-1-part-ii.html"><a href="week-1-part-ii.html"><i class="fa fa-check"></i><b>5</b> week 1 Part II</a><ul>
+<li class="chapter" data-level="5.1" data-path="week-1-part-ii.html"><a href="week-1-part-ii.html#missing-data-nan-na-and-null"><i class="fa fa-check"></i><b>5.1</b> Missing data NaN, NA and NULL</a></li>
+<li class="chapter" data-level="5.2" data-path="week-1-part-ii.html"><a href="week-1-part-ii.html#functions"><i class="fa fa-check"></i><b>5.2</b> functions</a></li>
+<li class="chapter" data-level="5.3" data-path="week-1-part-ii.html"><a href="week-1-part-ii.html#plot"><i class="fa fa-check"></i><b>5.3</b> plot</a></li>
+<li class="chapter" data-level="5.4" data-path="week-1-part-ii.html"><a href="week-1-part-ii.html#read-info-with-read-table"><i class="fa fa-check"></i><b>5.4</b> read info with read table</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="week-2-scripting.html"><a href="week-2-scripting.html"><i class="fa fa-check"></i><b>6</b> week 2: scripting</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -92,7 +166,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Scientists course notes</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science course notes</a>
           </h1>
         </div>
 
@@ -104,7 +178,7 @@
 <h1><span class="header-section-number">Chapter 2</span> The Data Scientists Toolbox</h1>
 <p>In this module one is introduced to the basics of what is data science, here is disscusses about: types of data, the job of the data scientist, and the process needed to cure these data and information into usable knowlege.</p>
 <p>It also has a practical component by introducing you to one important tool at the data scientist disposal, it was the <a href="www.r-project.org">R language</a> and it’s IDE <a href="rstudio.com">Rstudio</a>. They touch a little appond version control and showed the basics of git and github. The lectures where completly autonomus which stroke my curisity, they were far from perfect, but it displayed a practical application of what can be done with R, while also keeping in the spirit of making work that is reproducable.</p>
-<p>One of content that striked my as more meaninful was at the introduction, answering the question why we need data science:</p>
+<p>One of the pieces of content that striked me as more meaninful was at the introduction, answering the question why we need data science:</p>
 <blockquote>
 <p>One of the reasons for the rise of data science in recent years is the vast amount of data currently available and being generated. Not only are massive amounts of data being collected about many aspects of the world and our lives,but we simultaneously have the rise of inexpensive computing. This has created the perfect storm in which we have rich data and the tools to analyze it, rising computer memory capabilities, better processors, more software and now, more data scientists with the skills to put this to use and answer questions using this data.</p>
 </blockquote>
@@ -122,13 +196,16 @@
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-programming-week-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="about-r-programming.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -170,7 +247,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["The Data Scientists Toolbox final asesment.pdf", "The Data Scientists Toolbox final asesment.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection"
 }
