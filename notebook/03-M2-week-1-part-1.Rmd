@@ -1,10 +1,10 @@
 # week 1 Part I
-the lectures concentrated on basic R syntax, different data types, some built-in functions and methods for reading data from external files.   
+These lectures concentrated on basic R syntax, different data types, some built-in functions and methods for reading data from external files.   
 
 Thanks to the @Rstudio
 
 ## Getting to know R
-R is object orientated.R suports some constants such pi, and can work with imaginary numbers. Some intersting litle thing is that do to limit pression on flotting points sometimes results that doesn't look zero  actually mean 0. The __?__ symbol and __help__ can be used to access the documentation page of built-in functions.
+R is object orientated, the way it work is that it store each instance in memory so it can refer it later. Other details of R are that it can suports some constants such pi, and can work with imaginary numbers. Some intersting litle behavior that happen (like in many other programming languages), is that do to limited pression on flotting points sometimes results that doesn't look zero  actually mean 0. The __?__ symbol and __help__ can be used to access the documentation page of built-in functions. Some other functions great for getting information about args() and atributes() that give ech respectibly the arguments and atribute of an object.
 
 ```{r eval=FALSE}
 cos(pi/2)
@@ -21,23 +21,36 @@ class(my_vector)
 ```
 
 
-
-working with the system 
+the R projecto you are working on has an assiated working directory and there are function that let you interact with the system. 
 ```{r eval=FALSE}
-getwd()
-# setwd(~)
+getwd()           # get working directory
+# setwd(~)          # set working directory
 
 list.files()
 file.info('journal.Rmd')
 
 ```
 
-__control + L__ clear console
+__control + L__ clear console. Any easy command that always come in handy in order to keep a clean console and workspace.
 
+
+## Sessions and environment
 Sessions store information about the working directory, this configuration can be seen __.Rdat file__.
 
+environments are the container where objects are stored. Objects created by the user get store in the global environment, core functions are store in the base environment and every library loaded has its own environment. when R wants to find the value/definition of an object it searches trough this environment in a particular order starting by the global one. when evaluating a function R creates its own environment, that is why variables created inside a function have no effect in the main environment.
+
+> environments are a collection of symbol/value pairs
+
+```{r eval=FALSE}
+globalenv()
+baseenv()
+emptyenv()
+
+parent.env(globalenv())
+```
+
 ## Vector operations
-When dealing with vector operations they are made element by element. One thing to be cautious about is that __when doing operation with vectors of different size R repeats the smaller vector until their sizes match__. they need be mutplies of one another in order to work, otherwise it would produce an error. This behavior extends the program's functionality, but can also can create difficult to spot uninteded behavior if not being carefull. 
+When dealing with vector operations they are made element by element. One thing to be cautious about is that __when doing operation with vectors of different size R repeats the smaller vector until their sizes match__. they need to be mutiplies of one another in order to work, otherwise it would produce an error. This behavior extends the program's functionality, but can also can create difficult to spot uninteded behavior if not treated carefully. 
 
 ```{r eval=FALSE}
 x <- 1:4
@@ -53,12 +66,15 @@ seq(1,10, length=7)
 seq(along.with=x)
 seq_along(x)
 
+4%in%x
+
 ```
 
+## vector indexing 
 When working with vectors there can be numerical indexing (where elements of the array are retrive if it matches it's position) as well as logical indexing where the element is retrieve if the condition set, is satisfy by the element.
 
 ## Data types
-The primary data types in the R language are character, numeric, integer, complex, and logical. R's basic data structures include the vector, list, matrix, data frame, and factors. when writting numbers they are __numeric__ as default, but can forced to the integer type by ending the number with an L.
+The primary data types in the R language are character, numeric, integer, complex, and logical. R's basic data structures include the vector, list, matrix, data frame, and factors. when writting numbers they are __numeric__ as default, but can forced to be integer type by ending the number with an L.
 
 __matrices:__ are constructed column-wise, but can be set to be row-wise by the parameter byrow = TRUE.
 
@@ -76,7 +92,7 @@ A <- matrix(1:10, nrow = 2, byrow = TRUE)
 
 ```
 
-__factor__ variables allow to easily describe categories, for example imagine you make some poll to messure people's satisfaction with some policy. Normally this types of question doesn't just have a numeric value to be rated but can be more descriptive like for example having the options ["really bad","bad","good","really good"] when  asking about how they feel the policy has been carried out. factor data types allow to easily express these subtle descriptive answers. if some analisys needs to be carried out and assing a value to each one for example to find the mean of the answers. they can easily be ranked from lower to higher using levels. 
+__factor:__ are variables that allow to easily describe categories. For example imagine you make some poll to messure people's satisfaction with some policy. Normally this types of question doesn't just have a numeric value to be rated but can be more descriptive like for example having the options ["really bad","bad","good","really good"] when  asking about how they feel the policy has been carried out. factor data types allow to easily express these subtle descriptive answers. if some analisys needs to be carried out and assing a value to each one for example to find the mean of the answers. they can easily be ranked from lower to higher using levels. 
 
 ```{r}
 x<- factor(c("yes","no","yes","no","yes","yes","no","no"))
@@ -90,7 +106,8 @@ print(satisfaction)
 
 
 ### Exotic data 
-there as wel some not as comonly used data types as date, raster, raw and others. raw for example creates a vector used to store information in binary form into bytes written as hexadecimal pairs. 
+there as well some not as commonly used data types as date, raster, raw and others. raw for example creates a vector used to store information in binary form into bytes written as hexadecimal pairs. 
+
 ```{r}
 text <- "a word with length 21"
 binary <- charToRaw(text)
@@ -103,7 +120,7 @@ typeof(binary)
 
 ### Data convertion 
 
-Data types have some herarchy from particular to general they can be orgnaized as folows logical, integer, numeric, character. one can make data type conversion from a particular one to a more general. All of the elements of a matrix must be of the same type, when different types are used inside a matrix R automaticly does this conversion so they all be the same type. Manual conversion can also be done using the functions __as.x()__ 
+Data types have some herarchy, from particular to general they can be organized as folows logical, integer, numeric, character. one can make data type conversion from a particular one to a more general. All of the elements of a matrix must be of the same type, when different types are used inside a matrix R automaticly does this conversion so they all be the same type. Manual conversion can also be done using the functions __as.x()__ 
 
 ```{r}
 
@@ -117,7 +134,7 @@ as.logical(1)
 Data frames are structures design to store tabular data, for example imagine you want to run a poll and store the data of each participant for further analysis, then a data frame structure can be used to organize this information.
 
 ```{r}
-opinion_poll <- data.frame(name=c("karen", "brayan"), age=c(27,36),opinion=c("agree","disagree"))
+opinion_poll <- data.frame(name=c("karen", "brayan","Tony"), age=c(27,36,38),opinion=c("agree","disagree","agree"))
 
 print(opinion_poll)
 names(opinion_poll)
@@ -129,9 +146,23 @@ colnames(opinion_poll)<- newnames
 
  you can always erase the names by setting them to null. 
  
+#### Dollar sign and double brackets 
+The single bracket notation will give back a subset of the same element, if it is a data frame it will return a data frame and if it is a list it returns a list. however if the data is needed without the structure as it might be needed to properly work with some functions a double bracket remove the structure leaving only the data. the dollar sign notation have a similiar behavior than the double bracket, but allows the values to be accessed by their name  @hands_on_R
+
+
+```{r}
+opinion_poll[2]
+opinion_poll[[2]]
+
+# mean(opinion_poll[2])   will produce an error
+
+mean(opinion_poll[[2]])     #will not 
+mean(opinion_poll$age)
+median(opinion_poll$age)
+```
+
  
- 
-a __list__ can name each of it's elements. for example you can create a geometric object as a list an set that each element is a dimension.
+a __list__ can name each of it's elements. One example I imagine was to create a list which represents the dimensions of a object, so each value represents the height, widht and depth of the object.
 ```{r }
 dimensions<- list(height=5, width=4, depth=3)
 names(dimensions)

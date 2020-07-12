@@ -3,9 +3,9 @@
 # The Data Scientists Toolbox 
 
 
-In this module one is introduced to the basics of what is data science, here is disscusses about: types of data, the job of the data scientist, and the process needed to cure these data and information into usable knowlege.
+In this module, one is introduced to the basics of what is data science, here it is disscussed about: types of data, the job of the data scientist, and the process needed in order to cure these data and information into usable knowlege.
 
-It also has a practical component by introducing you to one important tool at the data scientist disposal, it was the [R language](www.r-project.org) and it's IDE [Rstudio](rstudio.com). They touch a little appond version control and showed the basics of git and github. The lectures where completly autonomus which stroke my curisity, they were far from perfect, but it displayed a practical application of what can be done with R, while also keeping in the spirit of making work that is reproducable. 
+It also has a practical component, introducing you to one important tool at the data scientist disposal, the [R language](www.r-project.org) and it's IDE [Rstudio](rstudio.com). The subject of version control is also adress and it is showen the basics of git and github. The lectures where completly autonomus which stroke my curisity, they were far from perfect, but it displayed a practical application of what can be done with R, while also keeping in the spirit of making work that is reproducable. 
 
 
 One of the pieces of content that striked me as more meaninful was at the introduction, answering the question why we need data science: 
@@ -15,9 +15,9 @@ One of the pieces of content that striked me as more meaninful was at the introd
 
 
 
-## final assement
+## final assessment
 
-As part of the final accessment one needs to demostrate that has succesfully set up a  R installation with a working Rstudio. for me both installations went flawless and rstudio detected the R program without any configuration issues. 
+As part of the final assessment one needs to demostrate that has succesfully set up a  R installation with a working Rstudio. for me both installations went flawless and rstudio detected the R program without any configuration issues. 
 
 ![Rstudio screenshot](https://raw.githubusercontent.com/jsduenass/datasciencecoursera/master/media/images/Rstudio_screenshot.png)
 
