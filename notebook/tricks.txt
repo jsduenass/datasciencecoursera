@@ -7,3 +7,16 @@ bookdown::render_book("/notebook/index.Rmd", "bookdown::pdf_book")
 git branch --set-upstream-to=origin/gh-pages gh-pages
 
 git branch -D  gh-pages
+
+
+
+when having a problem with git you decide to quit the program there will be the following error message:
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+it can be fix by removing the index.lock file 
+	rm -f .git/index.lock

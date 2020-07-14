@@ -12,7 +12,7 @@ biblio-style: apalike
 #description: " a small description" 
 ---
 
-# Introduction 
+# Introduction {-}
 
 These are notes and work done while coursing the [Data Science especialization courses](https://www.coursera.org/specializations/jhu-data-science), A Coursera and John Hopkins joint effort  towards teaching data science.  
 

@@ -1,16 +1,224 @@
 
-# week 2: scripting 
-Now that we have get acquaintance with the R language, some of it's built-in functions, data types and structures, it's time to learn about the building blocks of programming control structures, cicles, and functions.
+# week 2: Scripting 
+Now that we have get acquaintance with the R language, some of it's built-in functions, data types and structures, it's time to learn about the building blocks of programming, control structures, cicles, and functions.
 
-Argument of function can be partially matched. if the argument is to long the firsts letters migth be enougth to select it assuming it is the only one that matched those letters. 
+Like many other promming languages R implements the __if__ statement as a control strucutre and the __for__ statement and __while__ statement in order to produce cicles. there also exists the expresions __repeat__, __break__ and __next__ which allow to specify a certian behavior different from the rest of the iteration, there are ussually used inside an if statement to represent exception cases inside a loop.
 
-three dot "..." can be used to assign unspecified arguments ussualy used when extending an exisiting function. one is that the remainder arguments have to be named or else they will be passed to teh "...".
+```{r}
+number=1
+if(number>0){
+    print("the number is positive")
+}else if (number <0){
+    print("the number is negative")
+}else {
+    print("the number is 0")
+}
 
-R sort out the names of functions a by a herachy that can be display by the command __search()__ first global, second place is taken by the loaded libraries and then the rest of the build packages. Scopping rules and free variables.
+
+x<- c("a","b","c")
+for(i in seq_along(x)){
+    print(x[i])
+}
+
+```
+
+
+## functions 
+functions are structures that allow for encasulation and reutilization of an action. It allows to use the same process under different condition using its inputs. The declaration of a function is as follows.
+
+```{r}
+countdown <- function (n){
+    for(timeleft in n:1) {
+        
+        cat("T minus: ", timeleft, "\n")
+        Sys.sleep(1)
+    }
+    cat("BOOM!! \n")
+}
+
+countdown(3)
+
+countdown(5)
+
+```
+
+So as you see we define the countdown function by assigning the reserved-word __function__ with the parameters to the function's name, followed by the declaration of the functionality, contained between curly brackets. Finally we call the function in order to make it work.
+
+As seen we can use __cat__ to display values, and this prompts the question:  what is the difference between __cat__ and __print__ ?
+
+__cat__ in the one hand "converts its arguments to character vectors, concatenates them to a single character vector" @Rdocumentation these impose some limitation in that it can only be applied to primary data types. Also it doesn´t produce a new line, so "\\n" has to bee specified in order to do so. The returned value of this function is an invisible NULL.
+
+__print__ in the other hand "is a generic function which means that new printing methods can be easily added for new classes" @Rdocumentation. from cat, print returns an invisible of its value which makes it for pipping. 
+
+
+
+### defining arguments
+R allows for great fexibility when dealing with arguments in a function, for example:
+
+__Lazy evaluation:__ This means that values are only evaluated when needed, this allows R to declared non defined arguments with out a problem  as long as they are not used. 
+
+
+__default values:__ One can set arguments to have default values, when they are not specified in the call of the function they are set to the default value. This can become usefull when dealing with many paramethers who are intended to have to same value must of the time.  
+
+
+__partially match:__ Arguments can be assigned position based "fun(value1,value2,value3)" or name based "fun(arg2=value2,arg3=value3,arg1=value1)", name based allows to put in the arguments in different order, however names can be to long, so if the firsts letters of the name uniquily identify the argument they migth be enough to select it this is knonw as a partially match argument. 
+
+__unspecified arguments:__  Sometimes you can not predict what other argument can applied to the function, the three dot "..." argument can be used to assign unspecified arguments. this is ussualy used when extending an exisiting function. One thing to be aware of when using it is that the remainder arguments have to be named or else they will be passed to the "..." partial matching doesn't work as well.
+
+```{r}
+simon_says <- function(...){
+   paste("Simon says:", ...)
+}
+
+```
+this function example was taken from swirl's functions module. 
+
+
+__unpacking arguments:__ when working with the "..." you might one to extract an especific value you can access these values byconverting the "..." into a list 
+```{r}
+f <- function(x, ...) {
+  args = list(...) 
+  print(args$message)
+}
+
+f(x,name="Pedrito",message="hola")
+```
+
+All of these techniques allows for great diversity when using functions.
+
+## Scoping rules
+R holds each definition in memory as a symbol value pair. however the same symbol might be defined differently in in two separated occation, so how does R determine which one to use?
+
+This issue can be resolve thanks to scoping rules, which sort out the vaule of a symbol by following a herachy of environments that can be display by the command __search()__. First the symbol is look in the global environment, in second place it is search in the loaded libraries and then the rest of the build packages. R separates functions and function so you can have one with each with the same name.
+
+
+```{r}
+    external= "I am from the outside world"
+    f<-function(){
+        print(external)
+    }
+    f2<- function(){
+        external=" I am inside function 2"
+        f()
+    }
+    f()
+    
+    f2()
+```
+
+```{r}
+    external= "I am from the outside world"
+    
+    f<-function(){
+            print(external)
+        }
+    f2<- function(){
+        
+        f<-function(){
+            print(external)
+        }
+        
+        external=" I am inside function 2"
+        f()
+        
+    }
+    
+    f()
+    
+    f2()
+```
+ 
+In the previus example we saw that the function could use a variable that was not declared inside the function these are known as free variables. The scopping rules state that free variables would be search inside the environment where the function was defined, if not found, it is search up to the parent environment  the example intends to be a reflection of this behavior.
+ 
+what value does a free variable has is tight to what enviroment it is on. the ls() function can help you see  what is inside an enviroment, and the function get() what value does it have    
+```{r}
+ls(environment(f))
+
+get("external",environment(f))
+
+get("external",environment(f2))
+```
+ 
+Do to lexical scoping all variables must be stored in memory.
+
+
+## What happened in 1970-01-01? 
+The first of january of 1970 is an important date and marks the start of time itself, at least as far as computers are concerned. This date was set as the start of the __unix epoch__ a system that meassures time based on the number of seconds past since this date. This system has been used widly and  now the unix time (POSIX) is the primary way computers deal with time.
+
+R has to ways of deailing with time:
+
+* Dates: which can be represented using the Date class count the number of days since the unix epoch.
+```{r}
+x<-as.Date("1978-12-1")
+class(x)
+unclass(x)
+```
+
+* Time: which uses POSIX can become in two different standars. POSIXct which works deep down as a integer counter, it is to work with data frames; and  POSIXlt which stores the time in a list structure, with much more baggage information that can be easier to access.
+
+
+```{r}
+now <-Sys.time()
+
+now
+
+now_ls <- as.POSIXlt(now)
+
+names(unclass(now_ls))
+
+now_ls$year
+
+```
+As the example showed the time is relative to 1-1-1970
+
+We have shown so far how the system intepret dates and times but imagine you want to enter dates that are written as strings. __strptime()__ take care of this, it only needs the string and the format. It also allows to specify the time zone if needed.
+
+```{r}
+# ?strptime
+str_date= "4 de julio de 1991"
+ 
+date=strptime(str_date, format="%d de %B de %Y ",tz="GMT")
+class(date)
+
+date+365
+
+date$mon
+
+```
+
+
+
+
+## SWIRL practices 
+As part as this weeks assigment one needed to complete the swirl practices of logic, functions and Dates and Times.
+
+### logical operations: 
+when using single operand the value gets evaluated by each one of the elements of the list, double operand evalutes only the first element.
+
+```{r}
+TRUE & c(TRUE, FALSE, FALSE)
+TRUE && c(TRUE, FALSE, FALSE)
+```
+
+### functions:
+
+Anonimous functions.
+```{r eval=FALSE}
+evaluate(function(x){x+1}, 6)
+```
+
+binary operator
+convolution
+
+
+### Dates and times
+If needed the lubridate package developed by Hadley Wickham enhances the posibilities of the basic Date class. dates might seem easy at first glance but as it was put by @wickham2017r
+
+> Dates and times are hard because they have to reconcile two physical phenomena (the rotation of the Earth and its orbit around the sun) with a whole raft of geopolitical phenomena including months, time zones, and DST.
+ 
+So it is important to appreaciate the work others have put in, in order to make it easier to work with the messy way we meassure time, so you can focus on whatever you are working on rather that getting distracted trying to format dates information.
  
 
-
-
-
+ 
 
 
