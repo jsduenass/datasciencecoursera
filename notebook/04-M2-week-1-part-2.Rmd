@@ -68,11 +68,55 @@ qplot(x, y)
 ```
 
 
-
 Another great prhase 
+
 > bias can easily occur without anyone noticing it in the short run.
 
 taken from  @hands_on_R
+
+
+
+### pratical exercise
+@wickham2017r shows some practical plotting examples using the _tiddyverse_, a collection of very usefull packages for data manipulation. If you want to know more about packages you can head to the correspondig seccion. 
+
+
+We are going to use some practical data provided by the EPA (Enviromental Proteciton Agency) the _mpg_ dataframe
+
+```{r eval=FALSE}
+library(tidyverse)
+?mpg
+names(mpg)
+dims(mpg)
+
+```
+
+
+## R Packages
+One of the advantages of open source is that the community can creates packages which extend the functionality of the core R implementation. There exist many ways to access this packages, the larger collection is provided via the CRANN repository but Git based packages are also supported. In order to use this packages it is necesary not only to install the package, but also load it into the R.  
+
+* __CRAN  based package:__  CRAN (Comprehensive R Archive Network) is an  collection that holds documentation and code related to R. It stores many R packages which have the advantage that they can be install directly via the ```install.packages(" ")``` command making it extremly easy to incorporate packages into a project. For example in order to install the ```tidyverse``` package colletion the following command  can be use:
+
+```{r eval=FALSE}
+install.packages("tidyverse")
+library(tidyverse)
+```
+Once installed the ```library()``` command can be used to load the packages into R. Notice that ```install.packages()``` gets an argument between quotes but ```library()``` does not. 
+
+
+* __Git  based package:__
+
+__Note:__ packages needs to be loaded everytime Rstudio is loaded. The following commands show you the loaded packages, and in the case you need to unload a package the detach command can be helpfull. 
+
+```{r eval=FALSE}
+(.packages())
+detach("package:tidyverse", unload=TRUE)
+
+```
+
+### create your own package
+
+
+
 
 
 

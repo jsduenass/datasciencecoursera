@@ -1,0 +1,126 @@
+# week 3:
+
+loop functions
+
+lapply sapply
+tapply mapply 
+apply: let's set margins
+
+
+gl
+
+debbuger
+* message: informative 
+* warnings: unexpected behavior, display once execution has finished
+* error: fatal breaks the program
+* condition: generic
+
+
+
+out printing to the console
+
+useful tools
+
+
+traceback
+debug 
+browser
+trace 
+recover
+
+blunt techniques insert cat/ print staments insid the function
+
+```{r eval=FALSE}
+mean(x)
+traceback()
+
+debug(lm)
+lm(x-y)
+
+undebug(lm)
+
+optins(error=recover)
+optins(error=browser)
+
+optins(error=NULL)
+
+```
+
+
+
+
+ 
+```{r eval=FALSE}
+tidyverse_update()
+```
+
+
+<<- is an operator used to assign a object to a different enviroment
+
+
+
+
+# R objects
+# Create package documentation 
+Run ```devtools::document()``` (or press Ctrl/Cmd + Shift + D in RStudio) to convert roxygen comments to .Rd files. 
+
+
+
+## SWIRL practices 
+
+### lapply sapply
+loop functions or *apply functions
+
+__split apply combine__ strategy lay out by Hadley Wickham in his  paper titled 'The Split-Apply-Combine Strategy for Data Analysis'.
+
+
+
+Rows observation and columns variables
+
+
+especiffy its own anonimus function 
+lapply(unique_vals, function(elem) elem[2])
+
+back in week to we read some data from a file. Imagine we want to analize this information we want to know what type is. first we try simply to find the class of students which ain't very us 
+
+Now we want to iterate operation over it
+lapply returns a list type as a result. sapply tries to simplify whenever is possible. iF every result is of length 1 it returns a vector if they are all bigger than one and with the same length it returns a matrix. 
+```{r}
+students <- read.table("../data/student_info.csv",sep=";",header=TRUE,nrows=5)
+class(students)
+
+cls<- lapply(students,class)
+
+```
+
+
+
+### vapply and tapply
+vapply allows to specify the format of the result and throughs an error if not matched.
+
+
+
+
+
+
+One can call an R script and all its content using source. R can also interface with different files compress files using ... and web pages using the url function.
+```{r eval=FALSE}
+#remove(list=ls())
+#source("code/simple_script.R", encoding = 'UTF-8')
+#eval(parse("simple_script.R", encoding="UTF-8"))
+#roll()
+#dput(rank)
+#dump(c(rank,rolls))
+```
+
+
+```{r eval=TRUE}
+content <- file("../data/student_info.csv","r")
+some_lines <-readLines(content,5)
+print(some_lines)
+```
+ 
+
+
+r measure run time and optimization
+

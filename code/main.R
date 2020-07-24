@@ -33,11 +33,13 @@ m=matrix(c(0.25, 0.10, 0.05,0.60), nrow=2, ncol=2)
 dimnames(m) <- list(c("positive","negative"),c("present", "absent"))
 print(m)
 
-students <- read.csv("./data/student_info.csv",sep=";",header=TRUE)
+students <- read.csv("../data/student_info.csv",sep=";",header=TRUE)
 students
 
 x<- c("a","b","c")
 for(i in seq_along(x)){
     print(x[i])
 }
+
+
 

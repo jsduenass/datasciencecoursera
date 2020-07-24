@@ -1,0 +1,57 @@
+# week 4: Simulation and modeling
+
+proliferer in R a tool that allows you to check the performance of your functions and would help you optimize 
+
+The ```str()``` function gives a quick examination of R objects functions and data perrty usefull to have a general idea of what an specific expression is. 
+
+```{r eval=FALSE}
+str(str)
+library(datasets)
+head(airquality)
+str(airquality)
+s <- split(airquality,airquality$Month)
+str(s) 
+```
+
+
+## simulation 
+because R is statistics orientated it has many functions used for creating distributions.  Each type of distribution like normal, Poisson, etc has asociated the following prefixes that specify different outcomes.
+
+* __d:__ density
+* __r:__random number generation
+* __p:__ cumulative
+* __q:__ quantile
+ 
+ The following are some examples.
+ 
+* __rnorm:__ normal distribution given a mean and a standar deviation 
+
+* __dnorm:__ Probability density
+
+* __pnorm:__ Cumulative distribution fro a normal distribution 
+
+*__rpois:__ generates a random Possion distribution given a defined rate
+
+```{r}
+
+with(airquality,tapply(Temp,Month,mean))
+Temperature<- airquality$Temp
+
+model <-rnorm(153,mean(Temperature),sd(Temperature))
+ 
+
+plot(density(Temperature))
+
+plot(density(model))
+
+```
+
+R produces random number that are not entierly random, instead they are made through a pseudo random generator, an algorithm that will map the output to a list of values with a determined probabilistic distribution. A seed will determine the behavior of the algorithm, so when a seed has been set it will always map to the same numbers. It is important to be able to reproduce the exact same results, so the ```set.seed()``` function is used to ensure that the random values generated stay the same.
+
+
+
+```{r}
+set.seed(3)
+```
+
+

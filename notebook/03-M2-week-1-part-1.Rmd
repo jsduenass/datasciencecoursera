@@ -21,7 +21,7 @@ class(my_vector)
 ```
 
 
-the R projecto you are working on has an assiated working directory and there are function that let you interact with the system. 
+the R project you are working on has an assigned working directory and there are functions that let you interact with the system. 
 ```{r eval=FALSE}
 getwd()           # get working directory
 # setwd(~)          # set working directory

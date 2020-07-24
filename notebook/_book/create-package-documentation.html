@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 The Data Scientists Toolbox | Data Science course notes</title>
-  <meta name="description" content="Chapter 1 The Data Scientists Toolbox | Data Science course notes" />
+  <title>Chapter 8 Create package documentation | Data Science course notes</title>
+  <meta name="description" content="Chapter 8 Create package documentation | Data Science course notes" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 The Data Scientists Toolbox | Data Science course notes" />
+  <meta property="og:title" content="Chapter 8 Create package documentation | Data Science course notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jsduenass/datasciencecoursera" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 The Data Scientists Toolbox | Data Science course notes" />
+  <meta name="twitter:title" content="Chapter 8 Create package documentation | Data Science course notes" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="about-r-programming.html"/>
+<link rel="prev" href="r-objects.html"/>
+<link rel="next" href="week-4-simulation-and-modeling.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -204,38 +204,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-data-scientists-toolbox" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> The Data Scientists Toolbox</h1>
-<p>In this module, one is introduced to the basics of what is data science, here it is disscussed about: types of data, the job of the data scientist, and the process needed in order to cure these data and information into usable knowlege.</p>
-<p>It also has a practical component, introducing you to one important tool at the data scientist disposal, the <a href="www.r-project.org">R language</a> and it’s IDE <a href="rstudio.com">Rstudio</a>. The subject of version control is also adress and it is showen the basics of git and github. The lectures where completly autonomus which stroke my curisity, they were far from perfect, but it displayed a practical application of what can be done with R, while also keeping in the spirit of making work that is reproducable.</p>
-<p>One of the pieces of content that striked me as more meaninful was at the introduction, answering the question why we need data science:</p>
-<blockquote>
-<p>One of the reasons for the rise of data science in recent years is the vast amount of data currently available and being generated. Not only are massive amounts of data being collected about many aspects of the world and our lives,but we simultaneously have the rise of inexpensive computing. This has created the perfect storm in which we have rich data and the tools to analyze it, rising computer memory capabilities, better processors, more software and now, more data scientists with the skills to put this to use and answer questions using this data.</p>
-</blockquote>
-<div id="final-assessment" class="section level2">
-<h2><span class="header-section-number">1.1</span> final assessment</h2>
-<p>As part of the final assessment one needs to demostrate that has succesfully set up a R installation with a working Rstudio. for me both installations went flawless and rstudio detected the R program without any configuration issues.</p>
-<div class="figure">
-<img src="https://raw.githubusercontent.com/jsduenass/datasciencecoursera/master/media/images/Rstudio_screenshot.png" alt="Rstudio screenshot" />
-<p class="caption">Rstudio screenshot</p>
+<div id="create-package-documentation" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Create package documentation</h1>
+<p>Run <code>devtools::document()</code> (or press Ctrl/Cmd + Shift + D in RStudio) to convert roxygen comments to .Rd files.</p>
+<div id="swirl-practices" class="section level2">
+<h2><span class="header-section-number">8.1</span> SWIRL practices</h2>
+<div id="lapply-sapply" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> lapply sapply</h3>
+<p>loop functions or *apply functions</p>
+<p><strong>split apply combine</strong> strategy lay out by Hadley Wickham in his paper titled ‘The Split-Apply-Combine Strategy for Data Analysis’.</p>
+<p>Rows observation and columns variables</p>
+<p>especiffy its own anonimus function
+lapply(unique_vals, function(elem) elem[2])</p>
+<p>back in week to we read some data from a file. Imagine we want to analize this information we want to know what type is. first we try simply to find the class of students which ain’t very us</p>
+<p>Now we want to iterate operation over it
+lapply returns a list type as a result. sapply tries to simplify whenever is possible. iF every result is of length 1 it returns a vector if they are all bigger than one and with the same length it returns a matrix.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" title="1">students &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;../data/student_info.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;;&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">nrows=</span><span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb114-2" title="2"><span class="kw">class</span>(students)</a></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1">cls&lt;-<span class="st"> </span><span class="kw">lapply</span>(students,class)</a></code></pre></div>
 </div>
-<p>One also need to demostrate the creation of a github account mine can be found as <a href="https://github.com/jsduenass/">jsduenass</a>.</p>
-<p>create a <a href="https://github.com/jsduenass/datasciencecoursera/blob/master/HelloWorld.md">markdown file</a></p>
-<p>and make a fork from jtleek’s <a href="https://github.com/jsduenass/datasharing">How to share data with a statistician</a></p>
-<p>I found interesting the peer review methodology used in this final assigment that encourage students participate and interact.</p>
+<div id="vapply-and-tapply" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> vapply and tapply</h3>
+<p>vapply allows to specify the format of the result and throughs an error if not matched.</p>
+<p>One can call an R script and all its content using source. R can also interface with different files compress files using … and web pages using the url function.</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1"><span class="co">#remove(list=ls())</span></a>
+<a class="sourceLine" id="cb117-2" title="2"><span class="co">#source(&quot;code/simple_script.R&quot;, encoding = &#39;UTF-8&#39;)</span></a>
+<a class="sourceLine" id="cb117-3" title="3"><span class="co">#eval(parse(&quot;simple_script.R&quot;, encoding=&quot;UTF-8&quot;))</span></a>
+<a class="sourceLine" id="cb117-4" title="4"><span class="co">#roll()</span></a>
+<a class="sourceLine" id="cb117-5" title="5"><span class="co">#dput(rank)</span></a>
+<a class="sourceLine" id="cb117-6" title="6"><span class="co">#dump(c(rank,rolls))</span></a></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" title="1">content &lt;-<span class="st"> </span><span class="kw">file</span>(<span class="st">&quot;../data/student_info.csv&quot;</span>,<span class="st">&quot;r&quot;</span>)</a>
+<a class="sourceLine" id="cb118-2" title="2">some_lines &lt;-<span class="kw">readLines</span>(content,<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb118-3" title="3"><span class="kw">print</span>(some_lines)</a></code></pre></div>
+<pre><code>## [1] &quot;Name and Lastname; ID; email adress&quot;                  
+## [2] &quot;Samuel Jackson; 10124585611; samuelJ@mail.com&quot;        
+## [3] &quot;Robert Downey; 4525111559; rdownironman@mail.c&quot;       
+## [4] &quot;Douglas Adams; 14884674721; zaphodbeeblebrox@mail.com&quot;
+## [5] &quot;Stephen Wolfram; 74682868914; wolframalpha@mail.com&quot;</code></pre>
+<p>r measure run time and optimization</p>
 
 </div>
 </div>
-
-
-
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="about-r-programming.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-objects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-4-simulation-and-modeling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
