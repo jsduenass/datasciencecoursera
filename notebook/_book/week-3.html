@@ -24,7 +24,7 @@
 <meta name="author" content="Juan Sebastian D" />
 
 
-<meta name="date" content="2020-07-24" />
+<meta name="date" content="2020-07-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="week-2-scripting.html"/>
-<link rel="next" href="r-objects.html"/>
+<link rel="next" href="week-4-simulation-and-modeling.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -173,17 +173,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4.3" data-path="week-2-scripting.html"><a href="week-2-scripting.html#dates-and-times"><i class="fa fa-check"></i><b>5.4.3</b> Dates and times</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="week-3.html"><a href="week-3.html"><i class="fa fa-check"></i><b>6</b> week 3:</a></li>
-<li class="chapter" data-level="7" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>7</b> R objects</a></li>
-<li class="chapter" data-level="8" data-path="create-package-documentation.html"><a href="create-package-documentation.html"><i class="fa fa-check"></i><b>8</b> Create package documentation</a><ul>
-<li class="chapter" data-level="8.1" data-path="week-2-scripting.html"><a href="week-2-scripting.html#swirl-practices"><i class="fa fa-check"></i><b>8.1</b> SWIRL practices</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="create-package-documentation.html"><a href="create-package-documentation.html#lapply-sapply"><i class="fa fa-check"></i><b>8.1.1</b> lapply sapply</a></li>
-<li class="chapter" data-level="8.1.2" data-path="create-package-documentation.html"><a href="create-package-documentation.html#vapply-and-tapply"><i class="fa fa-check"></i><b>8.1.2</b> vapply and tapply</a></li>
+<li class="chapter" data-level="6" data-path="week-3.html"><a href="week-3.html"><i class="fa fa-check"></i><b>6</b> week 3:</a><ul>
+<li class="chapter" data-level="6.1" data-path="week-3.html"><a href="week-3.html#r-objects"><i class="fa fa-check"></i><b>6.1</b> R objects</a></li>
+<li class="chapter" data-level="6.2" data-path="week-3.html"><a href="week-3.html#create-package-documentation"><i class="fa fa-check"></i><b>6.2</b> Create package documentation</a></li>
+<li class="chapter" data-level="6.3" data-path="week-2-scripting.html"><a href="week-2-scripting.html#swirl-practices"><i class="fa fa-check"></i><b>6.3</b> SWIRL practices</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="week-3.html"><a href="week-3.html#lapply-sapply"><i class="fa fa-check"></i><b>6.3.1</b> lapply sapply</a></li>
+<li class="chapter" data-level="6.3.2" data-path="week-3.html"><a href="week-3.html#vapply-and-tapply"><i class="fa fa-check"></i><b>6.3.2</b> vapply and tapply</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="week-4-simulation-and-modeling.html"><a href="week-4-simulation-and-modeling.html"><i class="fa fa-check"></i><b>9</b> week 4: Simulation and modeling</a><ul>
-<li class="chapter" data-level="9.1" data-path="week-4-simulation-and-modeling.html"><a href="week-4-simulation-and-modeling.html#simulation"><i class="fa fa-check"></i><b>9.1</b> simulation</a></li>
+<li class="chapter" data-level="7" data-path="week-4-simulation-and-modeling.html"><a href="week-4-simulation-and-modeling.html"><i class="fa fa-check"></i><b>7</b> week 4: Simulation and modeling</a><ul>
+<li class="chapter" data-level="7.1" data-path="week-4-simulation-and-modeling.html"><a href="week-4-simulation-and-modeling.html#simulation"><i class="fa fa-check"></i><b>7.1</b> simulation</a></li>
+<li class="chapter" data-level="7.2" data-path="week-4-simulation-and-modeling.html"><a href="week-4-simulation-and-modeling.html#sampling"><i class="fa fa-check"></i><b>7.2</b> sampling</a></li>
+<li class="chapter" data-level="7.3" data-path="week-4-simulation-and-modeling.html"><a href="week-4-simulation-and-modeling.html#code-optimization"><i class="fa fa-check"></i><b>7.3</b> Code Optimization</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="on-reproducible-research.html"><a href="on-reproducible-research.html"><i class="fa fa-check"></i><b>8</b> On reproducible research</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -238,6 +241,58 @@ recover</p>
 <a class="sourceLine" id="cb112-12" title="12"><span class="kw">optins</span>(<span class="dt">error=</span><span class="ot">NULL</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1"><span class="kw">tidyverse_update</span>()</a></code></pre></div>
 <p>&lt;&lt;- is an operator used to assign a object to a different enviroment</p>
+<div id="r-objects" class="section level2">
+<h2><span class="header-section-number">6.1</span> R objects</h2>
+</div>
+<div id="create-package-documentation" class="section level2">
+<h2><span class="header-section-number">6.2</span> Create package documentation</h2>
+<p>Run <code>devtools::document()</code> (or press Ctrl/Cmd + Shift + D in RStudio) to convert roxygen comments to .Rd files.</p>
+</div>
+<div id="swirl-practices" class="section level2">
+<h2><span class="header-section-number">6.3</span> SWIRL practices</h2>
+<div id="lapply-sapply" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> lapply sapply</h3>
+<p>loop functions or *apply functions</p>
+<p><strong>split apply combine</strong> strategy lay out by Hadley Wickham in his paper titled ‘The Split-Apply-Combine Strategy for Data Analysis’.</p>
+<p>Rows observation and columns variables</p>
+<p>especiffy its own anonimus function
+lapply(unique_vals, function(elem) elem[2])</p>
+<p>back in week to we read some data from a file. Imagine we want to analize this information we want to know what type is. first we try simply to find the class of students which ain’t very us</p>
+<p>Now we want to iterate operation over it
+lapply returns a list type as a result. sapply tries to simplify whenever is possible. iF every result is of length 1 it returns a vector if they are all bigger than one and with the same length it returns a matrix.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" title="1">students &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;../data/student_info.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;;&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">nrows=</span><span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb114-2" title="2"><span class="kw">class</span>(students)</a></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1">cls&lt;-<span class="st"> </span><span class="kw">lapply</span>(students,class)</a></code></pre></div>
+</div>
+<div id="vapply-and-tapply" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> vapply and tapply</h3>
+<p>vapply allows to specify the format of the result and throughs an error if not matched.</p>
+<p>more in depth of the source function
+source from web github</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1"><span class="kw">print</span>(<span class="st">&quot; I am filed called from a URL&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot; I am filed called from a URL&quot;</code></pre>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="kw">source</span>(<span class="st">&quot;https://raw.githubusercontent.com/jsduenass/datasciencecoursera/master/code/hello_I_am_from_the_web.R&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;In R, the source function allows to call either files path names or URL connettion&quot;</code></pre>
+<p>One can call an R script and all its content using source. R can also interface with different files compress files using … and web pages using the url function.</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1"><span class="co">#remove(list=ls())</span></a>
+<a class="sourceLine" id="cb121-2" title="2"><span class="co">#source(&quot;code/simple_script.R&quot;, encoding = &#39;UTF-8&#39;)</span></a>
+<a class="sourceLine" id="cb121-3" title="3"><span class="co">#eval(parse(&quot;simple_script.R&quot;, encoding=&quot;UTF-8&quot;))</span></a>
+<a class="sourceLine" id="cb121-4" title="4"><span class="co">#roll()</span></a>
+<a class="sourceLine" id="cb121-5" title="5"><span class="co">#dput(rank)</span></a>
+<a class="sourceLine" id="cb121-6" title="6"><span class="co">#dump(c(rank,rolls))</span></a></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" title="1">content &lt;-<span class="st"> </span><span class="kw">file</span>(<span class="st">&quot;../data/student_info.csv&quot;</span>,<span class="st">&quot;r&quot;</span>)</a>
+<a class="sourceLine" id="cb122-2" title="2">some_lines &lt;-<span class="kw">readLines</span>(content,<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb122-3" title="3"><span class="kw">print</span>(some_lines)</a></code></pre></div>
+<pre><code>## [1] &quot;Name and Lastname; ID; email adress&quot;                  
+## [2] &quot;Samuel Jackson; 10124585611; samuelJ@mail.com&quot;        
+## [3] &quot;Robert Downey; 4525111559; rdownironman@mail.c&quot;       
+## [4] &quot;Douglas Adams; 14884674721; zaphodbeeblebrox@mail.com&quot;
+## [5] &quot;Stephen Wolfram; 74682868914; wolframalpha@mail.com&quot;</code></pre>
+<p>r measure run time and optimization</p>
+
+</div>
+</div>
 </div>
             </section>
 
@@ -245,7 +300,7 @@ recover</p>
         </div>
       </div>
 <a href="week-2-scripting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-objects.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-4-simulation-and-modeling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -295,6 +350,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
