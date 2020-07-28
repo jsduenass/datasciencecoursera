@@ -1,0 +1,26 @@
+# On reproducible research
+
+>reproducible reporting is about is a validation of the data analysis
+
+>best practices should be done to promote and encourage reproducibility, particularly in what’s called ‘omics based research, such as genomics, pro-teomics, other similar areas involving high-throughput biological measurements
+
+@reportWritting
+
+exploratory figures
+you need to understand were the data came from
+
+divide the data into tow categories 
+train data and validation data this ca be done with the binomial distribution
+[link][1]
+```{r}
+mydata<- read.table("../data/student_info.csv",sep=";",header=TRUE)
+
+n<- dim(mydata)[1]
+set.seed(3435)
+trainIndicator<-rbinom(n, size=1, prob=0.5)
+train_data<- mydata[trainIndicator,]
+val_data<-mydata[!trainIndicator,]
+val_data
+```
+
+[1]:https://leanpub.com/powershell-scripting-toolmaking "hol"
