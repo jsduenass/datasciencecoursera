@@ -60,8 +60,8 @@ tidyverse_update()
 
 
 
-# R objects
-# Create package documentation 
+## R objects
+## Create package documentation 
 Run ```devtools::document()``` (or press Ctrl/Cmd + Shift + D in RStudio) to convert roxygen comments to .Rd files. 
 
 
@@ -101,6 +101,14 @@ vapply allows to specify the format of the result and throughs an error if not m
 
 
 
+more in depth of the source function
+source from web github
+```{r}
+
+print(" I am filed called from a URL")
+source("https://raw.githubusercontent.com/jsduenass/datasciencecoursera/master/code/hello_I_am_from_the_web.R")
+
+```
 
 
 One can call an R script and all its content using source. R can also interface with different files compress files using ... and web pages using the url function.

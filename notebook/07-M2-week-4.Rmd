@@ -32,8 +32,8 @@ because R is statistics orientated it has many functions used for creating distr
 
 *__rpois:__ generates a random Possion distribution given a defined rate
 
-```{r}
-
+```{r,label="air-density",fig.cap = "air density"}
+library(datasets)
 with(airquality,tapply(Temp,Month,mean))
 Temperature<- airquality$Temp
 
@@ -46,12 +46,64 @@ plot(density(model))
 
 ```
 
-R produces random number that are not entierly random, instead they are made through a pseudo random generator, an algorithm that will map the output to a list of values with a determined probabilistic distribution. A seed will determine the behavior of the algorithm, so when a seed has been set it will always map to the same numbers. It is important to be able to reproduce the exact same results, so the ```set.seed()``` function is used to ensure that the random values generated stay the same.
+R produces random number that are not entirely random, instead they are made through a pseudo random generator, an algorithm that will map the output to a list of values with a determined probabilistic distribution. A seed will determine the behavior of the algorithm, any seed will always map to the same numbers. It is important to be able to reproduce the exact same results, so the ```set.seed()``` function is used to ensure that the random values generated stay the same.
 
 
 
 ```{r}
+print(" set seed to 3")
 set.seed(3)
+rnorm(5)
+
+print("seed not set ")
+rnorm(5)
+
+print(" set seed to 3 again")
+set.seed(3)
+rnorm(5)
 ```
+We want to create a linear model of the form
+
+\begin{equation*} 
+  y= \beta _1 + \beta_2 x +\epsilon
+  (\#eq:binom)
+\end{equation*} 
+
+
+```{r,label="linear-model"}
+set.seed(20)
+x<- rnorm(100)
+set.seed(10)
+e <- rnorm(100,0,2)
+y<- 0.5 + 2*x + e
+plot(x,y)
+```
+```{r}
+set.seed(10)
+x<- rbinom(100,1,0.5)
+set.seed(10)
+e <- rnorm(100,0,2)
+y<- 0.5 + 2*x + e
+plot(x,y)
+```
+
+## sampling
+
+
+
+## Code Optimization 
+```{r include = FALSE,warning = FALSE}
+
+t_consumed<-system.time(source("../code/covid_19.R",echo=FALSE))
+print(t_consumed)
+
+```
+
+R profiler 
+examines how much does it take to run a piece of code
+
+
+
+
 
 
