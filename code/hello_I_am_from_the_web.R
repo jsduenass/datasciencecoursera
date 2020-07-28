@@ -2,6 +2,8 @@ print("In R, the source function allows to call either files path names or URL c
 
 
 
-getwd()
+print(getwd())
 
-list.files()
+print(list.files())
+
+print(sessionInfo())
