@@ -6,6 +6,8 @@
 
 @reportWritting
 
+cite the source of the data
+
 exploratory figures
 you need to understand were the data came from
 

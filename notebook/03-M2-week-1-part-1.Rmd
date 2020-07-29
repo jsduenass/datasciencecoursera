@@ -4,11 +4,13 @@ These lectures concentrated on basic R syntax, different data types, some built-
 Thanks to the @Rstudio
 
 ## Getting to know R
-R is object orientated, the way it work is that it store each instance in memory so it can refer it later. Other details of R are that it can suports some constants such pi, and can work with imaginary numbers. Some intersting litle behavior that happen (like in many other programming languages), is that do to limited pression on flotting points sometimes results that doesn't look zero  actually mean 0. The __?__ symbol and __help__ can be used to access the documentation page of built-in functions. Some other functions great for getting information about args() and atributes() that give ech respectibly the arguments and atribute of an object.
+R is object orientated, the way it work is that it store each instance in memory so it can refer it later. R comes with some predifined variables like ```LETTERS``` and ```letters``` , which holds a list with the capitalized and non capitalized letters of the alphabeth,  constants such pi and ```i``` and ```j``` for imaginary numbers. Some intersting litle behavior that happen (like in many other programming languages), is that do to limited pression on flotting points sometimes results that doesn't look zero  actually mean 0. The __?__ symbol and __help__ can be used to access the documentation page of built-in functions. Some other functions great for getting information about args() and atributes() that give ech respectibly the arguments and atribute of an object.
 
 ```{r eval=FALSE}
+letters
 cos(pi/2)
 1+0i -3i
+head(letters)
 
 ? dimnames()
 help("mean")

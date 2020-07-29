@@ -64,10 +64,7 @@ rnorm(5)
 ```
 We want to create a linear model of the form
 
-\begin{equation*} 
-  y= \beta _1 + \beta_2 x +\epsilon
-  (\#eq:binom)
-\end{equation*} 
+$$y= \beta _1 + \beta_2 x +\epsilon$$
 
 
 ```{r,label="linear-model"}
@@ -101,8 +98,90 @@ print(t_consumed)
 
 R profiler 
 examines how much does it take to run a piece of code
+```{r}
+
+#Rprof("../data/Profile.out")
+#source("../code/covid_19.R",echo=FALSE)
+#Rprof(NULL)
+details<-summaryRprof("../data/Profile.out")
+head(details$by.self)
+
+```
+The time spend be of tow different categories ```$by.self``` or ```by.total``` the latter has the disadvantages that it records the time full time the top level functon tend to spend must of the time   can 
+What 
+
+by the example we can see that must of the time is expent on converting data into Date type.    we
+
+library(profvis)
 
 
+## SWIRL practices
+As part of this weeks activities the following swirl practices 
+
+### Looking at Data
+when first introduce to a dataset you need to gain a broad understanding of the data, R has many functions usefull for exploratory analysis, pocking around the data and knowing what it is in there.
+
+* ```dim()```
+* ```names()```
+* ```object.size()``` allows you to know how much space a dataset is occupying in memory
+* ```summary()``` is very usefull to get a sense of the data it give properties such as the mean, the median, the number of NA values, etc 
+* ```table()```
+* ```str()```
+
+
+### Simulation
+simulate the probability of a flip of a coin with an skewed probability of 70% head and 30% tails. We could use ```sample``` with replacement and specify to find the number of times it would land heads making 100 flip, how ever the binomial distribution function ```rbinom``` to simulate the expected value, and not only once but the times necesary 
+
+```{r label= "coin-flip", fig.cap="heads expected of 100 coin flips"}
+set.seed(1)
+rbinom(1,size=100,prob=0.7)
+
+set.seed(13)
+heads<- rbinom(500,size=100,prob=0.7)
+
+hist(heads)
+range(heads)
+```
+
+Generate 100 groups of random numbers each one of 5 vaules generate with a Poisson distribution with mean 10
+```{r}
+set.seed(19)
+rpois(5,lambda = 10)
+
+my_pois<- replicate(100,rpois(5,10))
+```
+
+Other distributions: exponential ```rexp()```, chi-squared ```rchisq()```, gamma ```rgamma()```
+
+### Base Graphics
+lattice, ggplot2 and ggvis
+
+http://varianceexplained.org/r/teach_ggplot2_to_beginners/ 
+
+http://www.ling.upenn.edu/~joseff/rstudy/week4.html
+
+load ```data```
+
+plot is to scatterplot
+
+"formula" interface  plot(dist ~ speed, cars)
+
+xlab = "xlabel", ylab="ylabel", main ="title"
+sub="My Plot Subtitle"
+col=2  color red
+?points
+pch=2
+
+?boxplot
+
+```{r}
+data(mtcars)
+boxplot(mpg~ cyl, data=mtcars)
+```
+
+
+
+## Final assigment
 
 
 

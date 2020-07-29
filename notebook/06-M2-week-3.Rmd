@@ -10,6 +10,8 @@ apply: let's set margins
 gl
 
 debbuger
+
+
 * message: informative 
 * warnings: unexpected behavior, display once execution has finished
 * error: fatal breaks the program

@@ -17,6 +17,7 @@ chunck headers
 * ```warning=FALSE``` Prevents warning from appearing
 * ```fig.cap = "..."``` add a caption to the figures
 * ```label='my-chunk'`` adds a name to the code chunk it is important because it would be the name of figures.
+*```cache=TRUE``` for heavy code chunks
 
 fig.width=16, fig.height=6
 
@@ -26,6 +27,7 @@ output format ```results```
 
 ## equations
 
+$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$
 
 \begin{equation*} 
   f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
@@ -33,6 +35,35 @@ output format ```results```
 \end{equation*}
 
 
+
+## serve a book 
+needs the ```servr``` library
+
+
+```{r, eval=FALSE}
+library(bookdown)
+serve_book(dir = ".", output_dir = "_book")
+
+```
+
+
+by default it is configure to run on http://127.0.0.1:4321
+in order to stop the service
+```{r warning=FALSE}
+server_ID<-daemon_list()
+daemon_stop(server_ID)
+
+```
+
+bookdown::render_book()
+
+
+## Blockquotes 
+> "I thoroughly disapprove of duels. If a man should challenge me,
+  I would take him kindly and forgivingly by the hand and lead him
+  to a quiet place and kill him."
+>
+> --- Mark Twain
 
 
 
