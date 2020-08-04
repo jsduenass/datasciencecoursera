@@ -50,7 +50,9 @@ recovery_time<-interest$Fecha.recuperado - interest$Fecha.diagnostico
 tapply(recovery_time, month(interest$Fecha.diagnostico), mean)
 
 x<-as.numeric(recovery_time)
-table(x>50)
+
 
 plot(density(as.numeric(recovery_time)))
-     
+print("Covid")
+
+ans<-table(x>50)

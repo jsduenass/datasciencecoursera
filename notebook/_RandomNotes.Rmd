@@ -1,0 +1,14 @@
+# Randmon Notes
+
+R some history, we can find is lineage as a dialect of the S language
+the S languange philosophy
+
+the transition from user to developer. An intercative enviroment (command like) and to work longer scripts and ultimately programs this aproach might reseamble other programs such as matlab, mathematica and jupyter notebooks. 
+
+R like many open software project is known for having frequent releases
+
+a language is successful in as much as it creates a platform with which many people can create new things.
+@peng2019r
+
+take a read of 
+Murrell (2005).R Graphics, Chapman & Hall/CRC Press:

@@ -1,7 +1,7 @@
 # week 1 Part II
 
 ## Missing data NaN, NA and NULL   
-The world tends to be messy and missing data tends to be the norm instead of the exception,  R's way of dealing with this, is defining the __NaN__ and __NA__ data type. NaN is more especific and used when the missing values is a numeric one, NA on the other hand is more general and cover any missing value. __NA__ because of having a more broder definition is considered to cover __NaN__ values as well. So any __NaN__ is simultaniusly __NA__ as well. For example in the following example the function __is.na()__ and __is.NaN()__ are used to identify this types of data, the NaN value is reconized to be TRUE for both functions. NA values can create a lot of trouble, so many functions have a way of dealing with missing values the __na.rm__ parameter removes the missing values before the funtion is evaluated. 
+The world tends to be messy and missing data tends to be the norm instead of the exception,  R's way of dealing with this is through defining the __NaN__ and __NA__ data types. NaN is more especific and used when the missing values is a numeric one, NA on the other hand is more general and cover any missing value. __NA__ has a more broder definition, therefore __NaN__ values are considered to be covered by __NA__, do any __NaN__ is simultaniusly __NA__ as well. For example, the following the functions ```is.na()``` and ```is.NaN()``` are used to identify this types of data, the NaN value is reconized to be TRUE for both functions. NA values can create a lot of trouble, so many functions have a way of dealing with missing values the ```na.rm``` parameter removes the missing values before the funtion is evaluated. 
 
 
 ```{r}
@@ -34,6 +34,24 @@ data2[good]
 ```
 
 
+When working with data frames the ```complete.cases``` can be useful for handling missing values, it return a logical vector whose value are TRUE or FALSE depending if all of the  elements of a row are defined and none is __NA__, ```na.omit``` is an alternative way to acomplish the same result, instead of returning  a logic vetor it directly returns the rows that does not have missing values.
+```{r}
+df<-data.frame(a=1:4, b=2:5, c=10:13,d=21:24)
+df[1,3]<-NA
+df[3,4]<-NA
+df
+
+good<-complete.cases(df)
+good                     # logic vector data is complete
+
+clean_df<-df[good,]
+clean_df
+
+alternative<-na.omit(df)
+alternative
+```
+
+There are many functions which make part of the```na.x``` family, which provide a rich range of responding actions when encountering with missing values 
 
 ## functions
 When programming you always want to break big problems into smaller ones, and functions create the perfect container to hold each of these little pieces. Some of the build in functions that make R special are the statistics ones, for example __sample()__ can get a random sample with the specified size, by default there is no replacement but this behavior can easily be modified. 
@@ -50,15 +68,10 @@ remove(PI)
 y<- rnorm(1000)     #normal distribution
 ```
 
-This little trick allows you to get a fresh start and clear all the elements in memory 
-```{r eval=FALSE}
-# remove all
-rm(list = ls())
-```
 
 
 ## plot
-Other usefull tool that R offers and is known for is the hability to draw diagrams. Plots are a fundamental way of conveying meaningful information from a pile of data. And plots play a key role in R's philosphy of reproducible researsh.
+Other useful tool that R offers and is known for is the hability to draw diagrams. Plots are a fundamental way of conveying meaningful information from a pile of data. And plots play a key role in R's philosphy of reproducible researsh.
 
 ```{r, label='cubic-function',fig.cap = "cubic function"}
 library('ggplot2')
@@ -71,13 +84,12 @@ qplot(x, y)
 Another great prhase 
 
 > bias can easily occur without anyone noticing it in the short run.
-
-taken from  @hands_on_R
-
+>
+> ---- @hands_on_R
 
 
 ### pratical exercise
-@wickham2017r shows some practical plotting examples using the _tiddyverse_, a collection of very usefull packages for data manipulation. If you want to know more about packages you can head to the correspondig seccion. 
+@wickham2017r shows some practical plotting examples using the _tiddyverse_, a collection of very useful packages for data manipulation. If you want to know more about packages you can head to the correspondig seccion. 
 
 
 We are going to use some practical data provided by the EPA (Enviromental Proteciton Agency) the _mpg_ dataframe
@@ -92,7 +104,7 @@ dims(mpg)
 
 
 ## R Packages
-One of the advantages of open source is that the community can creates packages which extend the functionality of the core R implementation. There exist many ways to access this packages, the larger collection is provided via the CRANN repository but Git based packages are also supported. In order to use this packages it is necesary not only to install the package, but also load it into the R.  
+One of the advantages of open source is that the community can creates packages which extends the functionality of the core R implementation. There exist many ways to access this packages, the larger collection is provided via the CRANN repository but Git based packages are also supported. In order to use any external package it is necesary not only to install it, but also to load it into the R.  
 
 * __CRAN  based package:__  CRAN (Comprehensive R Archive Network) is an  collection that holds documentation and code related to R. It stores many R packages which have the advantage that they can be install directly via the ```install.packages(" ")``` command making it extremly easy to incorporate packages into a project. For example in order to install the ```tidyverse``` package colletion the following command  can be use:
 
@@ -102,6 +114,7 @@ library(tidyverse)
 ```
 Once installed the ```library()``` command can be used to load the packages into R. Notice that ```install.packages()``` gets an argument between quotes but ```library()``` does not. 
 
+__Note:__ It is important to note in order to install some packages, the ones who have c/c++/fortran source code instead of the binary, this packages need the [rtools](https://cran.r-project.org/bin/windows/Rtools/) in order be build. The rtools must be compatible with the R version. 
 
 * __Git  based package:__
 
@@ -112,6 +125,33 @@ __Note:__ packages needs to be loaded everytime Rstudio is loaded. The following
 detach("package:tidyverse", unload=TRUE)
 
 ```
+
+
+The ```datasets``` package is an built-in package that store some useful datasets, to know more and what kind of datasets it has available 
+```{r eval=FALSE}
+library(datasets)
+?datasets
+library(help = "datasets")      # open file with full index of datasets
+```
+
+The following is a list with some of these datasets:
+
+```
+AirPassengers           Monthly Airline Passenger Numbers 1949-1960
+BJsales                 Sales Data with Leading Indicator
+BOD                     Biochemical Oxygen Demand
+CO2                     Carbon Dioxide Uptake in Grass Plants
+ChickWeight             Weight versus age of chicks on different diets
+DNase                   Elisa assay of DNase
+EuStockMarkets          Daily Closing Prices of Major European Stock Indices, 1991-1998
+```
+We can take a look into some of this datasets
+```{r}
+head(EuStockMarkets)
+head(AirPassengers)
+tail(ChickWeight)
+```
+
 
 ### create your own package
 
@@ -124,7 +164,7 @@ detach("package:tidyverse", unload=TRUE)
 
 ## Read info with read table
 
-Data can be produce in different forms, it can be structured or unstructured, regarless of the format, being able to interact with this data and organize it in a useful manner is an important process that needs to be done, so it can be feed to upcoming analysis. this process of organizing the data is known as pipelining. 
+Data can be produce in different forms, it can be structured or unstructured, regarless of the format, being able to interact with this data and organize it in a useful manner is an important process that needs to be done, so it can be feed to upcoming analysis. this process of organizing the data is known as pipelining (to learn more about thsi process feel free to check the [ Data collection module ](#module3) ) . 
 
 Some common formats for data storage are csv (Coma Separated Values) files, R has some built in function for reading this type of files through the read.csv() or read.table(). Here is an examples of some students data read from an csv file. These function have some paramethers that help to specify the behavior we want it to have. For example one can determine what symbol would be used as separator or either if the file has headers or not. for more info on other suported arguments please read [the documentation](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/read.table). One thing to be aware when dealing with large dataset is RAM, if the dataset is larger than the RAM memory capacity it will create troubles. 
 

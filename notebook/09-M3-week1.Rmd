@@ -1,0 +1,88 @@
+# week 1:
+Raw vs processed data
+when transforming raw data into processed data it is important to remember that  __all the process must be recorded__ (cookbook)
+
+> tidying:  structuring datasets to facilitate analysis
+
+> Tidy data is a standard way of mapping the meaning of a dataset to its structure. 
+
+An __observation__ contains all values measured on the same unit (like a person, or a day, or a race) across __attributes__.
+
+
+1. Each variable forms column
+2. Each observation forms a row
+3. Each type of observation unit forms a table
+
+
+>One way of organising variables is by their role in the analysis: are values fixed by the design of the data collection, or are they measured during the course of the experiment? ... Fixed variables should come first, followed by measured variables, each ordered so that related variables are contiguous 
+
+
+problems to be faced:
+* Column headers are values
+* Multiple varaibles are stored in one column
+* Varaibles are stored in both rows and columns 
+* Multiplye typo of observational units are stored in the same table
+* A single observational unit is stored in multiple tables
+
+
+## codebook 
+Must contain:
+* A "Study design" section, a description on the methods used to collect the data.  
+* Description of each and every variables to be used including it's units.
+
+instruction list
+An script with no parameters that has the raw data as an intake and produces the processed/tidy data. if it is not possible to make all the process be done through the script the should be instruction on any additional steps.
+
+## Downloading files
+let's face the internet is gateway to the knowlege of the world and you might obtain must of your dataset downloading them through the internet
+
+```{r eval=FALSE}
+download.file("https://google.com","google.html")
+dateDownloaded<- date()
+if(!file.exists("../data")){
+    dir.create("../data")
+}
+```
+
+work with files and directories curl ulr
+```{r eval=FALSE}
+
+excel_url<- "https://www.ins.gov.co/BoletinesCasosCOVID19Colombia/2020-03-14.xlsx?accessType=DOWNLOAD"
+
+download.file(excel_url, "../data/daily-cases-covid-2020-03-14-Colombia.xlsx",method="curl")
+dateDownloaded<- date()
+
+
+```
+
+```{r eval=FALSE}
+library(xlsx)
+file_path<-"../data/daily-cases-covid-2020-03-14-Colombia.xlsx"
+covid<- read.xlsx(file_path,sheetIndex = 1,encoding = "UTF-8")
+
+student_info<- read.csv("../data/student_info.csv",sep=";")
+write.xlsx(student_info,"../data/student_info.xlsx")
+```
+
+
+##XLM
+extensible markup language. used to store structured data. Extensibily used in web scrapping. It is composed by two parts:
+* The markup: the label that composes the structure
+* The contet: the actual value store
+
+Same as HTML structure it works with tags usually there is an starting tag and an ending one, tags can hold attributes
+```{r eval= FALSE}
+library(XML)
+fielURL<-"https://www.w3schools.com/xml/note.xml"
+xmlTreeParse(fileURL,useInternalNodes = TRUE)
+```
+
+
+## SWIRL practice
+
+```{r eval=FALSE}
+install_from_swirl("Getting and Cleaning Data")
+print("i should not show up")
+```
+
+

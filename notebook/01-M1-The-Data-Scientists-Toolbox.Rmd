@@ -1,6 +1,6 @@
-#  (PART) Module 1{-}  
+#  (PART) Module 1 {-}  
 
-# The Data Scientists Toolbox 
+# The Data Scientists Toolbox {#module1} 
 
 
 In this module, one is introduced to the basics of what is data science, here it is disscussed about: types of data, the job of the data scientist, and the process needed in order to cure these data and information into usable knowlege.
@@ -15,7 +15,7 @@ One of the pieces of content that striked me as more meaninful was at the introd
 
 
 
-## final assessment
+## final assessment 
 
 As part of the final assessment one needs to demostrate that has succesfully set up a  R installation with a working Rstudio. for me both installations went flawless and rstudio detected the R program without any configuration issues. 
 

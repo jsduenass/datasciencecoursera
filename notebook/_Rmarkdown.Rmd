@@ -1,7 +1,7 @@
 ---
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 # About 
 While writting this notes one gets to experiment and tinker with the Rmarkdown syntatix and the bookdown capabilities. While one tries different stuff like writting equation, adding images, videos or animations one learn some of tricks. The following is a colletion of ilustratibe examples of the syntatix needed.
@@ -52,7 +52,7 @@ in order to stop the service
 ```{r warning=FALSE}
 server_ID<-daemon_list()
 daemon_stop(server_ID)
-
+#preview_chapter("_Rmarkdown.Rmd") not working 
 ```
 
 bookdown::render_book()
@@ -66,4 +66,4 @@ bookdown::render_book()
 > --- Mark Twain
 
 
-
+git not change the name of a folder, instead git mv {old name} {new name}
