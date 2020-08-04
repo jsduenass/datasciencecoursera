@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 On reproducible research | Data Science course notes</title>
-  <meta name="description" content="Chapter 10 On reproducible research | Data Science course notes" />
+  <title>Chapter 9 week 1: | Data Science course notes</title>
+  <meta name="description" content="Chapter 9 week 1: | Data Science course notes" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 On reproducible research | Data Science course notes" />
+  <meta property="og:title" content="Chapter 9 week 1: | Data Science course notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jsduenass/datasciencecoursera" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 On reproducible research | Data Science course notes" />
+  <meta name="twitter:title" content="Chapter 9 week 1: | Data Science course notes" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="week-1.html"/>
-<link rel="next" href="final-regards.html"/>
+<link rel="prev" href="module3.html"/>
+<link rel="next" href="on-reproducible-research.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -225,46 +225,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="on-reproducible-research" class="section level1">
-<h1><span class="header-section-number">Chapter 10</span> On reproducible research</h1>
+<div id="week-1" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> week 1:</h1>
+<p>Raw vs processed data
+when transforming raw data into processed data it is important to remember that <strong>all the process must be recorded</strong> (cookbook)</p>
 <blockquote>
-<p>reproducible reporting is about is a validation of the data analysis</p>
+<p>tidying: structuring datasets to facilitate analysis</p>
 </blockquote>
 <blockquote>
-<p>best practices should be done to promote and encourage reproducibility, particularly in what’s called ‘omics based research, such as genomics, pro-teomics, other similar areas involving high-throughput biological measurements</p>
+<p>Tidy data is a standard way of mapping the meaning of a dataset to its structure.</p>
 </blockquote>
-<p><span class="citation">Peng (<a href="#ref-reportWritting" role="doc-biblioref">2016</a>)</span></p>
-<p>cite the source of the data</p>
-<p>exploratory figures
-you need to understand were the data came from</p>
-<p>divide the data into tow categories
-train data and validation data this ca be done with the binomial distribution
-<a href="https://leanpub.com/powershell-scripting-toolmaking" title="hol">link</a></p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" title="1">mydata&lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;../data/student_info.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;;&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb203-2" title="2"></a>
-<a class="sourceLine" id="cb203-3" title="3">n&lt;-<span class="st"> </span><span class="kw">dim</span>(mydata)[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb203-4" title="4"><span class="kw">set.seed</span>(<span class="dv">3435</span>)</a>
-<a class="sourceLine" id="cb203-5" title="5">trainIndicator&lt;-<span class="kw">rbinom</span>(n, <span class="dt">size=</span><span class="dv">1</span>, <span class="dt">prob=</span><span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb203-6" title="6">train_data&lt;-<span class="st"> </span>mydata[trainIndicator,]</a>
-<a class="sourceLine" id="cb203-7" title="7">val_data&lt;-mydata[<span class="op">!</span>trainIndicator,]</a>
-<a class="sourceLine" id="cb203-8" title="8">val_data</a></code></pre></div>
-<pre><code>##    Name.and.Lastname          ID                 email.adress
-## 2      Robert Downey  4525111559          rdownironman@mail.c
-## 3      Douglas Adams 14884674721    zaphodbeeblebrox@mail.com
-## 4    Stephen Wolfram 74682868914        wolframalpha@mail.com
-## 5        Cleve Moler 17463589721  chiefmathematician@mail.com
-## 6        Matt Parker 18457956247        parkersquare@mail.com
-## 8      Emily Graslie 17973595287          brainscoop@mial.com
-## 10    Destin Sandlin 17895782879             smarter@mail.com
-## 11       Freddy Vega 17795795697             fredier@mail.com
-## 13      Isaac Asimov 13589844557              robots@mail.com
-## 15   R Daneel Olivaw 10001110101             dolivaw@mail.com</code></pre>
-
+<p>An <strong>observation</strong> contains all values measured on the same unit (like a person, or a day, or a race) across <strong>attributes</strong>.</p>
+<ol style="list-style-type: decimal">
+<li>Each variable forms column</li>
+<li>Each observation forms a row</li>
+<li>Each type of observation unit forms a table</li>
+</ol>
+<blockquote>
+<p>One way of organising variables is by their role in the analysis: are values fixed by the design of the data collection, or are they measured during the course of the experiment? … Fixed variables should come first, followed by measured variables, each ordered so that related variables are contiguous</p>
+</blockquote>
+<p>problems to be faced:
+* Column headers are values
+* Multiple varaibles are stored in one column
+* Varaibles are stored in both rows and columns
+* Multiplye typo of observational units are stored in the same table
+* A single observational unit is stored in multiple tables</p>
+<div id="codebook" class="section level2">
+<h2><span class="header-section-number">9.1</span> codebook</h2>
+<p>Must contain:
+* A “Study design” section, a description on the methods used to collect the data.<br />
+* Description of each and every variables to be used including it’s units.</p>
+<p>instruction list
+An script with no parameters that has the raw data as an intake and produces the processed/tidy data. if it is not possible to make all the process be done through the script the should be instruction on any additional steps.</p>
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-reportWritting">
-<p>Peng, Roger D. 2016. “Report Writing for Data Sciencein R.” <a href="http://leanpub.com/reportwriting">http://leanpub.com/reportwriting</a>.</p>
+<div id="downloading-files" class="section level2">
+<h2><span class="header-section-number">9.2</span> Downloading files</h2>
+<p>let’s face the internet is gateway to the knowlege of the world and you might obtain must of your dataset downloading them through the internet</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1"><span class="kw">download.file</span>(<span class="st">&quot;https://google.com&quot;</span>,<span class="st">&quot;google.html&quot;</span>)</a>
+<a class="sourceLine" id="cb198-2" title="2">dateDownloaded&lt;-<span class="st"> </span><span class="kw">date</span>()</a>
+<a class="sourceLine" id="cb198-3" title="3"><span class="cf">if</span>(<span class="op">!</span><span class="kw">file.exists</span>(<span class="st">&quot;../data&quot;</span>)){</a>
+<a class="sourceLine" id="cb198-4" title="4">    <span class="kw">dir.create</span>(<span class="st">&quot;../data&quot;</span>)</a>
+<a class="sourceLine" id="cb198-5" title="5">}</a></code></pre></div>
+<p>work with files and directories curl ulr</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb199-1" title="1">excel_url&lt;-<span class="st"> &quot;https://www.ins.gov.co/BoletinesCasosCOVID19Colombia/2020-03-14.xlsx?accessType=DOWNLOAD&quot;</span></a>
+<a class="sourceLine" id="cb199-2" title="2"></a>
+<a class="sourceLine" id="cb199-3" title="3"><span class="kw">download.file</span>(excel_url, <span class="st">&quot;../data/daily-cases-covid-2020-03-14-Colombia.xlsx&quot;</span>,<span class="dt">method=</span><span class="st">&quot;curl&quot;</span>)</a>
+<a class="sourceLine" id="cb199-4" title="4">dateDownloaded&lt;-<span class="st"> </span><span class="kw">date</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1"><span class="kw">library</span>(xlsx)</a>
+<a class="sourceLine" id="cb200-2" title="2">file_path&lt;-<span class="st">&quot;../data/daily-cases-covid-2020-03-14-Colombia.xlsx&quot;</span></a>
+<a class="sourceLine" id="cb200-3" title="3">covid&lt;-<span class="st"> </span><span class="kw">read.xlsx</span>(file_path,<span class="dt">sheetIndex =</span> <span class="dv">1</span>,<span class="dt">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</a>
+<a class="sourceLine" id="cb200-4" title="4"></a>
+<a class="sourceLine" id="cb200-5" title="5">student_info&lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;../data/student_info.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;;&quot;</span>)</a>
+<a class="sourceLine" id="cb200-6" title="6"><span class="kw">write.xlsx</span>(student_info,<span class="st">&quot;../data/student_info.xlsx&quot;</span>)</a></code></pre></div>
+<p>##XLM
+extensible markup language. used to store structured data. Extensibily used in web scrapping. It is composed by two parts:
+* The markup: the label that composes the structure
+* The contet: the actual value store</p>
+<p>Same as HTML structure it works with tags usually there is an starting tag and an ending one, tags can hold attributes</p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" title="1"><span class="kw">library</span>(XML)</a>
+<a class="sourceLine" id="cb201-2" title="2">fielURL&lt;-<span class="st">&quot;https://www.w3schools.com/xml/note.xml&quot;</span></a>
+<a class="sourceLine" id="cb201-3" title="3"><span class="kw">xmlTreeParse</span>(fileURL,<span class="dt">useInternalNodes =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+</div>
+<div id="swirl-practice" class="section level2">
+<h2><span class="header-section-number">9.3</span> SWIRL practice</h2>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" title="1"><span class="kw">install_from_swirl</span>(<span class="st">&quot;Getting and Cleaning Data&quot;</span>)</a>
+<a class="sourceLine" id="cb202-2" title="2"><span class="kw">print</span>(<span class="st">&quot;i should not show up&quot;</span>)</a></code></pre></div>
+
 </div>
 </div>
             </section>
@@ -272,8 +298,8 @@ train data and validation data this ca be done with the binomial distribution
           </div>
         </div>
       </div>
-<a href="week-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="final-regards.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="module3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="on-reproducible-research.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

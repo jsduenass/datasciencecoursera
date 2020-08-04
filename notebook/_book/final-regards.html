@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 On reproducible research | Data Science course notes</title>
-  <meta name="description" content="Chapter 10 On reproducible research | Data Science course notes" />
+  <title>Chapter 11 Final regards | Data Science course notes</title>
+  <meta name="description" content="Chapter 11 Final regards | Data Science course notes" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 On reproducible research | Data Science course notes" />
+  <meta property="og:title" content="Chapter 11 Final regards | Data Science course notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jsduenass/datasciencecoursera" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 On reproducible research | Data Science course notes" />
+  <meta name="twitter:title" content="Chapter 11 Final regards | Data Science course notes" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="week-1.html"/>
-<link rel="next" href="final-regards.html"/>
+<link rel="prev" href="on-reproducible-research.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -225,46 +225,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="on-reproducible-research" class="section level1">
-<h1><span class="header-section-number">Chapter 10</span> On reproducible research</h1>
-<blockquote>
-<p>reproducible reporting is about is a validation of the data analysis</p>
-</blockquote>
-<blockquote>
-<p>best practices should be done to promote and encourage reproducibility, particularly in what’s called ‘omics based research, such as genomics, pro-teomics, other similar areas involving high-throughput biological measurements</p>
-</blockquote>
-<p><span class="citation">Peng (<a href="#ref-reportWritting" role="doc-biblioref">2016</a>)</span></p>
-<p>cite the source of the data</p>
-<p>exploratory figures
-you need to understand were the data came from</p>
-<p>divide the data into tow categories
-train data and validation data this ca be done with the binomial distribution
-<a href="https://leanpub.com/powershell-scripting-toolmaking" title="hol">link</a></p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" title="1">mydata&lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;../data/student_info.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;;&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb203-2" title="2"></a>
-<a class="sourceLine" id="cb203-3" title="3">n&lt;-<span class="st"> </span><span class="kw">dim</span>(mydata)[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb203-4" title="4"><span class="kw">set.seed</span>(<span class="dv">3435</span>)</a>
-<a class="sourceLine" id="cb203-5" title="5">trainIndicator&lt;-<span class="kw">rbinom</span>(n, <span class="dt">size=</span><span class="dv">1</span>, <span class="dt">prob=</span><span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb203-6" title="6">train_data&lt;-<span class="st"> </span>mydata[trainIndicator,]</a>
-<a class="sourceLine" id="cb203-7" title="7">val_data&lt;-mydata[<span class="op">!</span>trainIndicator,]</a>
-<a class="sourceLine" id="cb203-8" title="8">val_data</a></code></pre></div>
-<pre><code>##    Name.and.Lastname          ID                 email.adress
-## 2      Robert Downey  4525111559          rdownironman@mail.c
-## 3      Douglas Adams 14884674721    zaphodbeeblebrox@mail.com
-## 4    Stephen Wolfram 74682868914        wolframalpha@mail.com
-## 5        Cleve Moler 17463589721  chiefmathematician@mail.com
-## 6        Matt Parker 18457956247        parkersquare@mail.com
-## 8      Emily Graslie 17973595287          brainscoop@mial.com
-## 10    Destin Sandlin 17895782879             smarter@mail.com
-## 11       Freddy Vega 17795795697             fredier@mail.com
-## 13      Isaac Asimov 13589844557              robots@mail.com
-## 15   R Daneel Olivaw 10001110101             dolivaw@mail.com</code></pre>
+<div id="final-regards" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Final regards</h1>
+<div id="references" class="section level2">
+<h2><span class="header-section-number">11.1</span> References</h2>
 
-</div>
-<h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-reportWritting">
+<div>
+<p>community, R. n.d. “Rdocumentation.” <a href="https://www.rdocumentation.org/">https://www.rdocumentation.org/</a>.</p>
+</div>
+<div>
+<p>Grolemund, Garrett. 2014. <em>Hands-on Programming with R</em>. O’Reilly. <a href="https://rstudio-education.github.io/hopr/index.html">https://rstudio-education.github.io/hopr/index.html</a>.</p>
+</div>
+<div>
 <p>Peng, Roger D. 2016. “Report Writing for Data Sciencein R.” <a href="http://leanpub.com/reportwriting">http://leanpub.com/reportwriting</a>.</p>
+</div>
+<div>
+<p>———. 2019. <em>R Programming for Data Science</em>. O’Reilly Media. <a href="https://leanpub.com/rprogramming">https://leanpub.com/rprogramming</a>.</p>
+</div>
+<div>
+<p>RStudio Team. 2020. <em>RStudio: Integrated Development Environment for R</em>. Boston, MA: RStudio, Inc. <a href="http://www.rstudio.com/">http://www.rstudio.com/</a>.</p>
+</div>
+<div>
+<p>Wickham, H., and G. Grolemund. 2017. <em>R for Data Science</em>. O’Reilly Media. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</p>
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -272,8 +257,8 @@ train data and validation data this ca be done with the binomial distribution
           </div>
         </div>
       </div>
-<a href="week-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="final-regards.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="on-reproducible-research.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
