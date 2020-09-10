@@ -65,7 +65,7 @@ write.xlsx(student_info,"../data/student_info.xlsx")
 ```
 
 
-##XLM
+## XLM
 extensible markup language. used to store structured data. Extensibily used in web scrapping. It is composed by two parts:
 * The markup: the label that composes the structure
 * The contet: the actual value store
@@ -74,8 +74,41 @@ Same as HTML structure it works with tags usually there is an starting tag and a
 ```{r eval= FALSE}
 library(XML)
 fielURL<-"https://www.w3schools.com/xml/note.xml"
-xmlTreeParse(fileURL,useInternalNodes = TRUE)
+
 ```
+
+## JSON
+JavScript Objetc Notation is way of storing data in a structured manner, used extensibily in API's.  transform datas sets and turn it into JSON format
+
+```{r}
+library(jsonlite)
+
+repos<-fromJSON("https://api.github.com/users/jsduenass/repos")
+
+gists<-fromJSON("https://api.github.com/users/jsduenass/gists")
+names(gists)
+
+owner<-gists$owner
+
+myjson<-toJSON(head(iris,3),pretty = TRUE)
+cat(myjson)
+```
+
+
+## data table
+Is an analogue to data frame structure however it tends to be more optimized. The ```tables``` command (don't confuse it with ```table```) display the currently used data.tables  
+```{r}
+library(data.table)
+#?getDTthreads
+DT<-data.table(iris)
+class(DT)
+tables()
+DT[,Petal.Area:=Petal.Length*Petal.Width]     # adding new row
+
+head(DT,3)
+```
+"Expressions" add new columns,  if  a data table is assign to a new varaible they become intertwined, so any change in one will afect the other, it is better to create copy through the ```copy``` function.
+```setkey```
 
 
 ## SWIRL practice

@@ -5,8 +5,11 @@ This is the third course and on it, one learnson how to gather data and pre proc
 
 
 Learning objectives:
-* Find and extract data
-* Interface with a database through SQL syntaxis
-* Connect with an API (may be twitter)
-* stablish a protocol for cleanning data
-* Parsers and extract information from raw text
+
+- [ ] Find and extract data in a practical application 
+- [ ] Interface with a database through SQL syntaxis
+- [ ] Connect with an API (may be twitter and GitHub)
+- [ ] Connect with an API office 365
+- [ ] stablish a protocol for cleanning data
+- [ ] Parsers and extract information from raw text
+
