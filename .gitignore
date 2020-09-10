@@ -2,4 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+<<<<<<< HEAD
 /nonTrackable/
+=======
+>>>>>>> 5c3f55e... starting a project in rstudio using the bookdown package
