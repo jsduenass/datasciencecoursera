@@ -5,6 +5,11 @@ git subtree push --prefix notebook/_book origin gh-pages
 git pull --strategy-option ours
 
 
+// untrack some file
+git add .
+git reset [filename]
+
+
 bookdown::render_book("/notebook/index.Rmd", "bookdown::pdf_book")
 
 
