@@ -5,12 +5,11 @@ eq:binom
 fig:coin-flip
 module1
 final-assessment
-module2
-week-1-part-i-intro
+intro-to-r
 getting-to-know-r
 looking-at-data
 sessions-and-environment
-week-1-part-ii-data-types
+data-types
 exotic-data-types
 data-conversion
 vector
@@ -20,7 +19,7 @@ matrices
 factor
 data-frames
 dollar-sign-and-double-brackets
-week-1-part-iii
+miscellaneous
 missing-data-nan-na-and-null
 functions
 plot
@@ -29,7 +28,7 @@ r-packages
 create-your-own-package
 read-info-with-read-table
 week-assignment
-week-2-scripting
+scripting
 functions-1
 defining-arguments
 scoping-rules
@@ -38,7 +37,6 @@ swirl-practices
 logical-operations
 functions-2
 dates-and-times
-week-3
 loop-functions
 debbuging-and-error-handling
 r-objects
@@ -46,7 +44,7 @@ create-package-documentation
 swirl-practices-1
 lapply-sapply
 vapply-and-tapply
-week-4-simulation-and-modeling
+simulation-and-modeling
 simulation
 sampling
 code-optimization
@@ -55,14 +53,14 @@ looking-at-data-1
 simulation-1
 base-graphics
 final-assignment
-module3
-week-1
+learning-objectives
+data-recipes
 codebook
 downloading-files
 xlm
 json
 data-table
-week-2
+data-formats
 mysql-database
 sql-commands
 read-data-from-hdf5

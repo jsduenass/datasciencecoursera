@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data Science course notes</title>
-  <meta name="description" content="Data Science course notes" />
+  <title>Chapter 8 Data recipes | Data Science course notes</title>
+  <meta name="description" content="Chapter 8 Data recipes | Data Science course notes" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Data Science course notes" />
+  <meta property="og:title" content="Chapter 8 Data recipes | Data Science course notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jsduenass/datasciencecoursera" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data Science course notes" />
+  <meta name="twitter:title" content="Chapter 8 Data recipes | Data Science course notes" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="module1.html"/>
+<link rel="prev" href="module3.html"/>
+<link rel="next" href="data-formats.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -245,27 +245,155 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data Science course notes</h1>
-<p class="author"><em>Juan Sebastian D</em></p>
-<p class="date"><em>2021-04-13</em></p>
+<div id="data-recipes" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Data recipes</h1>
+<p>Raw vs processed data
+when transforming raw data into processed data it is important to remember that <strong>all the process must be recorded</strong> (cookbook)</p>
+<blockquote>
+<p>tidying: structuring datasets to facilitate analysis</p>
+</blockquote>
+<blockquote>
+<p>Tidy data is a standard way of mapping the meaning of a dataset to its structure.</p>
+</blockquote>
+<p>An <strong>observation</strong> contains all values measured on the same unit (like a person, or a day, or a race) across <strong>attributes</strong>.</p>
+<ol style="list-style-type: decimal">
+<li>Each variable forms column</li>
+<li>Each observation forms a row</li>
+<li>Each type of observation unit forms a table</li>
+</ol>
+<blockquote>
+<p>One way of organizing variables is by their role in the analysis: are values fixed by the design of the data collection, or are they measured during the course of the experiment? … Fixed variables should come first, followed by measured variables, each ordered so that related variables are contiguous</p>
+</blockquote>
+<p>problems to be faced:
+* Column headers are values
+* Multiple variables are stored in one column
+* Variables are stored in both rows and columns
+* Multiple type of observational units are stored in the same table
+* A single observational unit is stored in multiple tables</p>
+<div id="codebook" class="section level2">
+<h2><span class="header-section-number">8.1</span> codebook</h2>
+<p>Must contain:
+* A “Study design” section, a description on the methods used to collect the data.<br />
+* Description of each and every variables to be used including it’s units.</p>
+<p>instruction list
+An script with no parameters that has the raw data as an intake and produces the processed/tidy data. if it is not possible to make all the process be done through the script the should be instruction on any additional steps.</p>
 </div>
-<div id="introduction" class="section level1 unnumbered">
-<h1>Introduction</h1>
-<p><strong>A notebook through my learning journey</strong></p>
-<p>These are notes taken and work done while coursing the <a href="https://www.coursera.org/specializations/jhu-data-science">Data Science specialization courses</a>, A Coursera and John Hopkins joint effort towards teaching data science.</p>
+<div id="downloading-files" class="section level2">
+<h2><span class="header-section-number">8.2</span> Downloading files</h2>
+<p>let’s face the internet is gateway to the knowledge of the world and you might obtain must of your dataset downloading them through the internet</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1"><span class="kw">download.file</span>(<span class="st">&quot;https://google.com&quot;</span>,<span class="st">&quot;google.html&quot;</span>)</a>
+<a class="sourceLine" id="cb206-2" title="2">dateDownloaded&lt;-<span class="st"> </span><span class="kw">date</span>()</a>
+<a class="sourceLine" id="cb206-3" title="3"><span class="cf">if</span>(<span class="op">!</span><span class="kw">file.exists</span>(<span class="st">&quot;../data&quot;</span>)){</a>
+<a class="sourceLine" id="cb206-4" title="4">    <span class="kw">dir.create</span>(<span class="st">&quot;../data&quot;</span>)</a>
+<a class="sourceLine" id="cb206-5" title="5">}</a></code></pre></div>
+<p>work with files and directories curl ulr</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" title="1">excel_url&lt;-<span class="st"> &quot;https://www.ins.gov.co/BoletinesCasosCOVID19Colombia/2020-03-14.xlsx?accessType=DOWNLOAD&quot;</span></a>
+<a class="sourceLine" id="cb207-2" title="2"></a>
+<a class="sourceLine" id="cb207-3" title="3"><span class="kw">download.file</span>(excel_url, <span class="st">&quot;../data/daily-cases-covid-2020-03-14-Colombia.xlsx&quot;</span>,<span class="dt">method=</span><span class="st">&quot;curl&quot;</span>)</a>
+<a class="sourceLine" id="cb207-4" title="4">dateDownloaded&lt;-<span class="st"> </span><span class="kw">date</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" title="1"><span class="kw">library</span>(xlsx)</a>
+<a class="sourceLine" id="cb208-2" title="2">file_path&lt;-<span class="st">&quot;../data/daily-cases-covid-2020-03-14-Colombia.xlsx&quot;</span></a>
+<a class="sourceLine" id="cb208-3" title="3">covid&lt;-<span class="st"> </span><span class="kw">read.xlsx</span>(file_path,<span class="dt">sheetIndex =</span> <span class="dv">1</span>,<span class="dt">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</a>
+<a class="sourceLine" id="cb208-4" title="4"></a>
+<a class="sourceLine" id="cb208-5" title="5">student_info&lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;../data/student_info.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;;&quot;</span>)</a>
+<a class="sourceLine" id="cb208-6" title="6"><span class="kw">write.xlsx</span>(student_info,<span class="st">&quot;../data/student_info.xlsx&quot;</span>)</a></code></pre></div>
+</div>
+<div id="xlm" class="section level2">
+<h2><span class="header-section-number">8.3</span> XLM</h2>
+<p>extensible markup language. used to store structured data. Extensibility used in web scrapping. It is composed by two parts:
+* The markup: the label that composes the structure
+* The content: the actual value store</p>
+<p>Same as HTML structure it works with tags usually there is an starting tag and an ending one, tags can hold attributes</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" title="1"><span class="kw">library</span>(XML)</a>
+<a class="sourceLine" id="cb209-2" title="2">fielURL&lt;-<span class="st">&quot;https://www.w3schools.com/xml/note.xml&quot;</span></a></code></pre></div>
+</div>
+<div id="json" class="section level2">
+<h2><span class="header-section-number">8.4</span> JSON</h2>
+<p>JavaScript Object Notation is way of storing data in a structured manner, used extensibility in API’s. transform data sets and turn it into JSON format</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" title="1"><span class="kw">library</span>(jsonlite)</a>
+<a class="sourceLine" id="cb210-2" title="2"></a>
+<a class="sourceLine" id="cb210-3" title="3">repos&lt;-<span class="kw">fromJSON</span>(<span class="st">&quot;https://api.github.com/users/jsduenass/repos&quot;</span>)</a>
+<a class="sourceLine" id="cb210-4" title="4"></a>
+<a class="sourceLine" id="cb210-5" title="5">gists&lt;-<span class="kw">fromJSON</span>(<span class="st">&quot;https://api.github.com/users/jsduenass/gists&quot;</span>)</a>
+<a class="sourceLine" id="cb210-6" title="6"><span class="kw">names</span>(gists)</a></code></pre></div>
+<pre><code>##  [1] &quot;url&quot;          &quot;forks_url&quot;    &quot;commits_url&quot;  &quot;id&quot;           &quot;node_id&quot;     
+##  [6] &quot;git_pull_url&quot; &quot;git_push_url&quot; &quot;html_url&quot;     &quot;files&quot;        &quot;public&quot;      
+## [11] &quot;created_at&quot;   &quot;updated_at&quot;   &quot;description&quot;  &quot;comments&quot;     &quot;user&quot;        
+## [16] &quot;comments_url&quot; &quot;owner&quot;        &quot;truncated&quot;</code></pre>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" title="1">owner&lt;-gists<span class="op">$</span>owner</a>
+<a class="sourceLine" id="cb212-2" title="2"></a>
+<a class="sourceLine" id="cb212-3" title="3">myjson&lt;-<span class="kw">toJSON</span>(<span class="kw">head</span>(iris,<span class="dv">3</span>),<span class="dt">pretty =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb212-4" title="4"><span class="kw">cat</span>(myjson)</a></code></pre></div>
+<pre><code>## [
+##   {
+##     &quot;Sepal.Length&quot;: 5.1,
+##     &quot;Sepal.Width&quot;: 3.5,
+##     &quot;Petal.Length&quot;: 1.4,
+##     &quot;Petal.Width&quot;: 0.2,
+##     &quot;Species&quot;: &quot;setosa&quot;
+##   },
+##   {
+##     &quot;Sepal.Length&quot;: 4.9,
+##     &quot;Sepal.Width&quot;: 3,
+##     &quot;Petal.Length&quot;: 1.4,
+##     &quot;Petal.Width&quot;: 0.2,
+##     &quot;Species&quot;: &quot;setosa&quot;
+##   },
+##   {
+##     &quot;Sepal.Length&quot;: 4.7,
+##     &quot;Sepal.Width&quot;: 3.2,
+##     &quot;Petal.Length&quot;: 1.3,
+##     &quot;Petal.Width&quot;: 0.2,
+##     &quot;Species&quot;: &quot;setosa&quot;
+##   }
+## ]</code></pre>
+</div>
+<div id="data-table" class="section level2">
+<h2><span class="header-section-number">8.5</span> data table</h2>
+<p>Is an analogue to data frame structure however it tends to be more optimized. The <code>tables</code> command (don’t confuse it with <code>table</code>) display the currently used data.tables</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" title="1"><span class="kw">library</span>(data.table)</a></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;data.table&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:lubridate&#39;:
+## 
+##     hour, isoweek, mday, minute, month, quarter, second, wday, week,
+##     yday, year</code></pre>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" title="1"><span class="co">#?getDTthreads</span></a>
+<a class="sourceLine" id="cb217-2" title="2">DT&lt;-<span class="kw">data.table</span>(iris)</a>
+<a class="sourceLine" id="cb217-3" title="3"><span class="kw">class</span>(DT)</a></code></pre></div>
+<pre><code>## [1] &quot;data.table&quot; &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" title="1"><span class="kw">tables</span>()</a></code></pre></div>
+<pre><code>##    NAME NROW NCOL MB                                                      COLS
+## 1:   DT  150    5  0 Sepal.Length,Sepal.Width,Petal.Length,Petal.Width,Species
+##    KEY
+## 1:    
+## Total: 0MB</code></pre>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" title="1">DT[,Petal.Area<span class="op">:</span><span class="er">=</span>Petal.Length<span class="op">*</span>Petal.Width]     <span class="co"># adding new row</span></a>
+<a class="sourceLine" id="cb221-2" title="2"></a>
+<a class="sourceLine" id="cb221-3" title="3"><span class="kw">head</span>(DT,<span class="dv">3</span>)</a></code></pre></div>
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species Petal.Area
+## 1:          5.1         3.5          1.4         0.2  setosa       0.28
+## 2:          4.9         3.0          1.4         0.2  setosa       0.28
+## 3:          4.7         3.2          1.3         0.2  setosa       0.26</code></pre>
+<p>“Expressions” add new columns, if a data table is assign to a new variable they become intertwined, so any change in one will affect the other, it is better to create copy through the <code>copy</code> function.</p>
+<pre class="setkey```"><code>
+
+## SWIRL practice
+
+
+```r
+install_from_swirl(&quot;Getting and Cleaning Data&quot;)
+print(&quot;i should not show up&quot;)</code></pre>
 
 </div>
-
-
-
+</div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="module1.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="module3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-formats.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 week 3: | Data Science course notes</title>
-  <meta name="description" content="Chapter 6 week 3: | Data Science course notes" />
+  <title>4.4 R Packages | Data Science course notes</title>
+  <meta name="description" content="4.4 R Packages | Data Science course notes" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 week 3: | Data Science course notes" />
+  <meta property="og:title" content="4.4 R Packages | Data Science course notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jsduenass/datasciencecoursera" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 week 3: | Data Science course notes" />
+  <meta name="twitter:title" content="4.4 R Packages | Data Science course notes" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="swirl-practices.html"/>
-<link rel="next" href="loop-functions.html"/>
+<link rel="prev" href="plot.html"/>
+<link rel="next" href="read-info-with-read-table.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -138,12 +138,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>II About R Programming</b></span></li>
 <li class="chapter" data-level="" data-path="module2.html"><a href="module2.html"><i class="fa fa-check"></i>Summary</a></li>
-<li class="chapter" data-level="2" data-path="week-1-part-i-intro.html"><a href="week-1-part-i-intro.html"><i class="fa fa-check"></i><b>2</b> week 1 Part I: intro</a><ul>
+<li class="chapter" data-level="2" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>2</b> intro to R</a><ul>
 <li class="chapter" data-level="2.1" data-path="getting-to-know-r.html"><a href="getting-to-know-r.html"><i class="fa fa-check"></i><b>2.1</b> Getting to know R</a></li>
 <li class="chapter" data-level="2.2" data-path="looking-at-data.html"><a href="looking-at-data.html"><i class="fa fa-check"></i><b>2.2</b> Looking at Data</a></li>
 <li class="chapter" data-level="2.3" data-path="sessions-and-environment.html"><a href="sessions-and-environment.html"><i class="fa fa-check"></i><b>2.3</b> Sessions and environment</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="week-1-part-ii-data-types.html"><a href="week-1-part-ii-data-types.html"><i class="fa fa-check"></i><b>3</b> week 1 Part II: Data types</a><ul>
+<li class="chapter" data-level="3" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>3</b> Data types</a><ul>
 <li class="chapter" data-level="3.1" data-path="exotic-data-types.html"><a href="exotic-data-types.html"><i class="fa fa-check"></i><b>3.1</b> Exotic data types</a></li>
 <li class="chapter" data-level="3.2" data-path="data-conversion.html"><a href="data-conversion.html"><i class="fa fa-check"></i><b>3.2</b> Data conversion</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="data-conversion.html"><a href="data-conversion.html#vector"><i class="fa fa-check"></i><b>3.2.1</b> vector</a></li>
@@ -156,7 +156,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.1" data-path="data-frames.html"><a href="data-frames.html#dollar-sign-and-double-brackets"><i class="fa fa-check"></i><b>3.5.1</b> Dollar sign and double brackets</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="week-1-part-iii.html"><a href="week-1-part-iii.html"><i class="fa fa-check"></i><b>4</b> week 1 Part III</a><ul>
+<li class="chapter" data-level="4" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>4</b> Miscellaneous</a><ul>
 <li class="chapter" data-level="4.1" data-path="missing-data-nan-na-and-null.html"><a href="missing-data-nan-na-and-null.html"><i class="fa fa-check"></i><b>4.1</b> Missing data NaN, NA and NULL</a></li>
 <li class="chapter" data-level="4.2" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>4.2</b> functions</a></li>
 <li class="chapter" data-level="4.3" data-path="plot.html"><a href="plot.html"><i class="fa fa-check"></i><b>4.3</b> plot</a><ul>
@@ -168,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="read-info-with-read-table.html"><a href="read-info-with-read-table.html"><i class="fa fa-check"></i><b>4.5</b> Read info with read table</a></li>
 <li class="chapter" data-level="4.6" data-path="week-assignment.html"><a href="week-assignment.html"><i class="fa fa-check"></i><b>4.6</b> week assignment</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="week-2-scripting.html"><a href="week-2-scripting.html"><i class="fa fa-check"></i><b>5</b> week 2: Scripting</a><ul>
+<li class="chapter" data-level="5" data-path="scripting.html"><a href="scripting.html"><i class="fa fa-check"></i><b>5</b> Scripting</a><ul>
 <li class="chapter" data-level="5.1" data-path="functions-1.html"><a href="functions-1.html"><i class="fa fa-check"></i><b>5.1</b> functions</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="functions-1.html"><a href="functions-1.html#defining-arguments"><i class="fa fa-check"></i><b>5.1.1</b> defining arguments</a></li>
 </ul></li>
@@ -180,17 +180,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4.3" data-path="swirl-practices.html"><a href="swirl-practices.html#dates-and-times"><i class="fa fa-check"></i><b>5.4.3</b> Dates and times</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="week-3.html"><a href="week-3.html"><i class="fa fa-check"></i><b>6</b> week 3:</a><ul>
-<li class="chapter" data-level="6.1" data-path="loop-functions.html"><a href="loop-functions.html"><i class="fa fa-check"></i><b>6.1</b> Loop functions</a></li>
-<li class="chapter" data-level="6.2" data-path="debbuging-and-error-handling.html"><a href="debbuging-and-error-handling.html"><i class="fa fa-check"></i><b>6.2</b> Debbuging and error handling</a></li>
-<li class="chapter" data-level="6.3" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>6.3</b> R objects</a></li>
-<li class="chapter" data-level="6.4" data-path="create-package-documentation.html"><a href="create-package-documentation.html"><i class="fa fa-check"></i><b>6.4</b> Create package documentation</a></li>
-<li class="chapter" data-level="6.5" data-path="swirl-practices-1.html"><a href="swirl-practices-1.html"><i class="fa fa-check"></i><b>6.5</b> SWIRL practices</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="swirl-practices-1.html"><a href="swirl-practices-1.html#lapply-sapply"><i class="fa fa-check"></i><b>6.5.1</b> lapply sapply</a></li>
-<li class="chapter" data-level="6.5.2" data-path="swirl-practices-1.html"><a href="swirl-practices-1.html#vapply-and-tapply"><i class="fa fa-check"></i><b>6.5.2</b> vapply and tapply</a></li>
+<li class="chapter" data-level="6" data-path="loop-functions.html"><a href="loop-functions.html"><i class="fa fa-check"></i><b>6</b> Loop functions</a><ul>
+<li class="chapter" data-level="6.1" data-path="debbuging-and-error-handling.html"><a href="debbuging-and-error-handling.html"><i class="fa fa-check"></i><b>6.1</b> Debbuging and error handling</a></li>
+<li class="chapter" data-level="6.2" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>6.2</b> R objects</a></li>
+<li class="chapter" data-level="6.3" data-path="create-package-documentation.html"><a href="create-package-documentation.html"><i class="fa fa-check"></i><b>6.3</b> Create package documentation</a></li>
+<li class="chapter" data-level="6.4" data-path="swirl-practices-1.html"><a href="swirl-practices-1.html"><i class="fa fa-check"></i><b>6.4</b> SWIRL practices</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="swirl-practices-1.html"><a href="swirl-practices-1.html#lapply-sapply"><i class="fa fa-check"></i><b>6.4.1</b> lapply sapply</a></li>
+<li class="chapter" data-level="6.4.2" data-path="swirl-practices-1.html"><a href="swirl-practices-1.html#vapply-and-tapply"><i class="fa fa-check"></i><b>6.4.2</b> vapply and tapply</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="week-4-simulation-and-modeling.html"><a href="week-4-simulation-and-modeling.html"><i class="fa fa-check"></i><b>7</b> week 4: Simulation and modeling</a><ul>
+<li class="chapter" data-level="7" data-path="simulation-and-modeling.html"><a href="simulation-and-modeling.html"><i class="fa fa-check"></i><b>7</b> Simulation and modeling</a><ul>
 <li class="chapter" data-level="7.1" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>7.1</b> Simulation</a></li>
 <li class="chapter" data-level="7.2" data-path="sampling.html"><a href="sampling.html"><i class="fa fa-check"></i><b>7.2</b> sampling</a></li>
 <li class="chapter" data-level="7.3" data-path="code-optimization.html"><a href="code-optimization.html"><i class="fa fa-check"></i><b>7.3</b> Code Optimization</a></li>
@@ -205,14 +204,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="module3.html"><a href="module3.html"><i class="fa fa-check"></i>Summary</a><ul>
 <li class="chapter" data-level="7.6" data-path="learning-objectives.html"><a href="learning-objectives.html"><i class="fa fa-check"></i><b>7.6</b> Learning objectives:</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="week-1.html"><a href="week-1.html"><i class="fa fa-check"></i><b>8</b> week 1:</a><ul>
+<li class="chapter" data-level="8" data-path="data-recipes.html"><a href="data-recipes.html"><i class="fa fa-check"></i><b>8</b> Data recipes</a><ul>
 <li class="chapter" data-level="8.1" data-path="codebook.html"><a href="codebook.html"><i class="fa fa-check"></i><b>8.1</b> codebook</a></li>
 <li class="chapter" data-level="8.2" data-path="downloading-files.html"><a href="downloading-files.html"><i class="fa fa-check"></i><b>8.2</b> Downloading files</a></li>
 <li class="chapter" data-level="8.3" data-path="xlm.html"><a href="xlm.html"><i class="fa fa-check"></i><b>8.3</b> XLM</a></li>
 <li class="chapter" data-level="8.4" data-path="json.html"><a href="json.html"><i class="fa fa-check"></i><b>8.4</b> JSON</a></li>
 <li class="chapter" data-level="8.5" data-path="data-table.html"><a href="data-table.html"><i class="fa fa-check"></i><b>8.5</b> data table</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="week-2.html"><a href="week-2.html"><i class="fa fa-check"></i><b>9</b> week 2</a><ul>
+<li class="chapter" data-level="9" data-path="data-formats.html"><a href="data-formats.html"><i class="fa fa-check"></i><b>9</b> Data Formats</a><ul>
 <li class="chapter" data-level="9.1" data-path="mysql-database.html"><a href="mysql-database.html"><i class="fa fa-check"></i><b>9.1</b> MySQL database</a><ul>
 <li class="chapter" data-level="9.1.1" data-path="mysql-database.html"><a href="mysql-database.html#sql-commands"><i class="fa fa-check"></i><b>9.1.1</b> SQL commands</a></li>
 </ul></li>
@@ -246,16 +245,91 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-3" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> week 3:</h1>
+<div id="r-packages" class="section level2">
+<h2><span class="header-section-number">4.4</span> R Packages</h2>
+<p>One of the advantages of open source is that the community can creates packages which extends the functionality of the core R implementation, allowing for special niche use cases to be develop and satisfy by people in that circle without being cram into the base program every body uses, it allows to have the flexibility to customize and pick the tools needed while tapping into the work done by a large community of people. There exist many ways to access this packages, the larger collection is provided via the CRANN repository but Git based packages are also supported. In order to use any external package it is necessary not only to install it, but also to load it into the R environment.</p>
+<ul>
+<li><strong>CRAN based package:</strong> CRAN (Comprehensive R Archive Network) is an collection that holds documentation and code related to R. It stores many R packages which have the advantage that they can be install directly via the <code>install.packages(" ")</code> command making it extremely easy to incorporate new packages into a project. For example in order to install the <code>tidyverse</code> package collection the following command can be use:</li>
+</ul>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb95-2" title="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<p>Once installed the <code>library()</code> command can be used to load the packages into R. Notice that <code>install.packages()</code> gets an argument between quotes but <code>library()</code> does not.</p>
+<p><strong>Note:</strong> It is important to note that in order to install some packages, the ones who have c/c++/fortran source code instead of the binary, they need the <a href="https://cran.r-project.org/bin/windows/Rtools/">rtools</a> in order be build, and the rtools must be compatible with the R version.</p>
+<ul>
+<li><strong>Git based package:</strong></li>
+</ul>
+<p><strong>Note:</strong> packages needs to be loaded every time Rstudio is loaded. The following commands show you the loaded packages, and in the case you need to unload a package the detach command can be helpful.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" title="1">(<span class="kw">.packages</span>())</a>
+<a class="sourceLine" id="cb96-2" title="2"><span class="kw">detach</span>(<span class="st">&quot;package:tidyverse&quot;</span>, <span class="dt">unload=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<p>Usually when dealing with a new package you want to know what is inside what dataset, functions or functionalities it provide, the help command <strong>?</strong> can be use to explore the package documentation and get a better idea of what it contains. The following example allows to explore the <code>datasets</code> package, an built-in package that store some useful datasets.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" title="1"><span class="kw">library</span>(datasets)</a>
+<a class="sourceLine" id="cb97-2" title="2">?datasets</a>
+<a class="sourceLine" id="cb97-3" title="3"><span class="kw">library</span>(<span class="dt">help =</span> <span class="st">&quot;datasets&quot;</span>)      <span class="co"># open file with full index of datasets</span></a></code></pre></div>
+<p>The following is a list with some of these datasets:</p>
+<pre><code>AirPassengers           Monthly Airline Passenger Numbers 1949-1960
+BJsales                 Sales Data with Leading Indicator
+BOD                     Biochemical Oxygen Demand
+CO2                     Carbon Dioxide Uptake in Grass Plants
+ChickWeight             Weight versus age of chicks on different diets
+DNase                   Elisa assay of DNase
+EuStockMarkets          Daily Closing Prices of Major European Stock Indices, 1991-1998</code></pre>
+<p>We can take a look into some of this datasets</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1"><span class="kw">head</span>(EuStockMarkets)</a></code></pre></div>
+<pre><code>##          DAX    SMI    CAC   FTSE
+## [1,] 1628.75 1678.1 1772.8 2443.6
+## [2,] 1613.63 1688.5 1750.5 2460.2
+## [3,] 1606.51 1678.6 1718.0 2448.2
+## [4,] 1621.04 1684.1 1708.1 2470.4
+## [5,] 1618.16 1686.6 1723.1 2484.7
+## [6,] 1610.61 1671.6 1714.3 2466.8</code></pre>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="kw">head</span>(AirPassengers)</a></code></pre></div>
+<pre><code>## [1] 112 118 132 129 121 135</code></pre>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1"><span class="kw">tail</span>(ChickWeight)</a></code></pre></div>
+<pre><code>##     weight Time Chick Diet
+## 573    155   12    50    4
+## 574    175   14    50    4
+## 575    205   16    50    4
+## 576    234   18    50    4
+## 577    264   20    50    4
+## 578    264   21    50    4</code></pre>
+<div id="create-your-own-package" class="section level3">
+<h3><span class="header-section-number">4.4.1</span> create your own package</h3>
+<p>There are many things to consider when thinking about building a package.</p>
+<p>Why packages are important?</p>
+<ol style="list-style-type: decimal">
+<li>Code organization</li>
+<li>Consistent documentation</li>
+<li>Code distribution</li>
+</ol>
+<p>why am I creating a package?
+It is about code distribution,</p>
+<p>For me I am not planning on creating some useful code to mankind -not yet-, I want to create an example package that will in the basics of package creation and would allow my to access some custom scripts across different computers, and want to configure all the needed dependencies.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1"><span class="kw">library</span>(devtools)</a></code></pre></div>
+<pre><code>## Loading required package: usethis</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1"><span class="kw">library</span>(roxygen2)</a></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" title="1"><span class="co"># locate yourself in the parent directory </span></a>
+<a class="sourceLine" id="cb108-2" title="2"><span class="kw">create</span>(<span class="st">&quot;simpleRpackage&quot;</span>)</a></code></pre></div>
+<p>here::dr_here()</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="kw">load_all</span>()</a>
+<a class="sourceLine" id="cb109-2" title="2"></a>
+<a class="sourceLine" id="cb109-3" title="3"><span class="kw">say_hi</span>()</a></code></pre></div>
+<p>or to make it permanent use the function <code>install</code></p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" title="1"><span class="kw">install</span>(<span class="st">&quot;cats&quot;</span>)</a>
+<a class="sourceLine" id="cb110-2" title="2"><span class="kw">library</span>(cats)</a>
+<a class="sourceLine" id="cb110-3" title="3"><span class="kw">say_hi</span>()</a></code></pre></div>
+<blockquote>
+<p>minimum viable product — it’s best to get a project started and improve it through iteration</p>
+</blockquote>
+<p><strong>Never use library() or require() in a R package!</strong></p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="swirl-practices.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="loop-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="plot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="read-info-with-read-table.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

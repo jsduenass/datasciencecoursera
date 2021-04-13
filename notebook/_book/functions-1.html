@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 week 3: | Data Science course notes</title>
-  <meta name="description" content="Chapter 6 week 3: | Data Science course notes" />
+  <title>5.1 functions | Data Science course notes</title>
+  <meta name="description" content="5.1 functions | Data Science course notes" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 week 3: | Data Science course notes" />
+  <meta property="og:title" content="5.1 functions | Data Science course notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jsduenass/datasciencecoursera" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 week 3: | Data Science course notes" />
+  <meta name="twitter:title" content="5.1 functions | Data Science course notes" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="swirl-practices.html"/>
-<link rel="next" href="loop-functions.html"/>
+<link rel="prev" href="scripting.html"/>
+<link rel="next" href="scoping-rules.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -138,12 +138,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>II About R Programming</b></span></li>
 <li class="chapter" data-level="" data-path="module2.html"><a href="module2.html"><i class="fa fa-check"></i>Summary</a></li>
-<li class="chapter" data-level="2" data-path="week-1-part-i-intro.html"><a href="week-1-part-i-intro.html"><i class="fa fa-check"></i><b>2</b> week 1 Part I: intro</a><ul>
+<li class="chapter" data-level="2" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>2</b> intro to R</a><ul>
 <li class="chapter" data-level="2.1" data-path="getting-to-know-r.html"><a href="getting-to-know-r.html"><i class="fa fa-check"></i><b>2.1</b> Getting to know R</a></li>
 <li class="chapter" data-level="2.2" data-path="looking-at-data.html"><a href="looking-at-data.html"><i class="fa fa-check"></i><b>2.2</b> Looking at Data</a></li>
 <li class="chapter" data-level="2.3" data-path="sessions-and-environment.html"><a href="sessions-and-environment.html"><i class="fa fa-check"></i><b>2.3</b> Sessions and environment</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="week-1-part-ii-data-types.html"><a href="week-1-part-ii-data-types.html"><i class="fa fa-check"></i><b>3</b> week 1 Part II: Data types</a><ul>
+<li class="chapter" data-level="3" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>3</b> Data types</a><ul>
 <li class="chapter" data-level="3.1" data-path="exotic-data-types.html"><a href="exotic-data-types.html"><i class="fa fa-check"></i><b>3.1</b> Exotic data types</a></li>
 <li class="chapter" data-level="3.2" data-path="data-conversion.html"><a href="data-conversion.html"><i class="fa fa-check"></i><b>3.2</b> Data conversion</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="data-conversion.html"><a href="data-conversion.html#vector"><i class="fa fa-check"></i><b>3.2.1</b> vector</a></li>
@@ -156,7 +156,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.1" data-path="data-frames.html"><a href="data-frames.html#dollar-sign-and-double-brackets"><i class="fa fa-check"></i><b>3.5.1</b> Dollar sign and double brackets</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="week-1-part-iii.html"><a href="week-1-part-iii.html"><i class="fa fa-check"></i><b>4</b> week 1 Part III</a><ul>
+<li class="chapter" data-level="4" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>4</b> Miscellaneous</a><ul>
 <li class="chapter" data-level="4.1" data-path="missing-data-nan-na-and-null.html"><a href="missing-data-nan-na-and-null.html"><i class="fa fa-check"></i><b>4.1</b> Missing data NaN, NA and NULL</a></li>
 <li class="chapter" data-level="4.2" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>4.2</b> functions</a></li>
 <li class="chapter" data-level="4.3" data-path="plot.html"><a href="plot.html"><i class="fa fa-check"></i><b>4.3</b> plot</a><ul>
@@ -168,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="read-info-with-read-table.html"><a href="read-info-with-read-table.html"><i class="fa fa-check"></i><b>4.5</b> Read info with read table</a></li>
 <li class="chapter" data-level="4.6" data-path="week-assignment.html"><a href="week-assignment.html"><i class="fa fa-check"></i><b>4.6</b> week assignment</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="week-2-scripting.html"><a href="week-2-scripting.html"><i class="fa fa-check"></i><b>5</b> week 2: Scripting</a><ul>
+<li class="chapter" data-level="5" data-path="scripting.html"><a href="scripting.html"><i class="fa fa-check"></i><b>5</b> Scripting</a><ul>
 <li class="chapter" data-level="5.1" data-path="functions-1.html"><a href="functions-1.html"><i class="fa fa-check"></i><b>5.1</b> functions</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="functions-1.html"><a href="functions-1.html#defining-arguments"><i class="fa fa-check"></i><b>5.1.1</b> defining arguments</a></li>
 </ul></li>
@@ -180,17 +180,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4.3" data-path="swirl-practices.html"><a href="swirl-practices.html#dates-and-times"><i class="fa fa-check"></i><b>5.4.3</b> Dates and times</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="week-3.html"><a href="week-3.html"><i class="fa fa-check"></i><b>6</b> week 3:</a><ul>
-<li class="chapter" data-level="6.1" data-path="loop-functions.html"><a href="loop-functions.html"><i class="fa fa-check"></i><b>6.1</b> Loop functions</a></li>
-<li class="chapter" data-level="6.2" data-path="debbuging-and-error-handling.html"><a href="debbuging-and-error-handling.html"><i class="fa fa-check"></i><b>6.2</b> Debbuging and error handling</a></li>
-<li class="chapter" data-level="6.3" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>6.3</b> R objects</a></li>
-<li class="chapter" data-level="6.4" data-path="create-package-documentation.html"><a href="create-package-documentation.html"><i class="fa fa-check"></i><b>6.4</b> Create package documentation</a></li>
-<li class="chapter" data-level="6.5" data-path="swirl-practices-1.html"><a href="swirl-practices-1.html"><i class="fa fa-check"></i><b>6.5</b> SWIRL practices</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="swirl-practices-1.html"><a href="swirl-practices-1.html#lapply-sapply"><i class="fa fa-check"></i><b>6.5.1</b> lapply sapply</a></li>
-<li class="chapter" data-level="6.5.2" data-path="swirl-practices-1.html"><a href="swirl-practices-1.html#vapply-and-tapply"><i class="fa fa-check"></i><b>6.5.2</b> vapply and tapply</a></li>
+<li class="chapter" data-level="6" data-path="loop-functions.html"><a href="loop-functions.html"><i class="fa fa-check"></i><b>6</b> Loop functions</a><ul>
+<li class="chapter" data-level="6.1" data-path="debbuging-and-error-handling.html"><a href="debbuging-and-error-handling.html"><i class="fa fa-check"></i><b>6.1</b> Debbuging and error handling</a></li>
+<li class="chapter" data-level="6.2" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>6.2</b> R objects</a></li>
+<li class="chapter" data-level="6.3" data-path="create-package-documentation.html"><a href="create-package-documentation.html"><i class="fa fa-check"></i><b>6.3</b> Create package documentation</a></li>
+<li class="chapter" data-level="6.4" data-path="swirl-practices-1.html"><a href="swirl-practices-1.html"><i class="fa fa-check"></i><b>6.4</b> SWIRL practices</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="swirl-practices-1.html"><a href="swirl-practices-1.html#lapply-sapply"><i class="fa fa-check"></i><b>6.4.1</b> lapply sapply</a></li>
+<li class="chapter" data-level="6.4.2" data-path="swirl-practices-1.html"><a href="swirl-practices-1.html#vapply-and-tapply"><i class="fa fa-check"></i><b>6.4.2</b> vapply and tapply</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="week-4-simulation-and-modeling.html"><a href="week-4-simulation-and-modeling.html"><i class="fa fa-check"></i><b>7</b> week 4: Simulation and modeling</a><ul>
+<li class="chapter" data-level="7" data-path="simulation-and-modeling.html"><a href="simulation-and-modeling.html"><i class="fa fa-check"></i><b>7</b> Simulation and modeling</a><ul>
 <li class="chapter" data-level="7.1" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>7.1</b> Simulation</a></li>
 <li class="chapter" data-level="7.2" data-path="sampling.html"><a href="sampling.html"><i class="fa fa-check"></i><b>7.2</b> sampling</a></li>
 <li class="chapter" data-level="7.3" data-path="code-optimization.html"><a href="code-optimization.html"><i class="fa fa-check"></i><b>7.3</b> Code Optimization</a></li>
@@ -205,14 +204,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="module3.html"><a href="module3.html"><i class="fa fa-check"></i>Summary</a><ul>
 <li class="chapter" data-level="7.6" data-path="learning-objectives.html"><a href="learning-objectives.html"><i class="fa fa-check"></i><b>7.6</b> Learning objectives:</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="week-1.html"><a href="week-1.html"><i class="fa fa-check"></i><b>8</b> week 1:</a><ul>
+<li class="chapter" data-level="8" data-path="data-recipes.html"><a href="data-recipes.html"><i class="fa fa-check"></i><b>8</b> Data recipes</a><ul>
 <li class="chapter" data-level="8.1" data-path="codebook.html"><a href="codebook.html"><i class="fa fa-check"></i><b>8.1</b> codebook</a></li>
 <li class="chapter" data-level="8.2" data-path="downloading-files.html"><a href="downloading-files.html"><i class="fa fa-check"></i><b>8.2</b> Downloading files</a></li>
 <li class="chapter" data-level="8.3" data-path="xlm.html"><a href="xlm.html"><i class="fa fa-check"></i><b>8.3</b> XLM</a></li>
 <li class="chapter" data-level="8.4" data-path="json.html"><a href="json.html"><i class="fa fa-check"></i><b>8.4</b> JSON</a></li>
 <li class="chapter" data-level="8.5" data-path="data-table.html"><a href="data-table.html"><i class="fa fa-check"></i><b>8.5</b> data table</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="week-2.html"><a href="week-2.html"><i class="fa fa-check"></i><b>9</b> week 2</a><ul>
+<li class="chapter" data-level="9" data-path="data-formats.html"><a href="data-formats.html"><i class="fa fa-check"></i><b>9</b> Data Formats</a><ul>
 <li class="chapter" data-level="9.1" data-path="mysql-database.html"><a href="mysql-database.html"><i class="fa fa-check"></i><b>9.1</b> MySQL database</a><ul>
 <li class="chapter" data-level="9.1.1" data-path="mysql-database.html"><a href="mysql-database.html#sql-commands"><i class="fa fa-check"></i><b>9.1.1</b> SQL commands</a></li>
 </ul></li>
@@ -246,16 +245,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-3" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> week 3:</h1>
+<div id="functions-1" class="section level2">
+<h2><span class="header-section-number">5.1</span> functions</h2>
+<p>functions are structures that allow for encapsulation and reutilization of an action. It allows programmers to use the same process under different condition using its inputs. The declaration of a function is as follows.</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" title="1">countdown &lt;-<span class="st"> </span><span class="cf">function</span> (n){</a>
+<a class="sourceLine" id="cb120-2" title="2">    <span class="cf">for</span>(timeleft <span class="cf">in</span> n<span class="op">:</span><span class="dv">1</span>) {</a>
+<a class="sourceLine" id="cb120-3" title="3">        </a>
+<a class="sourceLine" id="cb120-4" title="4">        <span class="kw">cat</span>(<span class="st">&quot;T minus: &quot;</span>, timeleft, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a>
+<a class="sourceLine" id="cb120-5" title="5">        <span class="kw">Sys.sleep</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb120-6" title="6">    }</a>
+<a class="sourceLine" id="cb120-7" title="7">    <span class="kw">cat</span>(<span class="st">&quot;BOOM!! </span><span class="ch">\n</span><span class="st">&quot;</span>)</a>
+<a class="sourceLine" id="cb120-8" title="8">}</a>
+<a class="sourceLine" id="cb120-9" title="9"></a>
+<a class="sourceLine" id="cb120-10" title="10"><span class="kw">countdown</span>(<span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## T minus:  3 
+## T minus:  2 
+## T minus:  1 
+## BOOM!!</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" title="1"><span class="kw">countdown</span>(<span class="dv">5</span>)</a></code></pre></div>
+<pre><code>## T minus:  5 
+## T minus:  4 
+## T minus:  3 
+## T minus:  2 
+## T minus:  1 
+## BOOM!!</code></pre>
+<p>So as you see we define the countdown function by assigning the reserved-word <code>function</code> with the parameters to the function’s name, followed by the declaration of the functionality, contained between curly brackets. Finally we call the function in order to make it work.</p>
+<p>As seen we can use <code>cat</code> to display values, and this prompts the question: what is the difference between <code>cat</code> and <code>print</code> ?</p>
+<p><strong>cat</strong> in the one hand “converts its arguments to character vectors, concatenates them to a single character vector” <span class="citation">community (<a href="#ref-Rdocumentation" role="doc-biblioref">n.d.</a>)</span> these impose some limitations. It can only be applied to primary data types. Also it doesn’t produce a new line, so “\n” has to bee specified in order to do so. The returned value of this function is an invisible NULL.</p>
+<p><strong>print</strong> in the other hand “is a generic function which means that new printing methods can be easily added for new classes” <span class="citation">community (<a href="#ref-Rdocumentation" role="doc-biblioref">n.d.</a>)</span>. different from cat, print returns its value in an invisible form which makes it useful for pipping.</p>
+<div id="defining-arguments" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> defining arguments</h3>
+<p>R allows for great flexibility when dealing with arguments in a function, some of this behaviors are:</p>
+<p><strong>Lazy evaluation:</strong> This means that values are only evaluated when needed, this allows R to declared non defined arguments with out a problem as long as they are not used.</p>
+<p><strong>default values:</strong> One can set arguments to have default values, when they are not specified in the call of the function they are set to the default value. This can become useful when dealing with many parameters who are intended to have to same value must of the time.</p>
+<p><strong>partially match:</strong> Arguments can be assigned position based <code>fun(value1,value2,value3)</code> or name based <code>fun(arg2=value2,arg3=value3,arg1=value1)</code>, name based allows to put in the arguments disorderly, however names can be to long, so a partial argument name can be used if it uniquely identifies the argument.</p>
+<p><strong>unspecified arguments:</strong> Sometimes you can not predict what other arguments might applied to the function, the three dot “…” argument can be used to assign unspecified arguments. This is usually used when extending an existing function. One thing to be aware of when using is that the remainder arguments after the “…” argument must be named or else they will be taken as part of “…” also partial matching doesn’t work as well.</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" title="1">simon_says &lt;-<span class="st"> </span><span class="cf">function</span>(...){</a>
+<a class="sourceLine" id="cb124-2" title="2">   <span class="kw">paste</span>(<span class="st">&quot;Simon says:&quot;</span>, ...)</a>
+<a class="sourceLine" id="cb124-3" title="3">}</a></code></pre></div>
+<p>this function example was taken from swirl’s functions module.</p>
+<p><strong>unpacking arguments:</strong> when working with the “…” one might need to extract an specific value. One can access these values by converting the “…” into a list</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1">f &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...) {</a>
+<a class="sourceLine" id="cb125-2" title="2">  args =<span class="st"> </span><span class="kw">list</span>(...) </a>
+<a class="sourceLine" id="cb125-3" title="3">  <span class="kw">print</span>(args<span class="op">$</span>message)</a>
+<a class="sourceLine" id="cb125-4" title="4">}</a>
+<a class="sourceLine" id="cb125-5" title="5"></a>
+<a class="sourceLine" id="cb125-6" title="6"><span class="kw">f</span>(x,<span class="dt">name=</span><span class="st">&quot;Pedrito&quot;</span>,<span class="dt">message=</span><span class="st">&quot;hola&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;hola&quot;</code></pre>
+<p>All of these behaviors enhance user experience by allowing high level functionalities from functions.</p>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Rdocumentation">
+<p>community, R. n.d. “Rdocumentation.” <a href="https://www.rdocumentation.org/">https://www.rdocumentation.org/</a>.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="swirl-practices.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="loop-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="scripting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="scoping-rules.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
