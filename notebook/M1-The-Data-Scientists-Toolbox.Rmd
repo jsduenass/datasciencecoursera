@@ -1,6 +1,6 @@
-#  (PART) Module 1 {-}  
+#  (PART) The Data Scientists Toolbox {-}  
 
-# The Data Scientists Toolbox {#module1} 
+#  Getting Started {#module1} 
 
 
 In this module, one is introduced to the basics of what data science is, some of topics discussed are: types of data, the job of the data scientist, and the process needed in order to cure data and information into usable knowledge. It also has a practical component, introducing you to one important tool at the data scientist disposal, the [R language](www.r-project.org) and it's IDE [Rstudio](rstudio.com). The subject of version control is also addressed and the basics of git and github are explore. The lectures where made following the spirit of reproducible work and R potential use for automation the material consisted of written lectures and videos made completely autonomous extracting the information of the written material and putting it in video format. This stroke my curiosity, they were far from perfect, but it displayed a practical application of what can be done with R.

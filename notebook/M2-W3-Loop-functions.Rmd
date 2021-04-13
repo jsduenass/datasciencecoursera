@@ -1,6 +1,4 @@
-# week 3:
-
-## Loop functions
+# Loop functions
 
 lapply sapply
 tapply mapply 

@@ -1,4 +1,4 @@
-# week 1:
+# Data recipes
 Raw vs processed data
 when transforming raw data into processed data it is important to remember that  __all the process must be recorded__ (cookbook)
 

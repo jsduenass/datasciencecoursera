@@ -1,4 +1,4 @@
-# week 2
+# Data Formats
 
 ## MySQL database
 Access database information is stored in the form of tables with relations. As a data scientist you'll be expected to know how to collect data from a database.

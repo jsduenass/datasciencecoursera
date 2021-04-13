@@ -1,5 +1,5 @@
 
-# week 2: Scripting 
+# Scripting 
 Now that we have get acquaintance with the R language, some of it's built-in functions, data types and structures, it's time to learn about the building blocks of programming: control structures, cycles, and functions.
 
 Like many other programming languages R implements the ```if``` statement as a control structure and the ```for``` statement and ```while``` statement in order to produce cycles. there also exists the expressions ```repeat```, ```break``` and ```next``` which allow to specify a certain behavior different from the rest of the iteration, there are usually used inside an if statement to represent exception cases inside a loop.

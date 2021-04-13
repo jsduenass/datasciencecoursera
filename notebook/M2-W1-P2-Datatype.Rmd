@@ -1,4 +1,4 @@
-# week 1 Part II:  Data types
+#  Data types
 
 R support different "_atomic_"  object classes, this can be seen as data types. these are:
 * character 

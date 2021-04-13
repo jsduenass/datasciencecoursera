@@ -1,4 +1,4 @@
-# week 1 Part I: intro
+# intro to R
 These lectures concentrated on basic R syntax, different data types, some built-in functions and methods for reading data from external files.   
 
 Thanks to the @Rstudio for providing a intuitive interface to work with R.

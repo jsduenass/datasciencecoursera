@@ -1,4 +1,4 @@
-# week 4: Simulation and modeling
+# Simulation and modeling
 
 profiler is R a tool that allows you to check the performance of your functions and would help you optimize 
 

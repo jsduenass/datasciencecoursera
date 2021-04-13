@@ -1,4 +1,4 @@
-# week 1 Part III
+# Miscellaneous
 
 ## Missing data NaN, NA and NULL   
 The world tends to be messy and missing data tends to be the norm instead of the exception,  R's way of dealing with this is through defining the __NaN__ and __NA__ data types. NaN is more specific and used when the missing values is a numeric one, NA on the other hand is more general and cover any missing value. __NA__ has a more broader definition, therefore __NaN__ values are considered to be covered by __NA__, therefore any __NaN__ is simultaneously __NA__ as well. For example, the following the functions ```is.na()``` and ```is.NaN()``` are used to identify this types of data, the NaN value is recognized to be TRUE for both functions.

@@ -1,4 +1,4 @@
-#  (PART) Module 2 {-} 
+#  (PART) About R Programming {-} 
 
-# About R Programming {#module2}
-This was the second course and deal more deeply in the fundamentals of using R, the basic syntaxes and data structures, like list and dataframes and basic logic structures like loops, if statements and functions.
+# Summary {- #module2}
+About R Programming was the second course and deal more deeply in the fundamentals of using R, the basic syntaxes and data structures, like list and dataframes and basic logic structures like loops, if statements and functions.
