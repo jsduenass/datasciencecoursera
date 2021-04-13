@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data Science course notes</title>
-  <meta name="description" content="Data Science course notes" />
+  <title>Chapter 11 week 2 | Data Science course notes</title>
+  <meta name="description" content="Chapter 11 week 2 | Data Science course notes" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Data Science course notes" />
+  <meta property="og:title" content="Chapter 11 week 2 | Data Science course notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jsduenass/datasciencecoursera" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data Science course notes" />
+  <meta name="twitter:title" content="Chapter 11 week 2 | Data Science course notes" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="module1.html"/>
+<link rel="prev" href="week-1.html"/>
+<link rel="next" href="on-reproducible-research.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -244,31 +244,137 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data Science course notes</h1>
-<p class="author"><em>Juan Sebastian D</em></p>
-<p class="date"><em>2021-04-13</em></p>
+<div id="week-2" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> week 2</h1>
+<div id="mysql-database" class="section level2">
+<h2><span class="header-section-number">11.1</span> MySQL database</h2>
+<p>Access database information is stored in the form of tables with relations. As a data scientist you’ll be expected to know how to collect data from a database.</p>
+<p>Install MySQL</p>
+<p><strong>NOTE:</strong> remember to close the connection to the database</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" title="1"><span class="kw">library</span>(sqldf)</a></code></pre></div>
+<pre><code>## Loading required package: gsubfn</code></pre>
+<pre><code>## Loading required package: proto</code></pre>
+<pre><code>## Loading required package: RSQLite</code></pre>
+<div id="sql-commands" class="section level3">
+<h3><span class="header-section-number">11.1.1</span> SQL commands</h3>
+<p><strong>SELECT:</strong></p>
+<p><strong>Wildcards:</strong> can be pass to extract everything</p>
+<p><strong>LIMIT:</strong> control the number of results, analogous to `head in a data frame.</p>
+<p><strong>ORDER BY:</strong> can order variables in ascending or descending order.</p>
+<p>_WHERE:__ limit to a condition</p>
 </div>
-<div id="introduction" class="section level1 unnumbered">
-<h1>Introduction</h1>
-<blockquote>
-<blockquote>
-<p>A notebook through my learning journey</p>
-</blockquote>
-</blockquote>
-<p>These are notes taken and work done while coursing the <a href="https://www.coursera.org/specializations/jhu-data-science">Data Science especialization courses</a>, A Coursera and John Hopkins joint effort towards teaching data science.</p>
+</div>
+<div id="read-data-from-hdf5" class="section level2">
+<h2><span class="header-section-number">11.2</span> read data from HDF5</h2>
+<p>Hierarchical Dataset Format (HDF) used for large data sets
+check for recent info. write data from the data sets package</p>
+<p><a href="https://www.hdfgroup.org/">know more at</a></p>
+</div>
+<div id="web-scrapping" class="section level2">
+<h2><span class="header-section-number">11.3</span> web scrapping</h2>
+<p>Know a little more about the http protocol and <code>GET</code> <code>POST</code> <code>PUT</code> commands can be access by the <code>httr</code></p>
+<p><a href="https://www.datanalytics.com/libro_r/web-scraping.html"></a></p>
+<p>how Netflix reverse engineer Hollywood</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" title="1">connection &lt;-<span class="st"> </span><span class="kw">url</span>(<span class="st">&quot;https://en.wikipedia.org/wiki/Web_scraping&quot;</span>)</a>
+<a class="sourceLine" id="cb228-2" title="2">raw_htm&lt;-<span class="kw">readLines</span>(connection)</a></code></pre></div>
+<pre><code>## Warning in readLines(connection): incomplete final line found on &#39;https://
+## en.wikipedia.org/wiki/Web_scraping&#39;</code></pre>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1"><span class="kw">close</span>(connection)</a></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" title="1"><span class="kw">library</span>(httr)</a>
+<a class="sourceLine" id="cb231-2" title="2"><span class="kw">library</span>(XML)</a>
+<a class="sourceLine" id="cb231-3" title="3"></a>
+<a class="sourceLine" id="cb231-4" title="4">url&lt;-<span class="st"> &quot;https://en.wikipedia.org/wiki/Web_scraping&quot;</span></a>
+<a class="sourceLine" id="cb231-5" title="5"></a>
+<a class="sourceLine" id="cb231-6" title="6">html&lt;-<span class="st"> </span><span class="kw">GET</span>(url)</a>
+<a class="sourceLine" id="cb231-7" title="7"><span class="kw">class</span>(html)</a></code></pre></div>
+<pre><code>## [1] &quot;response&quot;</code></pre>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" title="1">scrap &lt;-<span class="st"> </span><span class="kw">content</span>(html,<span class="dt">as=</span><span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb233-2" title="2"><span class="kw">class</span>(scrap)</a></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" title="1">parsed&lt;-<span class="st"> </span><span class="kw">htmlParse</span>(scrap, <span class="dt">asText =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb235-2" title="2"><span class="co"># xpathApply(parsed)</span></a>
+<a class="sourceLine" id="cb235-3" title="3"></a>
+<a class="sourceLine" id="cb235-4" title="4"></a>
+<a class="sourceLine" id="cb235-5" title="5"><span class="kw">names</span>(html)</a></code></pre></div>
+<pre><code>##  [1] &quot;url&quot;         &quot;status_code&quot; &quot;headers&quot;     &quot;all_headers&quot; &quot;cookies&quot;    
+##  [6] &quot;content&quot;     &quot;date&quot;        &quot;times&quot;       &quot;request&quot;     &quot;handle&quot;</code></pre>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" title="1">html<span class="op">$</span>cookies</a></code></pre></div>
+<pre><code>##                       domain  flag path secure          expiration
+## 1 #HttpOnly_en.wikipedia.org FALSE    /   TRUE 2021-05-14 19:00:00
+## 2   #HttpOnly_.wikipedia.org  TRUE    /   TRUE 2021-05-14 19:00:00
+## 3             .wikipedia.org  TRUE    /   TRUE                &lt;NA&gt;
+##                     name                        value
+## 1        WMF-Last-Access                  13-Apr-2021
+## 2 WMF-Last-Access-Global                  13-Apr-2021
+## 3                  GeoIP CO:DC:Bogot__:4.64:-74.07:v4</code></pre>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" title="1">google &lt;-<span class="st"> </span><span class="kw">handle</span>(<span class="st">&quot;https://www.google.com/&quot;</span>)</a>
+<a class="sourceLine" id="cb239-2" title="2">pg1&lt;-<span class="st"> </span><span class="kw">GET</span>(<span class="dt">handle=</span>google, <span class="dt">path=</span><span class="st">&quot; search&quot;</span>)</a></code></pre></div>
+</div>
+<div id="apis" class="section level2">
+<h2><span class="header-section-number">11.4</span> APIs</h2>
+<p>twitter</p>
+<p>(<a href="https://developer.twitter.com/apps" class="uri">https://developer.twitter.com/apps</a>)</p>
+<p>authentication keys tokens when working in open source and public code projects</p>
+</div>
+<div id="catch-all" class="section level2">
+<h2><span class="header-section-number">11.5</span> Catch all</h2>
+<p>When dealing with data there are many potential sources which makes unpractical to make an extensive list that cover all of them. Th key takeaway is that <strong>there probably exists a R package</strong> that would help you extract data for any source you can imagine. <code>?connections</code></p>
+<p>read images and GIS (Geographic Information System) and read music files with <code>tuneR</code> and <code>seewave</code>.</p>
+</div>
+<div id="quiz" class="section level2">
+<h2><span class="header-section-number">11.6</span> QUIZ</h2>
+<ol style="list-style-type: decimal">
+<li>Register an application with the Github API here <a href="https://github.com/settings/applications" class="uri">https://github.com/settings/applications</a>. Access the API to get information on your instructors repositories (hint: this is the url you want “<a href="https://api.github.com/users/jtleek/repos" class="uri">https://api.github.com/users/jtleek/repos</a>”). Use this data to find the time that the data sharing repo was created. What time was it created?</li>
+</ol>
+<p>This tutorial may be useful (<a href="https://github.com/hadley/httr/blob/master/demo/oauth2-github.r" class="uri">https://github.com/hadley/httr/blob/master/demo/oauth2-github.r</a>). You may also need to run the code in the base R package and not R studio.</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1"><span class="kw">library</span>(jsonlite)</a>
+<a class="sourceLine" id="cb240-2" title="2">repos&lt;-<span class="kw">fromJSON</span>(<span class="st">&quot;https://api.github.com/users/jtleek/repos&quot;</span>)</a>
+<a class="sourceLine" id="cb240-3" title="3">repos<span class="op">$</span>name</a></code></pre></div>
+<pre><code>##  [1] &quot;2018&quot;                    &quot;ads2020&quot;                
+##  [3] &quot;advdatasci&quot;              &quot;advdatasci-project&quot;     
+##  [5] &quot;advdatasci-swirl&quot;        &quot;advdatasci15&quot;           
+##  [7] &quot;advdatasci16&quot;            &quot;advdatasci_swirl&quot;       
+##  [9] &quot;ballgown&quot;                &quot;big_course&quot;             
+## [11] &quot;bookdown-start&quot;          &quot;books&quot;                  
+## [13] &quot;capitalIn21stCenturyinR&quot; &quot;careerplanning&quot;         
+## [15] &quot;coc&quot;                     &quot;courses&quot;                
+## [17] &quot;COVID-19&quot;                &quot;crsra&quot;                  
+## [19] &quot;cshlcg-labs&quot;             &quot;data&quot;                   
+## [21] &quot;dataanalysis&quot;            &quot;datascientist&quot;          
+## [23] &quot;datasharing&quot;             &quot;datawomenontwitter&quot;     
+## [25] &quot;day1&quot;                    &quot;derfinder&quot;              
+## [27] &quot;derfinder-1&quot;             &quot;DSM&quot;                    
+## [29] &quot;EDA-Project&quot;             &quot;escalatr&quot;</code></pre>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" title="1">id&lt;-<span class="kw">grep</span>( <span class="st">&quot;datasharing&quot;</span>,repos<span class="op">$</span>name)</a>
+<a class="sourceLine" id="cb242-2" title="2"></a>
+<a class="sourceLine" id="cb242-3" title="3">repos<span class="op">$</span>created_at[id]</a></code></pre></div>
+<pre><code>## [1] &quot;2013-11-07T13:25:07Z&quot;</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>The sqldf package allows for execution of SQL commands on R data frames. We will use the sqldf package to practice the queries we might send with the dbSendQuery command in RMySQL.</li>
+</ol>
+<p>Download the American Community Survey data and load it into an R object called</p>
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv" class="uri">https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv</a></p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" title="1"><span class="kw">library</span>(sqldf)</a>
+<a class="sourceLine" id="cb244-2" title="2"></a>
+<a class="sourceLine" id="cb244-3" title="3">url&lt;-<span class="st">&quot;https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv&quot;</span></a>
+<a class="sourceLine" id="cb244-4" title="4">fpath&lt;-<span class="st"> &quot;../data/M3_week2_quiz_data/AmericanCommunitySurvey.csv &quot;</span></a>
+<a class="sourceLine" id="cb244-5" title="5"></a>
+<a class="sourceLine" id="cb244-6" title="6"><span class="cf">if</span>(<span class="kw">is.null</span>(fpath)){</a>
+<a class="sourceLine" id="cb244-7" title="7">    <span class="kw">download.file</span>(url,fpath)</a>
+<a class="sourceLine" id="cb244-8" title="8">}</a>
+<a class="sourceLine" id="cb244-9" title="9"></a>
+<a class="sourceLine" id="cb244-10" title="10">acs&lt;-<span class="kw">read.table</span>(fpath)</a></code></pre></div>
+<p>Which of the following commands will select only the data for the probability weights pwgtp1 with ages less than 50?</p>
 
 </div>
-
-
-
+</div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="module1.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="on-reproducible-research.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
