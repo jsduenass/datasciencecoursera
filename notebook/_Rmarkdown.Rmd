@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 output:
   html_document: default
@@ -10,6 +11,74 @@ While writting this notes one gets to experiment and tinker with the Rmarkdown s
 These are to in order to insert a piece of code, in Rstudio they can be with key shortcut  __control + alt + i__ in windows. they have many parameters that can determine the way they behave.
 
 chunck headers
+
+* ```eval=FALSE``` does not run the code
+* ```include=FALSE``` The code is run but neither the output nor the are shown in the document
+* ```echo=FALSE``` Prevents the code but not the results to be shown
+* ```warning=FALSE``` Prevents warning from appearing
+* ```fig.cap = "..."``` add a caption to the figures
+* ```label='my-chunk'`` adds a name to the code chunk it is important because it would be the name of figures.
+
+fig.width=16, fig.height=6
+
+output format ```results```
+* ```asis```
+* ```hold``` 
+
+## equations
+
+
+\begin{equation*} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  (\#eq:binom)
+\end{equation*}
+
+
+
+## serve a book 
+needs the ```servr``` library
+
+
+```{r, eval=FALSE}
+library(bookdown)
+serve_book(dir = ".", output_dir = "_book")
+
+```
+
+
+by default it is configure to run on http://127.0.0.1:4321
+in order to stop the service
+```{r warning=FALSE}
+server_ID<-daemon_list()
+daemon_stop(server_ID)
+#preview_chapter("_Rmarkdown.Rmd") not working 
+```
+
+bookdown::render_book()
+
+
+## Blockquotes 
+> "I thoroughly disapprove of duels. If a man should challenge me,
+  I would take him kindly and forgivingly by the hand and lead him
+  to a quiet place and kill him."
+>
+> --- Mark Twain
+
+
+git not change the name of a folder, instead git mv {old name} {new name}
+=======
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+# About 
+While writing this notes one gets to experiment and tinker with the Rmarkdown syntatex and the bookdown capabilities. While one tries different stuff like writing equation, adding images, videos or animations one learn some of tricks. The following is a collection of illustrative examples of the syntaxes needed.
+
+## Code chunks 
+These are to in order to insert a piece of code, in Rstudio they can be with key shortcut  __control + alt + i__ in windows. they have many parameters that can determine the way they behave.
+
+chunk headers
 
 * ```eval=FALSE``` does not run the code
 * ```include=FALSE``` The code is run but neither the output nor the are shown in the document
@@ -67,3 +136,5 @@ bookdown::render_book()
 
 
 git not change the name of a folder, instead git mv {old name} {new name}
+git reset to unstage
+>>>>>>> 53a023e... check spelling Module 2 week 3 and 4 and Module 3

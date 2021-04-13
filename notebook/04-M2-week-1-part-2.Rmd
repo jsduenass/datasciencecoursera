@@ -1,7 +1,7 @@
-# week 1 Part II
+# week 1 Part III
 
 ## Missing data NaN, NA and NULL   
-The world tends to be messy and missing data tends to be the norm instead of the exception,  R's way of dealing with this is through defining the __NaN__ and __NA__ data types. NaN is more especific and used when the missing values is a numeric one, NA on the other hand is more general and cover any missing value. __NA__ has a more broder definition, therefore __NaN__ values are considered to be covered by __NA__, do any __NaN__ is simultaniusly __NA__ as well. For example, the following the functions ```is.na()``` and ```is.NaN()``` are used to identify this types of data, the NaN value is reconized to be TRUE for both functions. NA values can create a lot of trouble, so many functions have a way of dealing with missing values the ```na.rm``` parameter removes the missing values before the funtion is evaluated. 
+The world tends to be messy and missing data tends to be the norm instead of the exception,  R's way of dealing with this is through defining the __NaN__ and __NA__ data types. NaN is more specific and used when the missing values is a numeric one, NA on the other hand is more general and cover any missing value. __NA__ has a more broader definition, therefore __NaN__ values are considered to be covered by __NA__, therefore any __NaN__ is simultaneously __NA__ as well. For example, the following the functions ```is.na()``` and ```is.NaN()``` are used to identify this types of data, the NaN value is recognized to be TRUE for both functions.
 
 
 ```{r}
@@ -13,14 +13,25 @@ satisfaction[4]=NaN    # numeric not define
 is.na(satisfaction)
 is.nan(satisfaction)
 
-mean(c(1,2,NaN,4,NA,6), na.rm = TRUE)
 ```
 
-other important data type related with missing values is __null__, while it migth prompt confusion, I'd like to refer to the following saying to address the difference:
+Other important data type related with missing values is __null__, while it might prompt confusion, I'd like to refer to the following saying to address the difference:
     
 > NA represents the absence of presence while null represents the presence of absence
 
-Missing data tend to cause problems during analysis thankfully there is a simple trick that can be applied in order to remove the NA. 
+
+
+NA values can create a lot of trouble, many operations are not defined over this type of data and when apply can render a whole dataset with unusable results.  This is a known issue so many functions support a mechanism for dealing with missing values, the ```na.rm``` parameter removes the missing values before the function is evaluated. 
+
+
+```{r}
+mean(c(1,2,NaN,4,NA,6))     # the operation is undefined due to the presence of NA 
+
+mean(c(1,2,NaN,4,NA,6), na.rm = TRUE)
+```
+
+Similar tricks and workarounds can be used in order to remove the missing values of a dataset, they exploit the use of logical indexing in order to remove any element that is NA.
+
 ```{r}
 data<- c(1:4, NA ,6:10, NaN, NA ,1 , NA, 3:6)
 missing <-is.na(data)
@@ -34,7 +45,8 @@ data2[good]
 ```
 
 
-When working with data frames the ```complete.cases``` can be useful for handling missing values, it return a logical vector whose value are TRUE or FALSE depending if all of the  elements of a row are defined and none is __NA__, ```na.omit``` is an alternative way to acomplish the same result, instead of returning  a logic vetor it directly returns the rows that does not have missing values.
+When working with data frames the ```complete.cases``` can be useful for handling missing values, it return a logical vector whose value are TRUE or FALSE depending if all of the  elements of a row are defined and none is __NA__, ```na.omit``` is an alternative way to accomplish the same result, instead of returning  a logic vector it directly returns the rows that does not have missing values.
+
 ```{r}
 df<-data.frame(a=1:4, b=2:5, c=10:13,d=21:24)
 df[1,3]<-NA
@@ -51,11 +63,14 @@ alternative<-na.omit(df)
 alternative
 ```
 
-There are many functions which make part of the```na.x``` family, which provide a rich range of responding actions when encountering with missing values 
+There are many functions which make part of the```na.x()``` family, which provide a rich range of responding actions when encountering with missing values, like any ````na.fail()``` which triggers an alert if the element contains an NA value, as well as ````na.contiguous()``` which identifies the longest contiguous sequence of NA values.
+
 
 ## functions
-When programming you always want to break big problems into smaller ones, and functions create the perfect container to hold each of these little pieces. Some of the build in functions that make R special are the statistics ones, for example __sample()__ can get a random sample with the specified size, by default there is no replacement but this behavior can easily be modified. 
+When programming you always want to break big problems into smaller ones, and functions create the perfect container to hold each of these little pieces. R as mentioned previously is a programing language orientated towards statistical analysis therefore is has already bake in so useful functions, for example __sample()__ can get a random sample with the specified size, by default there is no replacement but this behavior can easily be modified. 
+
 ```{r}
+
 sample(x = 1:4, size = 2)
 factorial(5)
 
@@ -69,9 +84,8 @@ y<- rnorm(1000)     #normal distribution
 ```
 
 
-
 ## plot
-Other useful tool that R offers and is known for is the hability to draw diagrams. Plots are a fundamental way of conveying meaningful information from a pile of data. And plots play a key role in R's philosphy of reproducible researsh.
+Other useful tool that R offers and is known for is the ability to draw diagrams. Plots are a fundamental way of conveying meaningful information from a pile of data. And plots play a key role in R's philosophy of reproducible research.
 
 ```{r, label='cubic-function',fig.cap = "cubic function"}
 library('ggplot2')
@@ -81,18 +95,18 @@ qplot(x, y)
 ```
 
 
-Another great prhase 
+Another great phrase 
 
 > bias can easily occur without anyone noticing it in the short run.
 >
 > ---- @hands_on_R
 
 
-### pratical exercise
-@wickham2017r shows some practical plotting examples using the _tiddyverse_, a collection of very useful packages for data manipulation. If you want to know more about packages you can head to the correspondig seccion. 
+### practical exercise
+@wickham2017r shows some practical plotting examples using the _tiddyverse_, a collection of very useful packages for data manipulation. If you want to know more about packages you can head to the corresponding section. 
 
 
-We are going to use some practical data provided by the EPA (Enviromental Proteciton Agency) the _mpg_ dataframe
+We are going to use some practical data provided by the EPA (Enviromental Proteciton Agency), the _mpg_ dataframe which makes part of the tidyverse and is used as go to introductory dataset.
 
 ```{r eval=FALSE}
 library(tidyverse)
@@ -104,9 +118,9 @@ dims(mpg)
 
 
 ## R Packages
-One of the advantages of open source is that the community can creates packages which extends the functionality of the core R implementation. There exist many ways to access this packages, the larger collection is provided via the CRANN repository but Git based packages are also supported. In order to use any external package it is necesary not only to install it, but also to load it into the R.  
+One of the advantages of open source is that the community can creates packages which extends the functionality of the core R implementation, allowing for special niche use cases to be develop and satisfy by people in that circle without being cram into the base program every body uses, it allows to have the flexibility to customize and pick the tools needed while tapping into the work done by a large community of people. There exist many ways to access this packages, the larger collection is provided via the CRANN repository but Git based packages are also supported. In order to use any external package it is necessary not only to install it, but also to load it into the R environment.  
 
-* __CRAN  based package:__  CRAN (Comprehensive R Archive Network) is an  collection that holds documentation and code related to R. It stores many R packages which have the advantage that they can be install directly via the ```install.packages(" ")``` command making it extremly easy to incorporate packages into a project. For example in order to install the ```tidyverse``` package colletion the following command  can be use:
+* __CRAN  based package:__  CRAN (Comprehensive R Archive Network) is an  collection that holds documentation and code related to R. It stores many R packages which have the advantage that they can be install directly via the ```install.packages(" ")``` command making it extremely easy to incorporate new packages into a project. For example in order to install the ```tidyverse``` package collection the following command  can be use:
 
 ```{r eval=FALSE}
 install.packages("tidyverse")
@@ -114,11 +128,11 @@ library(tidyverse)
 ```
 Once installed the ```library()``` command can be used to load the packages into R. Notice that ```install.packages()``` gets an argument between quotes but ```library()``` does not. 
 
-__Note:__ It is important to note in order to install some packages, the ones who have c/c++/fortran source code instead of the binary, this packages need the [rtools](https://cran.r-project.org/bin/windows/Rtools/) in order be build. The rtools must be compatible with the R version. 
+__Note:__ It is important to note that in order to install some packages, the ones who have c/c++/fortran source code instead of the binary, they need the [rtools](https://cran.r-project.org/bin/windows/Rtools/) in order be build, and the rtools must be compatible with the R version. 
 
 * __Git  based package:__
 
-__Note:__ packages needs to be loaded everytime Rstudio is loaded. The following commands show you the loaded packages, and in the case you need to unload a package the detach command can be helpfull. 
+__Note:__ packages needs to be loaded every time Rstudio is loaded. The following commands show you the loaded packages, and in the case you need to unload a package the detach command can be helpful. 
 
 ```{r eval=FALSE}
 (.packages())
@@ -127,7 +141,8 @@ detach("package:tidyverse", unload=TRUE)
 ```
 
 
-The ```datasets``` package is an built-in package that store some useful datasets, to know more and what kind of datasets it has available 
+Usually when dealing with a new package you want to know what is inside what dataset, functions or functionalities it provide, the  help command __?__ can be use to explore the package documentation and get a better idea of what it contains. The following example allows to explore the ```datasets``` package, an built-in package that store some useful datasets.
+
 ```{r eval=FALSE}
 library(datasets)
 ?datasets
@@ -155,18 +170,59 @@ tail(ChickWeight)
 
 ### create your own package
 
+There are many things to consider when thinking about building a package.
+
+Why packages are important?
+
+1. Code organization
+2. Consistent documentation 
+3. Code distribution
+
+why am I creating a package?
+It is about code distribution, 
+
+
+For me I am not planning on creating some useful code to mankind -not yet-, I want to create an example package that will in the basics of package creation and would allow my to access some custom scripts across different computers, and want to configure all the needed dependencies. 
+
+
+```{r}
+library(devtools)
+library(roxygen2)
+```
+
+```{r eval=FALSE}
+# locate yourself in the parent directory 
+create("simpleRpackage")
+```
+
+
+here::dr_here()
+```{r eval=FALSE}
+load_all()
+
+say_hi()
+```
+
+or to make it permanent use the function ```install```
+```{r eval=FALSE}
+install("cats")
+library(cats)
+say_hi()
+```
 
 
 
 
 
+> minimum viable product — it’s best to get a project started and improve it through iteration
 
+__Never use library() or require() in a R package!__
 
 ## Read info with read table
 
-Data can be produce in different forms, it can be structured or unstructured, regarless of the format, being able to interact with this data and organize it in a useful manner is an important process that needs to be done, so it can be feed to upcoming analysis. this process of organizing the data is known as pipelining (to learn more about thsi process feel free to check the [ Data collection module ](#module3) ) . 
+Data can be produce in different forms, it can be structured or unstructured, regardless of the format, being able to interact with this data and organize it in a useful manner is an important process that needs to be done, so it can be feed to upcoming analysis. this process of organizing the data is known as pipelining (to learn more about this process feel free to check the [ Data collection module ](#module3) ). 
 
-Some common formats for data storage are csv (Coma Separated Values) files, R has some built in function for reading this type of files through the read.csv() or read.table(). Here is an examples of some students data read from an csv file. These function have some paramethers that help to specify the behavior we want it to have. For example one can determine what symbol would be used as separator or either if the file has headers or not. for more info on other suported arguments please read [the documentation](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/read.table). One thing to be aware when dealing with large dataset is RAM, if the dataset is larger than the RAM memory capacity it will create troubles. 
+Some common formats for data storage are csv (Coma Separated Values) files, R has some built in function for reading this type of files through the read.csv() or read.table(). Here is an examples of some students data read from an csv file. These function have some parameters that help to specify the behavior we want it to have. For example one can determine what symbol would be used as separator or either if the file has headers or not. for more info on other supported arguments please read [the documentation](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/read.table). One thing to be aware when dealing with large dataset is RAM, if the dataset is larger than the RAM memory capacity it will create troubles. 
 
 
 
@@ -187,19 +243,15 @@ tail(external_deck,5)
 
 ```
 
-When working with large data sets especifing the data type by the parameter colClasses, can help optimized the time needed to process the data.
+When working with large data sets specifying the data type by the parameter colClasses, can optimized and reduce the time needed to process the data.
 
-## week assigment
+## week assignment
 
-As part of these week's assigment it was optional to do the following swirl practices. swirl (Statistics with Interactive R Learning) is a R package develop to allow students to learn by interacting directly with the command interface.
+As part of these week's assignment it was optional to do the following swirl practices. swirl (Statistics with Interactive R Learning) is a R package develop to allow students to learn by interacting directly with the command interface. In order to use it one needs to install the swirl package [see](## R Packages). 
 
-Ones needs to install the swirl package. there are many ways of installing packages in R one of the most popular is trough the CRAN repository. this can be done by the install.packages(" ") command. One thing that is important to remember is that even though with this command it gets install, R is not using the additional packages by default, they need to be call in with the __library()__ command every time they are needed.
 
 ```{r eval=FALSE}
 install.packages("swirl")
  library(swirl)
 
 ```
-
-Notice that install.packages() gets an argument between quotes but library() does not. 
-

@@ -1,0 +1,136 @@
+# week 2
+
+## MySQL database
+Access database information is stored in the form of tables with relations. As a data scientist you'll be expected to know how to collect data from a database.
+
+
+Install MySQL
+
+
+__NOTE:__ remember to close the connection to the database
+
+```{r}
+library(sqldf)
+```
+ 
+ 
+### SQL commands
+__SELECT:__
+
+__Wildcards:__ can be pass to extract everything
+
+__LIMIT:__ control the number of results, analogous to `head in a data frame.
+
+__ORDER BY:__ can order variables in ascending or descending order.
+
+_WHERE:__ limit to a condition
+
+
+## read data from HDF5
+Hierarchical Dataset Format (HDF) used for large data sets
+check for recent info. write data from the data sets package
+
+[know more at](https://www.hdfgroup.org/)
+
+
+## web scrapping
+Know a little more about the http protocol and ```GET``` ```POST``` ```PUT``` commands can be access by the  ```httr```
+
+
+[](https://www.datanalytics.com/libro_r/web-scraping.html)
+
+how Netflix reverse engineer Hollywood
+
+```{r}
+connection <- url("https://en.wikipedia.org/wiki/Web_scraping")
+raw_htm<-readLines(connection)
+close(connection)
+```
+
+```{r}
+library(httr)
+library(XML)
+
+url<- "https://en.wikipedia.org/wiki/Web_scraping"
+
+html<- GET(url)
+class(html)
+scrap <- content(html,as="text")
+class(scrap)
+parsed<- htmlParse(scrap, asText = TRUE)
+# xpathApply(parsed)
+
+
+names(html)
+html$cookies
+```
+
+```{r}
+google <- handle("https://www.google.com/")
+pg1<- GET(handle=google, path=" search")
+```
+
+
+## APIs
+
+twitter
+
+(https://developer.twitter.com/apps)
+
+authentication keys tokens when working in open source and public code projects
+
+
+## Catch all
+When dealing with data there are many potential sources which makes unpractical to make an extensive list that cover all of them. Th key takeaway is that __there probably exists a R package__ that would help you extract data for any source you can imagine. `?connections`
+
+read images and GIS (Geographic Information System) and read music files with `tuneR` and `seewave`.
+
+
+
+
+## QUIZ
+
+1. Register an application with the Github API here https://github.com/settings/applications. Access the API to get information on your instructors repositories (hint: this is the url you want "https://api.github.com/users/jtleek/repos"). Use this data to find the time that the data sharing repo was created. What time was it created?
+
+This tutorial may be useful (https://github.com/hadley/httr/blob/master/demo/oauth2-github.r). You may also need to run the code in the base R package and not R studio.
+
+```{r}
+library(jsonlite)
+repos<-fromJSON("https://api.github.com/users/jtleek/repos")
+repos$name
+id<-grep( "datasharing",repos$name)
+
+repos$created_at[id]
+```
+
+
+2. The sqldf package allows for execution of SQL commands on R data frames. We will use the sqldf package to practice the queries we might send with the dbSendQuery command in RMySQL.
+
+Download the American Community Survey data and load it into an R object called
+
+https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv
+
+
+```{r}
+library(sqldf)
+
+url<-"https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv"
+fpath<- "../data/M3_week2_quiz_data/AmericanCommunitySurvey.csv "
+
+if(is.null(fpath)){
+    download.file(url,fpath)
+}
+
+acs<-read.table(fpath)
+
+```
+
+Which of the following commands will select only the data for the probability weights pwgtp1 with ages less than 50?
+
+
+
+
+
+
+
+

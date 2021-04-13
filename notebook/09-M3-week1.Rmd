@@ -14,14 +14,14 @@ An __observation__ contains all values measured on the same unit (like a person,
 3. Each type of observation unit forms a table
 
 
->One way of organising variables is by their role in the analysis: are values fixed by the design of the data collection, or are they measured during the course of the experiment? ... Fixed variables should come first, followed by measured variables, each ordered so that related variables are contiguous 
+>One way of organizing variables is by their role in the analysis: are values fixed by the design of the data collection, or are they measured during the course of the experiment? ... Fixed variables should come first, followed by measured variables, each ordered so that related variables are contiguous 
 
 
 problems to be faced:
 * Column headers are values
-* Multiple varaibles are stored in one column
-* Varaibles are stored in both rows and columns 
-* Multiplye typo of observational units are stored in the same table
+* Multiple variables are stored in one column
+* Variables are stored in both rows and columns 
+* Multiple type of observational units are stored in the same table
 * A single observational unit is stored in multiple tables
 
 
@@ -34,7 +34,7 @@ instruction list
 An script with no parameters that has the raw data as an intake and produces the processed/tidy data. if it is not possible to make all the process be done through the script the should be instruction on any additional steps.
 
 ## Downloading files
-let's face the internet is gateway to the knowlege of the world and you might obtain must of your dataset downloading them through the internet
+let's face the internet is gateway to the knowledge of the world and you might obtain must of your dataset downloading them through the internet
 
 ```{r eval=FALSE}
 download.file("https://google.com","google.html")
@@ -66,9 +66,9 @@ write.xlsx(student_info,"../data/student_info.xlsx")
 
 
 ## XLM
-extensible markup language. used to store structured data. Extensibily used in web scrapping. It is composed by two parts:
+extensible markup language. used to store structured data. Extensibility used in web scrapping. It is composed by two parts:
 * The markup: the label that composes the structure
-* The contet: the actual value store
+* The content: the actual value store
 
 Same as HTML structure it works with tags usually there is an starting tag and an ending one, tags can hold attributes
 ```{r eval= FALSE}
@@ -78,7 +78,7 @@ fielURL<-"https://www.w3schools.com/xml/note.xml"
 ```
 
 ## JSON
-JavScript Objetc Notation is way of storing data in a structured manner, used extensibily in API's.  transform datas sets and turn it into JSON format
+JavaScript Object Notation is way of storing data in a structured manner, used extensibility in API's.  transform data sets and turn it into JSON format
 
 ```{r}
 library(jsonlite)
@@ -107,7 +107,7 @@ DT[,Petal.Area:=Petal.Length*Petal.Width]     # adding new row
 
 head(DT,3)
 ```
-"Expressions" add new columns,  if  a data table is assign to a new varaible they become intertwined, so any change in one will afect the other, it is better to create copy through the ```copy``` function.
+"Expressions" add new columns,  if  a data table is assign to a new variable they become intertwined, so any change in one will affect the other, it is better to create copy through the ```copy``` function.
 ```setkey```
 
 

@@ -1,13 +1,7 @@
-// adding only markdown content
-
-git add notebook/*.Rmd
-
 // send to gh-pages branch in order to create a web page 
 git subtree push --prefix notebook/_book origin gh-pages
 
 bookdown::render_book("/notebook/index.Rmd", "bookdown::pdf_book")
-
-
 
 
 git branch --set-upstream-to=origin/gh-pages gh-pages

@@ -1,0 +1,190 @@
+# week 1 Part II:  Data types
+
+R support different "_atomic_"  object classes, this can be seen as data types. these are:
+* character 
+* numeric
+* integer
+* complex
+* logical
+
+__Note:__ When writing numbers they are __numeric__ as default, but can forced to become integer type by ending the number with an L. It is interesting to note that the integer type makes part of the numeric one this can be seen using  the ```is.numeric``` function member of the ```is.x()``` family of functions which allow to identify if a variable is of a particular class.
+```{r}
+class(10)
+class(10L)
+is.numeric(10L)
+
+```
+
+## Exotic data types
+there as well some not as common data types such as date, raster, raw and others. raw for example creates a vector used for storing information in binary form into bytes written as hexadecimal pairs. 
+
+```{r}
+text <- "a word with length 21"
+binary <- charToRaw(text)
+is.raw(binary)
+typeof(binary)
+
+```
+
+
+## Data conversion 
+
+Data types have some hierarchy, from particular to general they can be organized as follows logical, integer, numeric, character. One can perform data type conversion from a particular type to a more general one. R support implicit conversion in order to keep types consistence. For example all of the elements of a matrix must be of the same type, when different types are used inside a matrix R automatically does this conversion so they all are the same type. Manual conversion can also be done using the ```as.x()```  family of functions.
+
+```{r}
+
+as.character(5)
+as.numeric(TRUE)
+as.logical(1)
+
+```
+
+On top of the "atomic"  object, R has the following basic data structures: vector, list, matrix, data frame, and factors. 
+
+### vector
+Is an array of elements __all of them of the same type__, there are different ways to create a vector, an empty one through the ```vector``` function,  by the concatenate method ```c()``` or by a sequence : 
+
+```{r}
+x<-vector(mode="character",length=11)   # empty vector  
+y<- c(1,5,7,3)                          # concatenated elements
+z<- 10:20                               # sequence
+
+```
+
+When mixing elements of different classes into a vector there are __coercion__ rules that come into place to make sure the all the same rule applies. @peng2019r
+
+```{r}
+x<-c(1, TRUE, "hello")
+x
+```
+Note that all the values of the vector have transform into character type.
+
+### Vector operations
+When programing you want to perform operations over your variables,when dealing with vector operations are made element by element. One thing to be cautious about is that __when doing operation with vectors of different size R repeats the smaller vector until their sizes match__. they need to be multiplies of one another in order to work, otherwise it would produce an error. This behavior extends the R's expressiveness and language functionality, but can also can create difficult to spot unintended behavior if not treated carefully. 
+
+```{r eval=FALSE}
+x <- 1:4
+x*x
+x^x
+x^(1:2)
+M<-x%o%x
+det(M)
+t(M)
+
+seq(1,10, by=0.3)
+seq(1,10, length=7)
+seq(along.with=x)
+seq_along(x)
+
+4%in%x
+
+```
+
+### vector indexing 
+When working with vectors there can be numerical indexing (where elements of the array are retrive if it matches it's position) as well as logical indexing where the element is retrieve if the condition set, is satisfy by the element.
+```{r}
+x<-10:20
+
+x[2]
+x[2:6]          # position indexing
+
+x[x%%3==0]      # logical indexing, 
+                # return all x whose module by 3 is equal to 0
+```
+
+
+##list
+Are an special type of vector which can contain elements of different type.
+
+```{r}
+
+L<-list(1, TRUE, "hello")
+L
+
+L<- vector(mode="list", length=3)
+L
+```
+
+a __list__ can name each of it's elements. One example I imagine was to create a list which represents the dimensions of a object, so each value represents the height, width and depth of the object.
+```{r }
+dimensions<- list(height=5, width=4, depth=3)
+names(dimensions)
+```
+
+
+## matrices
+Are constructed column-wise, but can be set to be row-wise by the parameter byrow = TRUE.
+
+```{r  eval=FALSE}
+
+x <- 1:10L
+y <- 11:20
+M <-cbind(x,y)
+typeof(M)
+dim(M)
+
+Mt<- rbind(x,y)
+
+A <- matrix(1:10, nrow = 2, byrow = TRUE)
+
+```
+
+An descriptive name can be useful to understand better the data presented, that is why R allows Matrix to have can have both ```rownames``` and ```colnames```
+
+```{r}
+M <-matrix(1:4, ncol=2)
+dimnames(M)<- list(c("a","b"),c("c","d"))
+M
+
+colnames(M)<-c("col1","col2")
+rownames(M)<- c("row1","row2")
+M
+
+```
+
+
+## factor
+Are variables that allow to easily describe categories. For example imagine you make some poll to measure people's satisfaction with some policy. Normally this types of question doesn't just have a numeric value to be rated but can be more descriptive like for example having the options ["really bad","bad","good","really good"] when  asking about how they feel the policy has been carried out. factor data types allow to easily express these subtle descriptive answers. if some analysis needs to be carried out and assigning a value to each one for example to find the mean of the answers. they can easily be ranked from lower to higher using levels. 
+
+```{r}
+x<- factor(c("yes","no","yes","no","yes","yes","no","no"))
+table(x)
+unclass(x)
+answers <- c("good","bad","really good","really bad","bad","really bad","good")
+satisfaction <- factor(answers, levels=c("really bad","bad","good","really good"))
+print(satisfaction)
+```
+
+
+## Data frames
+Data frames are structures design to store tabular data, most of the time they are used to store datsets read from files but they can also be explicitly created by the ```data.frame``` command. For example imagine you want to run a poll and store the data of each participant for further analysis, then a data frame structure can be used to organize this information. 
+
+```{r}
+opinion_poll <- data.frame(name=c("karen", "brayan","Tony"), age=c(27,36,38),opinion=c("agree","disagree","agree"))
+
+print(opinion_poll)
+names(opinion_poll)
+names(opinion_poll) <- NULL
+newnames<- c("first name","age","opinion")
+colnames(opinion_poll)<- newnames
+
+```
+
+ you can always erase the names by setting them to null. Rows names can be set as well by ```row.names```
+ 
+### Dollar sign and double brackets 
+The single bracket notation will give back a subset of the same element, if it is a data frame it will return a data frame and if it is a list it returns a list. however if the data is needed without the structure as it might be needed to properly work with some functions a double bracket remove the structure leaving only the data. the dollar sign notation have a similar behavior than the double bracket, but allows the values to be accessed by their name  @hands_on_R
+
+
+```{r}
+opinion_poll[2]
+opinion_poll[[2]]
+
+# mean(opinion_poll[2])   will produce an error
+
+mean(opinion_poll[[2]])     #will not 
+mean(opinion_poll$age)
+median(opinion_poll$age)
+```
+
+ 

@@ -14,7 +14,9 @@ biblio-style: apalike
 
 # Introduction {-}
 
-These are notes and work done while coursing the [Data Science especialization courses](https://www.coursera.org/specializations/jhu-data-science), A Coursera and John Hopkins joint effort  towards teaching data science.  
+>>A notebook through my learning journey
+
+These are notes taken and work done while coursing the [Data Science especialization courses](https://www.coursera.org/specializations/jhu-data-science), A Coursera and John Hopkins joint effort  towards teaching data science.  
 
 
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Randmon Notes
 
 R some history, we can find is lineage as a dialect of the S language
@@ -12,3 +13,194 @@ a language is successful in as much as it creates a platform with which many peo
 
 take a read of 
 Murrell (2005).R Graphics, Chapman & Hall/CRC Press:
+=======
+# Random Notes
+
+R some history, we can find is lineage as a dialect of the S language
+the S language philosophy
+
+the transition from user to developer. An interactive environment (command like) and to work longer scripts and ultimately programs this approach might resseamble other programs such as matlab, mathematica and jupyter notebooks. 
+
+R like many open software project is known for having frequent releases
+
+a language is successful in as much as it creates a platform with which many people can create new things.
+@peng2019r
+
+take a read of 
+Murrell (2005).R Graphics, Chapman & Hall/CRC Press:
+
+
+## shiny app
+`shiny` is a package that allows you to create web based applications build within the R environment, creating a streamline workflow, facilitating data analysis presentation. When talking about web apps it is important to understand the architecture behind its design. these app are made out of two part: 
+
+* the __front end__ or user interface(UI) takes care of how the information would be display in the web browser.
+
+* the __back end__ handled by a web server, is the place you can call for resources, if a calculation needs to be made or values need to be update, the web server handle this petitions and feeds back what front end ask for to be displayed. 
+
+shiny apps are used to create many type of web content, for example build dashboards.
+
+[shiny app tutorial](https://vimeo.com/131218530)
+
+The shiny package comes with its build in examples that can be run by `runExample` , if no name is especified it would list all the available examples. 
+
+```{r eval=FALSE}
+library(shiny)
+runExample()
+runExample("01_hello")
+
+
+system.file("examples", package="shiny")
+
+```
+
+
+A simple template for a blank shiny app 
+
+```{r eval=FALSE}
+library(shiny)
+ui<- fluidPage()
+server<- function(input,output){}
+shinyApp(ui=ui,server=server)
+
+```
+
+
+## reactive coding style
+reactivity is the property where a change in some value will trigger an action to update accordingly. The reactive behavior its accomplish in a  tow step process where: a __reactive values__  notifies that it's value is changed, after which it's associated __reactive expressions__ will response to the change.
+
+* __reactive values:__  must common way to invocate this values is through the `input` object. has an analogue syntaxes to extracting a value out of a list or dataframe ($). 
+
+* __reactive expressions:__  they have parenthesis like functions.  can be created with the `reactive` function.
+
+what are snipets
+
+run the app 
+```{r eval=FALSE}
+runApp("../code/shinyApps/firstApp")
+```
+
+```{r eval=FALSE}
+shiny::runGitHub("shiny-examples", "rstudio", subdir = "001-hello")
+```
+
+
+inputs 
+outputs
+
+render functions
+
+the file must be named `app.R` or it ca be separated in tow files `server.R` and `ui.R`
+
+[material shiny apps](https://github.com/rstudio-education/shiny.rstudio.com-tutorial)
+
+### hosting
+`shinyapps.io` https://www.shinyapps.io/
+
+getting started
+
+install.packages('rsconnect')
+
+deploy 
+```{r eval=FALSE}
+library(rsconnect)
+rsconnect::deployApp('~/codigo/DataScienceCoursera/code/shinyApps/firstApp')
+```
+
+### Manage dependencies
+
+shine server
+
+
+* render
+
+`reactive` creates reactive expressions, which are functions that send signals each time they get outdated. cached value making it more efficient.
+
+```{r}
+data<- reactive({rnorm(100,mean,sd=10)})
+```
+
+```{r}
+output$hist<-renderPlot({
+        
+        title<-"random normal values"
+        hist(data(),main=title)
+    })
+    
+```
+
+`isolate` prevents the reactive value to trigger a downstream response by reactive function.
+
+### triggered actions
+`run`
+
+
+```{r}
+actionButton(inputId = "start",label="click me")
+```
+
+```{r}
+observeEvent(input$start,{print(input$start)})
+```
+
+delay reaction
+```{r}
+eventReactive()
+```
+
+
+create the useless machine
+
+
+tree explore github projects
+
+
+## token keys and more store in log files
+
+## COVID
+
+deSolve
+
+Stacked Area Chart
+
+
+
+```{r}
+library(deSolve)
+
+## Chaos in the atmosphere
+Lorenz <- function(t, state, parameters) {
+  with(as.list(c(state, parameters)), {
+    dX <-  a * X + Y * Z
+    dY <-  b * (Y - Z)
+    dZ <- -X * Y + c * Y - Z
+    list(c(dX, dY, dZ))
+  })
+}
+
+parameters <- c(a = -8/3, b = -10, c = 28)
+state      <- c(X = 1, Y = 1, Z = 1)
+times      <- seq(0, 100, by = 0.01)
+
+out <- ode(y = state, times = times, func = Lorenz, parms = parameters)
+
+plot(out)
+
+
+```
+
+
+resources
+
+(covid app)[https://towardsdatascience.com/how-to-build-covid-19-data-driven-shiny-apps-in-5mins-2d7982882a73]
+
+create infographics with R
+
+create a waafle chart 
+
+font aweasome
+
+icon("fas fa-male")
+
+
+(image )[https://cran.r-project.org/web/packages/magick/vignettes/intro.html]
+>>>>>>> 53a023e... check spelling Module 2 week 3 and 4 and Module 3

@@ -1,8 +1,8 @@
 
 # week 2: Scripting 
-Now that we have get acquaintance with the R language, some of it's built-in functions, data types and structures, it's time to learn about the building blocks of programming, control structures, cicles, and functions.
+Now that we have get acquaintance with the R language, some of it's built-in functions, data types and structures, it's time to learn about the building blocks of programming: control structures, cycles, and functions.
 
-Like many other promming languages R implements the __if__ statement as a control strucutre and the __for__ statement and __while__ statement in order to produce cicles. there also exists the expresions __repeat__, __break__ and __next__ which allow to specify a certian behavior different from the rest of the iteration, there are ussually used inside an if statement to represent exception cases inside a loop.
+Like many other programming languages R implements the ```if``` statement as a control structure and the ```for``` statement and ```while``` statement in order to produce cycles. there also exists the expressions ```repeat```, ```break``` and ```next``` which allow to specify a certain behavior different from the rest of the iteration, there are usually used inside an if statement to represent exception cases inside a loop.
 
 ```{r}
 number=1
@@ -24,7 +24,7 @@ for(i in seq_along(x)){
 
 
 ## functions 
-functions are structures that allow for encasulation and reutilization of an action. It allows to use the same process under different condition using its inputs. The declaration of a function is as follows.
+functions are structures that allow for encapsulation and reutilization of an action. It allows programmers to use the same process under different condition using its inputs. The declaration of a function is as follows.
 
 ```{r}
 countdown <- function (n){
@@ -42,28 +42,28 @@ countdown(5)
 
 ```
 
-So as you see we define the countdown function by assigning the reserved-word __function__ with the parameters to the function's name, followed by the declaration of the functionality, contained between curly brackets. Finally we call the function in order to make it work.
+So as you see we define the countdown function by assigning the reserved-word ```function``` with the parameters to the function's name, followed by the declaration of the functionality, contained between curly brackets. Finally we call the function in order to make it work.
 
-As seen we can use __cat__ to display values, and this prompts the question:  what is the difference between __cat__ and __print__ ?
+As seen we can use ```cat``` to display values, and this prompts the question:  what is the difference between ```cat``` and ```print``` ?
 
-__cat__ in the one hand "converts its arguments to character vectors, concatenates them to a single character vector" @Rdocumentation these impose some limitation in that it can only be applied to primary data types. Also it doesn´t produce a new line, so "\\n" has to bee specified in order to do so. The returned value of this function is an invisible NULL.
+__cat__ in the one hand "converts its arguments to character vectors, concatenates them to a single character vector" @Rdocumentation these impose some limitations. It can only be applied to primary data types. Also it doesn't produce a new line, so "\\n" has to bee specified in order to do so. The returned value of this function is an invisible NULL.
 
-__print__ in the other hand "is a generic function which means that new printing methods can be easily added for new classes" @Rdocumentation. from cat, print returns an invisible of its value which makes it for pipping. 
+__print__ in the other hand "is a generic function which means that new printing methods can be easily added for new classes" @Rdocumentation. different from cat, print returns its value in an invisible form  which makes it useful for pipping. 
 
 
 
 ### defining arguments
-R allows for great fexibility when dealing with arguments in a function, for example:
+R allows for great flexibility when dealing with arguments in a function, some of this behaviors are:
 
 __Lazy evaluation:__ This means that values are only evaluated when needed, this allows R to declared non defined arguments with out a problem  as long as they are not used. 
 
 
-__default values:__ One can set arguments to have default values, when they are not specified in the call of the function they are set to the default value. This can become usefull when dealing with many paramethers who are intended to have to same value must of the time.  
+__default values:__ One can set arguments to have default values, when they are not specified in the call of the function they are set to the default value. This can become useful when dealing with many parameters who are intended to have to same value must of the time.  
 
 
-__partially match:__ Arguments can be assigned position based "fun(value1,value2,value3)" or name based "fun(arg2=value2,arg3=value3,arg1=value1)", name based allows to put in the arguments in different order, however names can be to long, so if the firsts letters of the name uniquily identify the argument they migth be enough to select it this is knonw as a partially match argument. 
+__partially match:__ Arguments can be assigned position based ```fun(value1,value2,value3)``` or name based ```fun(arg2=value2,arg3=value3,arg1=value1)```, name based allows to put in the arguments disorderly, however names can be to long, so a partial argument name can be used if it uniquely identifies the argument.
 
-__unspecified arguments:__  Sometimes you can not predict what other argument can applied to the function, the three dot "..." argument can be used to assign unspecified arguments. this is ussualy used when extending an exisiting function. One thing to be aware of when using it is that the remainder arguments have to be named or else they will be passed to the "..." partial matching doesn't work as well.
+__unspecified arguments:__  Sometimes you can not predict what other arguments might applied to the function, the three dot "..." argument can be used to assign unspecified arguments. This is usually used when extending an existing function. One thing to be aware of when using is that the remainder arguments after the "..." argument must be named or else they will be taken as part of "..." also partial matching doesn't work as well.
 
 ```{r}
 simon_says <- function(...){
@@ -74,7 +74,8 @@ simon_says <- function(...){
 this function example was taken from swirl's functions module. 
 
 
-__unpacking arguments:__ when working with the "..." you might one to extract an especific value you can access these values byconverting the "..." into a list 
+__unpacking arguments:__ when working with the "..." one might need to extract an specific value. One can access these values by converting the "..." into a list 
+
 ```{r}
 f <- function(x, ...) {
   args = list(...) 
@@ -84,12 +85,12 @@ f <- function(x, ...) {
 f(x,name="Pedrito",message="hola")
 ```
 
-All of these techniques allows for great diversity when using functions.
+All of these behaviors enhance user experience by allowing high level functionalities from functions.
 
 ## Scoping rules
-R holds each definition in memory as a symbol value pair. however the same symbol might be defined differently in in two separated occation, so how does R determine which one to use?
+R holds each definition in memory as a symbol value pair. however the same symbol might be defined differently in in two separated occasion, so how does R determine which one to use?
 
-This issue can be resolve thanks to scoping rules, which sort out the vaule of a symbol by following a herachy of environments that can be display by the command __search()__. First the symbol is look in the global environment, in second place it is search in the loaded libraries and then the rest of the build packages. R separates functions and function so you can have one with each with the same name.
+This issue can be resolve thanks to scoping rules, which sort out the value of a symbol by following a hierarchy of environments that can be display by the command __search()__. First the symbol is look in the global environment, in second place it is search in the loaded libraries and then the rest of the build packages. R separates functions and function so you can have one with each with the same name.
 
 
 ```{r}
@@ -128,9 +129,10 @@ This issue can be resolve thanks to scoping rules, which sort out the vaule of a
     f2()
 ```
  
-In the previus example we saw that the function could use a variable that was not declared inside the function these are known as free variables. The scopping rules state that free variables would be search inside the environment where the function was defined, if not found, it is search up to the parent environment  the example intends to be a reflection of this behavior.
+In the previous example we saw that the function could use a variable that was not declared inside the function these are known as free variables. The scoping rules state that free variables would be search inside the environment where the function was defined, if not found, it is search up to the parent environment  the example intends to be a reflection of this behavior.
  
-what value does a free variable has is tight to what enviroment it is on. the ls() function can help you see  what is inside an enviroment, and the function get() what value does it have    
+what value does a free variable has is tight to what environment it is on. the ls() function can help you see  what is inside an environment, and the function get() what value does it have.
+
 ```{r}
 ls(environment(f))
 
@@ -143,9 +145,9 @@ Do to lexical scoping all variables must be stored in memory.
 
 
 ## What happened in 1970-01-01? 
-The first of january of 1970 is an important date and marks the start of time itself, at least as far as computers are concerned. This date was set as the start of the __unix epoch__ a system that meassures time based on the number of seconds past since this date. This system has been used widly and  now the unix time (POSIX) is the primary way computers deal with time.
+The first of January of 1970 is an important date and marks the start of time itself, at least as far as computers are concerned. This date was set as the start of the __unix epoch__ a system that measures time based on the number of seconds past since this date. This system has been used widely and  now the unix time (POSIX) is the primary way computers deal with time.
 
-R has to ways of deailing with time:
+R has two ways of dealing with time:
 
 * Dates: which can be represented using the Date class count the number of days since the unix epoch.
 ```{r}
@@ -154,7 +156,7 @@ class(x)
 unclass(x)
 ```
 
-* Time: which uses POSIX can become in two different standars. POSIXct which works deep down as a integer counter, it is to work with data frames; and  POSIXlt which stores the time in a list structure, with much more baggage information that can be easier to access.
+* Time: which uses POSIX can become in two different standards. POSIXct which works deep down as a integer counter, it is to work with data frames; and  POSIXlt which stores the time in a list structure, with much more baggage information that can be easier to access.
 
 
 ```{r}
@@ -171,7 +173,7 @@ now_ls$year
 ```
 As the example showed the time is relative to 1-1-1970
 
-We have shown so far how the system intepret dates and times but imagine you want to enter dates that are written as strings. __strptime()__ take care of this, it only needs the string and the format. It also allows to specify the time zone if needed.
+We have shown so far how the system interprets dates and times but imagine you want to enter dates that are written as strings. __strptime()__ take care of this, it only needs the string and the format. It also allows to specify the time zone if needed.
 
 ```{r}
 # ?strptime
@@ -190,10 +192,10 @@ date$mon
 
 
 ## SWIRL practices 
-As part as this weeks assigment one needed to complete the swirl practices of logic, functions and Dates and Times.
+As part as this weeks assignment one needed to complete the swirl practices of logic, functions and Dates and Times.
 
 ### logical operations: 
-when using single operand the value gets evaluated by each one of the elements of the list, double operand evalutes only the first element.
+when using single operand the value gets evaluated by each one of the elements of the list, double operand evaluates only the first element.
 
 ```{r}
 TRUE & c(TRUE, FALSE, FALSE)
@@ -202,7 +204,7 @@ TRUE && c(TRUE, FALSE, FALSE)
 
 ### functions:
 
-Anonimous functions.
+Anonymous functions.
 ```{r eval=FALSE}
 evaluate(function(x){x+1}, 6)
 ```
@@ -212,11 +214,11 @@ convolution
 
 
 ### Dates and times
-If needed the lubridate package developed by Hadley Wickham enhances the posibilities of the basic Date class. dates might seem easy at first glance but as it was put by @wickham2017r
+If needed the lubridate package developed by Hadley Wickham enhances the possibilities of the basic Date class. dates might seem easy at first glance but as it was put by @wickham2017r
 
 > Dates and times are hard because they have to reconcile two physical phenomena (the rotation of the Earth and its orbit around the sun) with a whole raft of geopolitical phenomena including months, time zones, and DST.
  
-So it is important to appreaciate the work others have put in, in order to make it easier to work with the messy way we meassure time, so you can focus on whatever you are working on rather that getting distracted trying to format dates information.
+So it is important to appreciate the work others have put in, in order to make it easier to work with the messy way we measure time, so you can focus on whatever you are working on rather that getting distracted trying to format dates information.
  
 
  

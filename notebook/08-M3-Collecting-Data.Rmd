@@ -1,15 +1,15 @@
 #  (PART) Module 3 {-}
-# Getting and Cleanning data {#module3}
+# Getting and Cleaning data {#module3}
 
-This is the third course and on it, one learnson how to gather data and pre process in order to make it usefull for analysis. It is no secret that our modern world is build on data, therefore one needs to be able to access this data independly of what format it comes on. People write and store data in spreedsheets, data base or through other formats like JSON files. 
+This is the third course and on it, one learns about how to gather data and pre process in order to make it useful for analysis. It is no secret that our modern world is build on data, therefore one needs to be able to access this data independently of what format it comes on. People write and store data in spreadsheets, data base or through other formats like JSON files. 
 
 
 Learning objectives:
 
 - [ ] Find and extract data in a practical application 
-- [ ] Interface with a database through SQL syntaxis
+- [ ] Interface with a database through SQL syntaxes
 - [ ] Connect with an API (may be twitter and GitHub)
 - [ ] Connect with an API office 365
-- [ ] stablish a protocol for cleanning data
+- [ ] stablish a protocol for cleaning data
 - [ ] Parsers and extract information from raw text
 
