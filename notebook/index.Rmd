@@ -14,7 +14,7 @@ biblio-style: apalike
 
 
 # Introduction {-}
-![](./media/vector/coursera_and_jhu .svg)
+![](./media/vector/coursera_and_jhu.svg)
 
 __A notebook through my learning journey__
 
@@ -22,7 +22,18 @@ These are notes taken and work done while coursing the [Data Science specializat
 
 
 
-
+```{r, echo=FALSE}
+library(metathis)
+meta() %>% 
+  meta_description("My awesome presentation")
+  meta_social(
+    title = "R for Data Science",
+    image = "https://raw.githubusercontent.com/jsduenass/datasciencecoursera/master/media/vector/coursera_and_jhu.svg",
+    image_alt = "Data Science chart ",
+    og_type = "book",
+    og_author = "Juan Sebastian D"
+  )
+```
 
 
 

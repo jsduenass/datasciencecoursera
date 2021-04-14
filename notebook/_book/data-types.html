@@ -24,7 +24,7 @@
 <meta name="author" content="Juan Sebastian D" />
 
 
-<meta name="date" content="2021-04-13" />
+<meta name="date" content="2021-04-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,6 +50,17 @@
 
 
 
+<meta name="description" content="My awesome presentation"/>
+<meta name="twitter:title" content="R for Data Science"/>
+<meta name="twitter:image:src" content="https://raw.githubusercontent.com/jsduenass/datasciencecoursera/master/media/vector/coursera_and_jhu.svg"/>
+<meta name="twitter:image:alt" content="Data Science chart "/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:title" content="R for Data Science"/>
+<meta property="og:image" content="https://raw.githubusercontent.com/jsduenass/datasciencecoursera/master/media/vector/coursera_and_jhu.svg"/>
+<meta property="og:image:alt" content="Data Science chart "/>
+<meta property="og:type" content="book"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="article:author" content="Juan Sebastian D"/>
 
 
 <style type="text/css">
@@ -255,78 +266,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>logical</li>
 </ul>
 <p><strong>Note:</strong> When writing numbers they are <strong>numeric</strong> as default, but can forced to become integer type by ending the number with an L. It is interesting to note that the integer type makes part of the numeric one this can be seen using the <code>is.numeric</code> function member of the <code>is.x()</code> family of functions which allow to identify if a variable is of a particular class.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">class</span>(<span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">class</span>(<span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">class</span>(10L)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">class</span>(10L)</a></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">is.numeric</span>(10L)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">is.numeric</span>(10L)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <div id="exotic-data-types" class="section level2">
 <h2><span class="header-section-number">3.1</span> Exotic data types</h2>
 <p>there as well some not as common data types such as date, raster, raw and others. raw for example creates a vector used for storing information in binary form into bytes written as hexadecimal pairs.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">text &lt;-<span class="st"> &quot;a word with length 21&quot;</span></a>
-<a class="sourceLine" id="cb15-2" title="2">binary &lt;-<span class="st"> </span><span class="kw">charToRaw</span>(text)</a>
-<a class="sourceLine" id="cb15-3" title="3"><span class="kw">is.raw</span>(binary)</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">text &lt;-<span class="st"> &quot;a word with length 21&quot;</span></a>
+<a class="sourceLine" id="cb16-2" title="2">binary &lt;-<span class="st"> </span><span class="kw">charToRaw</span>(text)</a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="kw">is.raw</span>(binary)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">typeof</span>(binary)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">typeof</span>(binary)</a></code></pre></div>
 <pre><code>## [1] &quot;raw&quot;</code></pre>
 </div>
 <div id="data-conversion" class="section level2">
 <h2><span class="header-section-number">3.2</span> Data conversion</h2>
 <p>Data types have some hierarchy, from particular to general they can be organized as follows logical, integer, numeric, character. One can perform data type conversion from a particular type to a more general one. R support implicit conversion in order to keep types consistence. For example all of the elements of a matrix must be of the same type, when different types are used inside a matrix R automatically does this conversion so they all are the same type. Manual conversion can also be done using the <code>as.x()</code> family of functions.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">as.character</span>(<span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">as.character</span>(<span class="dv">5</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;5&quot;</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">as.numeric</span>(<span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">as.numeric</span>(<span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">as.logical</span>(<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">as.logical</span>(<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>On top of the “atomic” object, R has the following basic data structures: vector, list, matrix, data frame, and factors.</p>
 <div id="vector" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> vector</h3>
 <p>Is an array of elements <strong>all of them of the same type</strong>, there are different ways to create a vector, an empty one through the <code>vector</code> function, by the concatenate method <code>c()</code> or by a sequence :</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1">x&lt;-<span class="kw">vector</span>(<span class="dt">mode=</span><span class="st">&quot;character&quot;</span>,<span class="dt">length=</span><span class="dv">11</span>)   <span class="co"># empty vector  </span></a>
-<a class="sourceLine" id="cb25-2" title="2">y&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">3</span>)                          <span class="co"># concatenated elements</span></a>
-<a class="sourceLine" id="cb25-3" title="3">z&lt;-<span class="st"> </span><span class="dv">10</span><span class="op">:</span><span class="dv">20</span>                               <span class="co"># sequence</span></a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">x&lt;-<span class="kw">vector</span>(<span class="dt">mode=</span><span class="st">&quot;character&quot;</span>,<span class="dt">length=</span><span class="dv">11</span>)   <span class="co"># empty vector  </span></a>
+<a class="sourceLine" id="cb26-2" title="2">y&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">3</span>)                          <span class="co"># concatenated elements</span></a>
+<a class="sourceLine" id="cb26-3" title="3">z&lt;-<span class="st"> </span><span class="dv">10</span><span class="op">:</span><span class="dv">20</span>                               <span class="co"># sequence</span></a></code></pre></div>
 <p>When mixing elements of different classes into a vector there are <strong>coercion</strong> rules that come into place to make sure the all the same rule applies. <span class="citation">Peng (<a href="#ref-peng2019r" role="doc-biblioref">2019</a>)</span></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">x&lt;-<span class="kw">c</span>(<span class="dv">1</span>, <span class="ot">TRUE</span>, <span class="st">&quot;hello&quot;</span>)</a>
-<a class="sourceLine" id="cb26-2" title="2">x</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">x&lt;-<span class="kw">c</span>(<span class="dv">1</span>, <span class="ot">TRUE</span>, <span class="st">&quot;hello&quot;</span>)</a>
+<a class="sourceLine" id="cb27-2" title="2">x</a></code></pre></div>
 <pre><code>## [1] &quot;1&quot;     &quot;TRUE&quot;  &quot;hello&quot;</code></pre>
 <p>Note that all the values of the vector have transform into character type.</p>
 </div>
 <div id="vector-operations" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Vector operations</h3>
 <p>When programing you want to perform operations over your variables,when dealing with vector operations are made element by element. One thing to be cautious about is that <strong>when doing operation with vectors of different size R repeats the smaller vector until their sizes match</strong>. they need to be multiplies of one another in order to work, otherwise it would produce an error. This behavior extends the R’s expressiveness and language functionality, but can also can create difficult to spot unintended behavior if not treated carefully.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span></a>
-<a class="sourceLine" id="cb28-2" title="2">x<span class="op">*</span>x</a>
-<a class="sourceLine" id="cb28-3" title="3">x<span class="op">^</span>x</a>
-<a class="sourceLine" id="cb28-4" title="4">x<span class="op">^</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb28-5" title="5">M&lt;-x<span class="op">%o%</span>x</a>
-<a class="sourceLine" id="cb28-6" title="6"><span class="kw">det</span>(M)</a>
-<a class="sourceLine" id="cb28-7" title="7"><span class="kw">t</span>(M)</a>
-<a class="sourceLine" id="cb28-8" title="8"></a>
-<a class="sourceLine" id="cb28-9" title="9"><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>, <span class="dt">by=</span><span class="fl">0.3</span>)</a>
-<a class="sourceLine" id="cb28-10" title="10"><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>, <span class="dt">length=</span><span class="dv">7</span>)</a>
-<a class="sourceLine" id="cb28-11" title="11"><span class="kw">seq</span>(<span class="dt">along.with=</span>x)</a>
-<a class="sourceLine" id="cb28-12" title="12"><span class="kw">seq_along</span>(x)</a>
-<a class="sourceLine" id="cb28-13" title="13"></a>
-<a class="sourceLine" id="cb28-14" title="14"><span class="dv">4</span><span class="op">%in%</span>x</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb29-2" title="2">x<span class="op">*</span>x</a>
+<a class="sourceLine" id="cb29-3" title="3">x<span class="op">^</span>x</a>
+<a class="sourceLine" id="cb29-4" title="4">x<span class="op">^</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb29-5" title="5">M&lt;-x<span class="op">%o%</span>x</a>
+<a class="sourceLine" id="cb29-6" title="6"><span class="kw">det</span>(M)</a>
+<a class="sourceLine" id="cb29-7" title="7"><span class="kw">t</span>(M)</a>
+<a class="sourceLine" id="cb29-8" title="8"></a>
+<a class="sourceLine" id="cb29-9" title="9"><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>, <span class="dt">by=</span><span class="fl">0.3</span>)</a>
+<a class="sourceLine" id="cb29-10" title="10"><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>, <span class="dt">length=</span><span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb29-11" title="11"><span class="kw">seq</span>(<span class="dt">along.with=</span>x)</a>
+<a class="sourceLine" id="cb29-12" title="12"><span class="kw">seq_along</span>(x)</a>
+<a class="sourceLine" id="cb29-13" title="13"></a>
+<a class="sourceLine" id="cb29-14" title="14"><span class="dv">4</span><span class="op">%in%</span>x</a></code></pre></div>
 </div>
 <div id="vector-indexing" class="section level3">
 <h3><span class="header-section-number">3.2.3</span> vector indexing</h3>
 <p>When working with vectors there can be numerical indexing (where elements of the array are retrive if it matches it’s position) as well as logical indexing where the element is retrieve if the condition set, is satisfy by the element.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">x&lt;-<span class="dv">10</span><span class="op">:</span><span class="dv">20</span></a>
-<a class="sourceLine" id="cb29-2" title="2"></a>
-<a class="sourceLine" id="cb29-3" title="3">x[<span class="dv">2</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1">x&lt;-<span class="dv">10</span><span class="op">:</span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb30-2" title="2"></a>
+<a class="sourceLine" id="cb30-3" title="3">x[<span class="dv">2</span>]</a></code></pre></div>
 <pre><code>## [1] 11</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">x[<span class="dv">2</span><span class="op">:</span><span class="dv">6</span>]          <span class="co"># position indexing</span></a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1">x[<span class="dv">2</span><span class="op">:</span><span class="dv">6</span>]          <span class="co"># position indexing</span></a></code></pre></div>
 <pre><code>## [1] 11 12 13 14 15</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1">x[x<span class="op">%%</span><span class="dv">3</span><span class="op">==</span><span class="dv">0</span>]      <span class="co"># logical indexing, </span></a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1">x[x<span class="op">%%</span><span class="dv">3</span><span class="op">==</span><span class="dv">0</span>]      <span class="co"># logical indexing, </span></a></code></pre></div>
 <pre><code>## [1] 12 15 18</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1">                <span class="co"># return all x whose module by 3 is equal to 0</span></a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1">                <span class="co"># return all x whose module by 3 is equal to 0</span></a></code></pre></div>
 <p>##list
 Are an special type of vector which can contain elements of different type.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1">L&lt;-<span class="kw">list</span>(<span class="dv">1</span>, <span class="ot">TRUE</span>, <span class="st">&quot;hello&quot;</span>)</a>
-<a class="sourceLine" id="cb36-2" title="2">L</a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1">L&lt;-<span class="kw">list</span>(<span class="dv">1</span>, <span class="ot">TRUE</span>, <span class="st">&quot;hello&quot;</span>)</a>
+<a class="sourceLine" id="cb37-2" title="2">L</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -335,8 +346,8 @@ Are an special type of vector which can contain elements of different type.</p>
 ## 
 ## [[3]]
 ## [1] &quot;hello&quot;</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">L&lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode=</span><span class="st">&quot;list&quot;</span>, <span class="dt">length=</span><span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb38-2" title="2">L</a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1">L&lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode=</span><span class="st">&quot;list&quot;</span>, <span class="dt">length=</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb39-2" title="2">L</a></code></pre></div>
 <pre><code>## [[1]]
 ## NULL
 ## 
@@ -346,33 +357,33 @@ Are an special type of vector which can contain elements of different type.</p>
 ## [[3]]
 ## NULL</code></pre>
 <p>a <strong>list</strong> can name each of it’s elements. One example I imagine was to create a list which represents the dimensions of a object, so each value represents the height, width and depth of the object.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">dimensions&lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">height=</span><span class="dv">5</span>, <span class="dt">width=</span><span class="dv">4</span>, <span class="dt">depth=</span><span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb40-2" title="2"><span class="kw">names</span>(dimensions)</a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1">dimensions&lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">height=</span><span class="dv">5</span>, <span class="dt">width=</span><span class="dv">4</span>, <span class="dt">depth=</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb41-2" title="2"><span class="kw">names</span>(dimensions)</a></code></pre></div>
 <pre><code>## [1] &quot;height&quot; &quot;width&quot;  &quot;depth&quot;</code></pre>
 </div>
 </div>
 <div id="matrices" class="section level2">
 <h2><span class="header-section-number">3.3</span> matrices</h2>
 <p>Are constructed column-wise, but can be set to be row-wise by the parameter byrow = TRUE.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>10L</a>
-<a class="sourceLine" id="cb42-2" title="2">y &lt;-<span class="st"> </span><span class="dv">11</span><span class="op">:</span><span class="dv">20</span></a>
-<a class="sourceLine" id="cb42-3" title="3">M &lt;-<span class="kw">cbind</span>(x,y)</a>
-<a class="sourceLine" id="cb42-4" title="4"><span class="kw">typeof</span>(M)</a>
-<a class="sourceLine" id="cb42-5" title="5"><span class="kw">dim</span>(M)</a>
-<a class="sourceLine" id="cb42-6" title="6"></a>
-<a class="sourceLine" id="cb42-7" title="7">Mt&lt;-<span class="st"> </span><span class="kw">rbind</span>(x,y)</a>
-<a class="sourceLine" id="cb42-8" title="8"></a>
-<a class="sourceLine" id="cb42-9" title="9">A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>10L</a>
+<a class="sourceLine" id="cb43-2" title="2">y &lt;-<span class="st"> </span><span class="dv">11</span><span class="op">:</span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb43-3" title="3">M &lt;-<span class="kw">cbind</span>(x,y)</a>
+<a class="sourceLine" id="cb43-4" title="4"><span class="kw">typeof</span>(M)</a>
+<a class="sourceLine" id="cb43-5" title="5"><span class="kw">dim</span>(M)</a>
+<a class="sourceLine" id="cb43-6" title="6"></a>
+<a class="sourceLine" id="cb43-7" title="7">Mt&lt;-<span class="st"> </span><span class="kw">rbind</span>(x,y)</a>
+<a class="sourceLine" id="cb43-8" title="8"></a>
+<a class="sourceLine" id="cb43-9" title="9">A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>An descriptive name can be useful to understand better the data presented, that is why R allows Matrix to have can have both <code>rownames</code> and <code>colnames</code></p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1">M &lt;-<span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">ncol=</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb43-2" title="2"><span class="kw">dimnames</span>(M)&lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>),<span class="kw">c</span>(<span class="st">&quot;c&quot;</span>,<span class="st">&quot;d&quot;</span>))</a>
-<a class="sourceLine" id="cb43-3" title="3">M</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1">M &lt;-<span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">ncol=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb44-2" title="2"><span class="kw">dimnames</span>(M)&lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>),<span class="kw">c</span>(<span class="st">&quot;c&quot;</span>,<span class="st">&quot;d&quot;</span>))</a>
+<a class="sourceLine" id="cb44-3" title="3">M</a></code></pre></div>
 <pre><code>##   c d
 ## a 1 3
 ## b 2 4</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1"><span class="kw">colnames</span>(M)&lt;-<span class="kw">c</span>(<span class="st">&quot;col1&quot;</span>,<span class="st">&quot;col2&quot;</span>)</a>
-<a class="sourceLine" id="cb45-2" title="2"><span class="kw">rownames</span>(M)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;row1&quot;</span>,<span class="st">&quot;row2&quot;</span>)</a>
-<a class="sourceLine" id="cb45-3" title="3">M</a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">colnames</span>(M)&lt;-<span class="kw">c</span>(<span class="st">&quot;col1&quot;</span>,<span class="st">&quot;col2&quot;</span>)</a>
+<a class="sourceLine" id="cb46-2" title="2"><span class="kw">rownames</span>(M)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;row1&quot;</span>,<span class="st">&quot;row2&quot;</span>)</a>
+<a class="sourceLine" id="cb46-3" title="3">M</a></code></pre></div>
 <pre><code>##      col1 col2
 ## row1    1    3
 ## row2    2    4</code></pre>
@@ -380,18 +391,18 @@ Are an special type of vector which can contain elements of different type.</p>
 <div id="factor" class="section level2">
 <h2><span class="header-section-number">3.4</span> factor</h2>
 <p>Are variables that allow to easily describe categories. For example imagine you make some poll to measure people’s satisfaction with some policy. Normally this types of question doesn’t just have a numeric value to be rated but can be more descriptive like for example having the options [“really bad”,“bad”,“good”,“really good”] when asking about how they feel the policy has been carried out. factor data types allow to easily express these subtle descriptive answers. if some analysis needs to be carried out and assigning a value to each one for example to find the mean of the answers. they can easily be ranked from lower to higher using levels.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1">x&lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>,<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>,<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>,<span class="st">&quot;no&quot;</span>))</a>
-<a class="sourceLine" id="cb47-2" title="2"><span class="kw">table</span>(x)</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">x&lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>,<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>,<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>,<span class="st">&quot;no&quot;</span>))</a>
+<a class="sourceLine" id="cb48-2" title="2"><span class="kw">table</span>(x)</a></code></pre></div>
 <pre><code>## x
 ##  no yes 
 ##   4   4</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw">unclass</span>(x)</a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1"><span class="kw">unclass</span>(x)</a></code></pre></div>
 <pre><code>## [1] 2 1 2 1 2 2 1 1
 ## attr(,&quot;levels&quot;)
 ## [1] &quot;no&quot;  &quot;yes&quot;</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1">answers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;good&quot;</span>,<span class="st">&quot;bad&quot;</span>,<span class="st">&quot;really good&quot;</span>,<span class="st">&quot;really bad&quot;</span>,<span class="st">&quot;bad&quot;</span>,<span class="st">&quot;really bad&quot;</span>,<span class="st">&quot;good&quot;</span>)</a>
-<a class="sourceLine" id="cb51-2" title="2">satisfaction &lt;-<span class="st"> </span><span class="kw">factor</span>(answers, <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;really bad&quot;</span>,<span class="st">&quot;bad&quot;</span>,<span class="st">&quot;good&quot;</span>,<span class="st">&quot;really good&quot;</span>))</a>
-<a class="sourceLine" id="cb51-3" title="3"><span class="kw">print</span>(satisfaction)</a></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1">answers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;good&quot;</span>,<span class="st">&quot;bad&quot;</span>,<span class="st">&quot;really good&quot;</span>,<span class="st">&quot;really bad&quot;</span>,<span class="st">&quot;bad&quot;</span>,<span class="st">&quot;really bad&quot;</span>,<span class="st">&quot;good&quot;</span>)</a>
+<a class="sourceLine" id="cb52-2" title="2">satisfaction &lt;-<span class="st"> </span><span class="kw">factor</span>(answers, <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;really bad&quot;</span>,<span class="st">&quot;bad&quot;</span>,<span class="st">&quot;good&quot;</span>,<span class="st">&quot;really good&quot;</span>))</a>
+<a class="sourceLine" id="cb52-3" title="3"><span class="kw">print</span>(satisfaction)</a></code></pre></div>
 <pre><code>## [1] good        bad         really good really bad  bad         really bad 
 ## [7] good       
 ## Levels: really bad bad good really good</code></pre>
@@ -399,36 +410,36 @@ Are an special type of vector which can contain elements of different type.</p>
 <div id="data-frames" class="section level2">
 <h2><span class="header-section-number">3.5</span> Data frames</h2>
 <p>Data frames are structures design to store tabular data, most of the time they are used to store datsets read from files but they can also be explicitly created by the <code>data.frame</code> command. For example imagine you want to run a poll and store the data of each participant for further analysis, then a data frame structure can be used to organize this information.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1">opinion_poll &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">name=</span><span class="kw">c</span>(<span class="st">&quot;karen&quot;</span>, <span class="st">&quot;brayan&quot;</span>,<span class="st">&quot;Tony&quot;</span>), <span class="dt">age=</span><span class="kw">c</span>(<span class="dv">27</span>,<span class="dv">36</span>,<span class="dv">38</span>),<span class="dt">opinion=</span><span class="kw">c</span>(<span class="st">&quot;agree&quot;</span>,<span class="st">&quot;disagree&quot;</span>,<span class="st">&quot;agree&quot;</span>))</a>
-<a class="sourceLine" id="cb53-2" title="2"></a>
-<a class="sourceLine" id="cb53-3" title="3"><span class="kw">print</span>(opinion_poll)</a></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">opinion_poll &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">name=</span><span class="kw">c</span>(<span class="st">&quot;karen&quot;</span>, <span class="st">&quot;brayan&quot;</span>,<span class="st">&quot;Tony&quot;</span>), <span class="dt">age=</span><span class="kw">c</span>(<span class="dv">27</span>,<span class="dv">36</span>,<span class="dv">38</span>),<span class="dt">opinion=</span><span class="kw">c</span>(<span class="st">&quot;agree&quot;</span>,<span class="st">&quot;disagree&quot;</span>,<span class="st">&quot;agree&quot;</span>))</a>
+<a class="sourceLine" id="cb54-2" title="2"></a>
+<a class="sourceLine" id="cb54-3" title="3"><span class="kw">print</span>(opinion_poll)</a></code></pre></div>
 <pre><code>##     name age  opinion
 ## 1  karen  27    agree
 ## 2 brayan  36 disagree
 ## 3   Tony  38    agree</code></pre>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1"><span class="kw">names</span>(opinion_poll)</a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1"><span class="kw">names</span>(opinion_poll)</a></code></pre></div>
 <pre><code>## [1] &quot;name&quot;    &quot;age&quot;     &quot;opinion&quot;</code></pre>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1"><span class="kw">names</span>(opinion_poll) &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb57-2" title="2">newnames&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;first name&quot;</span>,<span class="st">&quot;age&quot;</span>,<span class="st">&quot;opinion&quot;</span>)</a>
-<a class="sourceLine" id="cb57-3" title="3"><span class="kw">colnames</span>(opinion_poll)&lt;-<span class="st"> </span>newnames</a></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1"><span class="kw">names</span>(opinion_poll) &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb58-2" title="2">newnames&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;first name&quot;</span>,<span class="st">&quot;age&quot;</span>,<span class="st">&quot;opinion&quot;</span>)</a>
+<a class="sourceLine" id="cb58-3" title="3"><span class="kw">colnames</span>(opinion_poll)&lt;-<span class="st"> </span>newnames</a></code></pre></div>
 <p>you can always erase the names by setting them to null. Rows names can be set as well by <code>row.names</code></p>
 <div id="dollar-sign-and-double-brackets" class="section level3">
 <h3><span class="header-section-number">3.5.1</span> Dollar sign and double brackets</h3>
 <p>The single bracket notation will give back a subset of the same element, if it is a data frame it will return a data frame and if it is a list it returns a list. however if the data is needed without the structure as it might be needed to properly work with some functions a double bracket remove the structure leaving only the data. the dollar sign notation have a similar behavior than the double bracket, but allows the values to be accessed by their name <span class="citation">Grolemund (<a href="#ref-hands_on_R" role="doc-biblioref">2014</a>)</span></p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1">opinion_poll[<span class="dv">2</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1">opinion_poll[<span class="dv">2</span>]</a></code></pre></div>
 <pre><code>##   age
 ## 1  27
 ## 2  36
 ## 3  38</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1">opinion_poll[[<span class="dv">2</span>]]</a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" title="1">opinion_poll[[<span class="dv">2</span>]]</a></code></pre></div>
 <pre><code>## [1] 27 36 38</code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1"><span class="co"># mean(opinion_poll[2])   will produce an error</span></a>
-<a class="sourceLine" id="cb62-2" title="2"></a>
-<a class="sourceLine" id="cb62-3" title="3"><span class="kw">mean</span>(opinion_poll[[<span class="dv">2</span>]])     <span class="co">#will not </span></a></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1"><span class="co"># mean(opinion_poll[2])   will produce an error</span></a>
+<a class="sourceLine" id="cb63-2" title="2"></a>
+<a class="sourceLine" id="cb63-3" title="3"><span class="kw">mean</span>(opinion_poll[[<span class="dv">2</span>]])     <span class="co">#will not </span></a></code></pre></div>
 <pre><code>## [1] 33.66667</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1"><span class="kw">mean</span>(opinion_poll<span class="op">$</span>age)</a></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1"><span class="kw">mean</span>(opinion_poll<span class="op">$</span>age)</a></code></pre></div>
 <pre><code>## [1] 33.66667</code></pre>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1"><span class="kw">median</span>(opinion_poll<span class="op">$</span>age)</a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1"><span class="kw">median</span>(opinion_poll<span class="op">$</span>age)</a></code></pre></div>
 <pre><code>## [1] 36</code></pre>
 
 </div>

@@ -24,7 +24,7 @@
 <meta name="author" content="Juan Sebastian D" />
 
 
-<meta name="date" content="2021-04-13" />
+<meta name="date" content="2021-04-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,6 +50,17 @@
 
 
 
+<meta name="description" content="My awesome presentation"/>
+<meta name="twitter:title" content="R for Data Science"/>
+<meta name="twitter:image:src" content="https://raw.githubusercontent.com/jsduenass/datasciencecoursera/master/media/vector/coursera_and_jhu.svg"/>
+<meta name="twitter:image:alt" content="Data Science chart "/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:title" content="R for Data Science"/>
+<meta property="og:image" content="https://raw.githubusercontent.com/jsduenass/datasciencecoursera/master/media/vector/coursera_and_jhu.svg"/>
+<meta property="og:image:alt" content="Data Science chart "/>
+<meta property="og:type" content="book"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="article:author" content="Juan Sebastian D"/>
 
 
 <style type="text/css">
@@ -258,14 +269,14 @@ you need to understand were the data came from</p>
 <p>divide the data into tow categories
 train data and validation data this ca be done with the binomial distribution
 <a href="https://leanpub.com/powershell-scripting-toolmaking" title="hol">link</a></p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" title="1">mydata&lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;../data/student_info.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;;&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb245-2" title="2"></a>
-<a class="sourceLine" id="cb245-3" title="3">n&lt;-<span class="st"> </span><span class="kw">dim</span>(mydata)[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb245-4" title="4"><span class="kw">set.seed</span>(<span class="dv">3435</span>)</a>
-<a class="sourceLine" id="cb245-5" title="5">trainIndicator&lt;-<span class="kw">rbinom</span>(n, <span class="dt">size=</span><span class="dv">1</span>, <span class="dt">prob=</span><span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb245-6" title="6">train_data&lt;-<span class="st"> </span>mydata[trainIndicator,]</a>
-<a class="sourceLine" id="cb245-7" title="7">val_data&lt;-mydata[<span class="op">!</span>trainIndicator,]</a>
-<a class="sourceLine" id="cb245-8" title="8">val_data</a></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" title="1">mydata&lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;../data/student_info.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;;&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb246-2" title="2"></a>
+<a class="sourceLine" id="cb246-3" title="3">n&lt;-<span class="st"> </span><span class="kw">dim</span>(mydata)[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb246-4" title="4"><span class="kw">set.seed</span>(<span class="dv">3435</span>)</a>
+<a class="sourceLine" id="cb246-5" title="5">trainIndicator&lt;-<span class="kw">rbinom</span>(n, <span class="dt">size=</span><span class="dv">1</span>, <span class="dt">prob=</span><span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb246-6" title="6">train_data&lt;-<span class="st"> </span>mydata[trainIndicator,]</a>
+<a class="sourceLine" id="cb246-7" title="7">val_data&lt;-mydata[<span class="op">!</span>trainIndicator,]</a>
+<a class="sourceLine" id="cb246-8" title="8">val_data</a></code></pre></div>
 <pre><code>##    Name.and.Lastname          ID                 email.adress
 ## 2      Robert Downey  4525111559          rdownironman@mail.c
 ## 3      Douglas Adams 14884674721    zaphodbeeblebrox@mail.com

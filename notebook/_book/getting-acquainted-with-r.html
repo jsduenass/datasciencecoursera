@@ -24,7 +24,7 @@
 <meta name="author" content="Juan Sebastian D" />
 
 
-<meta name="date" content="2021-04-13" />
+<meta name="date" content="2021-04-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,6 +50,17 @@
 
 
 
+<meta name="description" content="My awesome presentation"/>
+<meta name="twitter:title" content="R for Data Science"/>
+<meta name="twitter:image:src" content="https://raw.githubusercontent.com/jsduenass/datasciencecoursera/master/media/vector/coursera_and_jhu.svg"/>
+<meta name="twitter:image:alt" content="Data Science chart "/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:title" content="R for Data Science"/>
+<meta property="og:image" content="https://raw.githubusercontent.com/jsduenass/datasciencecoursera/master/media/vector/coursera_and_jhu.svg"/>
+<meta property="og:image:alt" content="Data Science chart "/>
+<meta property="og:type" content="book"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="article:author" content="Juan Sebastian D"/>
 
 
 <style type="text/css">
@@ -248,32 +259,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 2</span> Getting acquainted with R</h1>
 <p>These lectures concentrated on basic R syntax, different data types, some built-in functions and methods for reading data from external files. Thanks to the <span class="citation">RStudio Team (<a href="#ref-Rstudio" role="doc-biblioref">2020</a>)</span> for providing a intuitive interface to work with R.</p>
 <p>R is an object orientated programming language focus around statistics programming and data analysis, the way it work is that it store each instance in memory so it can refer it later. R comes with some predefined variables like <code>LETTERS</code> and <code>letters</code> , which holds a list with the capitalized and non capitalized letters of the alphabet, constants such pi and <code>i</code> and <code>j</code> for imaginary numbers. Some interesting little behavior that happen (like in many other programming languages), is that do to limited precision on floating points sometimes results that doesn’t look zero actually mean 0.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">letters</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="kw">cos</span>(pi<span class="op">/</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="dv">1</span><span class="op">+</span>0i <span class="op">-</span>3i</a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="kw">head</span>(letters)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">letters</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">cos</span>(pi<span class="op">/</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="dv">1</span><span class="op">+</span>0i <span class="op">-</span>3i</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">head</span>(letters)</a></code></pre></div>
 <p>The <strong>?</strong> symbol and <strong>help</strong> can be used to access the documentation page of built-in functions. Some other functions great for getting information about functions are: the <code>args()</code> and <code>attributes()</code> which gives the arguments and attributes of an object respectably.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">? <span class="kw">dimnames</span>()</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw">help</span>(<span class="st">&quot;mean&quot;</span>)</a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="kw">ls</span>()                 <span class="co"># list of variables</span></a>
-<a class="sourceLine" id="cb2-4" title="4"></a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="kw">args</span>(read.table)    <span class="co"># get arguments from a function</span></a>
-<a class="sourceLine" id="cb2-6" title="6">my_vector &lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="kw">attributes</span>(my_vector) <span class="co"># get the attributes of an object</span></a>
-<a class="sourceLine" id="cb2-8" title="8"><span class="kw">class</span>(my_vector)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">? <span class="kw">dimnames</span>()</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">help</span>(<span class="st">&quot;mean&quot;</span>)</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">ls</span>()                 <span class="co"># list of variables</span></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="kw">args</span>(read.table)    <span class="co"># get arguments from a function</span></a>
+<a class="sourceLine" id="cb3-6" title="6">my_vector &lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="kw">attributes</span>(my_vector) <span class="co"># get the attributes of an object</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="kw">class</span>(my_vector)</a></code></pre></div>
 <p>There are two methods to print the value of a variable both <code>print</code> and <code>cat</code>, print is a generic function that can be implemented across user-defined objects. While cat display a character string of the parameter pass to it.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">age&lt;-<span class="st"> </span><span class="dv">71</span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="kw">print</span>(age)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">age&lt;-<span class="st"> </span><span class="dv">71</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">print</span>(age)</a></code></pre></div>
 <pre><code>## [1] 71</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">cat</span>(age)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">cat</span>(age)</a></code></pre></div>
 <pre><code>## 71</code></pre>
 <p>When working with R, you have an assigned working directory which usually is initialize at the directory where your R project is located. There are functions that let you interact with the file system and individual files.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">getwd</span>()             <span class="co"># get working directory</span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="kw">path.expand</span>(<span class="st">&quot;~&quot;</span>)    <span class="co"># shows the location of the root directory</span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="co"># setwd(~)          # set working directory to root directory</span></a>
-<a class="sourceLine" id="cb7-4" title="4"></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="kw">list.files</span>()</a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="kw">file.info</span>(<span class="st">&#39;index.Rmd&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">getwd</span>()             <span class="co"># get working directory</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">path.expand</span>(<span class="st">&quot;~&quot;</span>)    <span class="co"># shows the location of the root directory</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co"># setwd(~)          # set working directory to root directory</span></a>
+<a class="sourceLine" id="cb8-4" title="4"></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="kw">list.files</span>()</a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="kw">file.info</span>(<span class="st">&#39;index.Rmd&#39;</span>)</a></code></pre></div>
 <p>Some easy key shortcut in order to keep a clean console and workspace always come in handy. <strong>control + L</strong> clears the console and
 <code>remove(list=ls())</code> erases all the variables stored in the environment __ This is a potentially dangerous__ because it can erase all your specially if you have been using scripting in the console instead of code written on files but can be useful to give new breathing air when you work is getting to clutter.</p>
 <div id="looking-at-data" class="section level2">
@@ -296,11 +307,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>environments are a collection of symbol/value pairs</p>
 </blockquote>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">globalenv</span>()</a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="kw">baseenv</span>()</a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="kw">emptyenv</span>()</a>
-<a class="sourceLine" id="cb8-4" title="4"></a>
-<a class="sourceLine" id="cb8-5" title="5"><span class="kw">parent.env</span>(<span class="kw">globalenv</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">globalenv</span>()</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw">baseenv</span>()</a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="kw">emptyenv</span>()</a>
+<a class="sourceLine" id="cb9-4" title="4"></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="kw">parent.env</span>(<span class="kw">globalenv</span>())</a></code></pre></div>
 
 </div>
 </div>
