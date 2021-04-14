@@ -138,10 +138,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>II About R Programming</b></span></li>
 <li class="chapter" data-level="" data-path="module2.html"><a href="module2.html"><i class="fa fa-check"></i>Summary</a></li>
-<li class="chapter" data-level="2" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>2</b> intro to R</a><ul>
-<li class="chapter" data-level="2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#getting-to-know-r"><i class="fa fa-check"></i><b>2.1</b> Getting to know R</a></li>
-<li class="chapter" data-level="2.2" data-path="intro-to-r.html"><a href="intro-to-r.html#looking-at-data"><i class="fa fa-check"></i><b>2.2</b> Looking at Data</a></li>
-<li class="chapter" data-level="2.3" data-path="intro-to-r.html"><a href="intro-to-r.html#sessions-and-environment"><i class="fa fa-check"></i><b>2.3</b> Sessions and environment</a></li>
+<li class="chapter" data-level="2" data-path="getting-acquainted-with-r.html"><a href="getting-acquainted-with-r.html"><i class="fa fa-check"></i><b>2</b> Getting acquainted with R</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-acquainted-with-r.html"><a href="getting-acquainted-with-r.html#looking-at-data"><i class="fa fa-check"></i><b>2.1</b> Looking at Data</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-acquainted-with-r.html"><a href="getting-acquainted-with-r.html#sessions-and-environment"><i class="fa fa-check"></i><b>2.2</b> Sessions and environment</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>3</b> Data types</a><ul>
 <li class="chapter" data-level="3.1" data-path="data-types.html"><a href="data-types.html#exotic-data-types"><i class="fa fa-check"></i><b>3.1</b> Exotic data types</a></li>
@@ -301,12 +300,12 @@ check for recent info. write data from the data sets package</p>
 ##  [6] &quot;content&quot;     &quot;date&quot;        &quot;times&quot;       &quot;request&quot;     &quot;handle&quot;</code></pre>
 <div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" title="1">html<span class="op">$</span>cookies</a></code></pre></div>
 <pre><code>##                       domain  flag path secure          expiration
-## 1 #HttpOnly_en.wikipedia.org FALSE    /   TRUE 2021-05-15 07:00:00
-## 2   #HttpOnly_.wikipedia.org  TRUE    /   TRUE 2021-05-15 07:00:00
+## 1 #HttpOnly_en.wikipedia.org FALSE    /   TRUE 2021-05-15 19:00:00
+## 2   #HttpOnly_.wikipedia.org  TRUE    /   TRUE 2021-05-15 19:00:00
 ## 3             .wikipedia.org  TRUE    /   TRUE                &lt;NA&gt;
 ##                     name                        value
-## 1        WMF-Last-Access                  13-Apr-2021
-## 2 WMF-Last-Access-Global                  13-Apr-2021
+## 1        WMF-Last-Access                  14-Apr-2021
+## 2 WMF-Last-Access-Global                  14-Apr-2021
 ## 3                  GeoIP CO:DC:Bogot__:4.64:-74.07:v4</code></pre>
 <div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" title="1">google &lt;-<span class="st"> </span><span class="kw">handle</span>(<span class="st">&quot;https://www.google.com/&quot;</span>)</a>
 <a class="sourceLine" id="cb239-2" title="2">pg1&lt;-<span class="st"> </span><span class="kw">GET</span>(<span class="dt">handle=</span>google, <span class="dt">path=</span><span class="st">&quot; search&quot;</span>)</a></code></pre></div>

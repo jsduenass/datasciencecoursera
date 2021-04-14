@@ -1,7 +1,7 @@
 #  (PART) Getting and Cleaning data {-}
 # Summary { - #module3}
 
-Getting and Cleaning data was the third course and on it, one learns about how to gather data and pre process in order to make it useful for analysis. It is no secret that our modern world is build on data, therefore one needs to be able to access this data independently of what format it comes on. People write and store data in spreadsheets, data base or through other formats like JSON files. 
+__Getting and Cleaning data__ was the third course and on it, one learns about how to gather data and pre process in order to make it useful for analysis. It is no secret that our modern world is build on data, therefore one needs to be able to access this data independently of what format it comes on. People write and store data in spreadsheets, data base or through other formats like JSON files. 
 
 
 ## Learning objectives:

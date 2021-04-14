@@ -1,3 +1,26 @@
+// build sequence
+```
+git checkout draft
+# apply notebook changes, check building result
+
+# 
+git add .
+git reset /notebook/_book /notebook/_bookdown_files
+git commit -m " features"
+
+git add .
+git commit -m "build book"
+
+git checkout master
+git pull 
+git merge master merge draft 
+git push 
+
+# send to gh-pages branch in order to create a web page 
+git subtree push --prefix notebook/_book origin gh-pages
+
+```
+
 // send to gh-pages branch in order to create a web page 
 git subtree push --prefix notebook/_book origin gh-pages
 

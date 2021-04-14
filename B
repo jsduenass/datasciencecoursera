@@ -1,6 +1,0 @@
-book_filename: "The Data Scientists Toolbox final asesment"
-delete_merged_file: true
-language:
-  ui:
-    chapter_name: "Chapter "
-_bookdown.yml

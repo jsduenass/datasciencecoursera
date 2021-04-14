@@ -12,11 +12,14 @@ biblio-style: apalike
 #description: " a small description" 
 ---
 
+
 # Introduction {-}
+![](./media/vector/coursera_and_jhu .svg)
 
 __A notebook through my learning journey__
 
 These are notes taken and work done while coursing the [Data Science specialization courses](https://www.coursera.org/specializations/jhu-data-science), A Coursera and John Hopkins joint effort  towards teaching data science.  
+
 
 
 

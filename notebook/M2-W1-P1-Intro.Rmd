@@ -1,9 +1,6 @@
-# intro to R
-These lectures concentrated on basic R syntax, different data types, some built-in functions and methods for reading data from external files.   
-
-Thanks to the @Rstudio for providing a intuitive interface to work with R.
-
-## Getting to know R
+# Getting acquainted with R
+These lectures concentrated on basic R syntax, different data types, some built-in functions and methods for reading data from external files. Thanks to the @Rstudio for providing a intuitive interface to work with R.
+ 
 R is an object orientated programming language focus around statistics programming and data analysis, the way it work is that it store each instance in memory so it can refer it later. R comes with some predefined variables like ```LETTERS``` and ```letters``` , which holds a list with the capitalized and non capitalized letters of the alphabet,  constants such pi and ```i``` and ```j``` for imaginary numbers. Some interesting little behavior that happen (like in many other programming languages), is that do to limited precision on floating points sometimes results that doesn't look zero  actually mean 0. 
 
 ```{r eval=FALSE}

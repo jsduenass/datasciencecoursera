@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="intro-to-r.html"/>
+<link rel="prev" href="getting-acquainted-with-r.html"/>
 <link rel="next" href="miscellaneous.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -138,10 +138,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>II About R Programming</b></span></li>
 <li class="chapter" data-level="" data-path="module2.html"><a href="module2.html"><i class="fa fa-check"></i>Summary</a></li>
-<li class="chapter" data-level="2" data-path="intro-to-r.html"><a href="intro-to-r.html"><i class="fa fa-check"></i><b>2</b> intro to R</a><ul>
-<li class="chapter" data-level="2.1" data-path="intro-to-r.html"><a href="intro-to-r.html#getting-to-know-r"><i class="fa fa-check"></i><b>2.1</b> Getting to know R</a></li>
-<li class="chapter" data-level="2.2" data-path="intro-to-r.html"><a href="intro-to-r.html#looking-at-data"><i class="fa fa-check"></i><b>2.2</b> Looking at Data</a></li>
-<li class="chapter" data-level="2.3" data-path="intro-to-r.html"><a href="intro-to-r.html#sessions-and-environment"><i class="fa fa-check"></i><b>2.3</b> Sessions and environment</a></li>
+<li class="chapter" data-level="2" data-path="getting-acquainted-with-r.html"><a href="getting-acquainted-with-r.html"><i class="fa fa-check"></i><b>2</b> Getting acquainted with R</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-acquainted-with-r.html"><a href="getting-acquainted-with-r.html#looking-at-data"><i class="fa fa-check"></i><b>2.1</b> Looking at Data</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-acquainted-with-r.html"><a href="getting-acquainted-with-r.html#sessions-and-environment"><i class="fa fa-check"></i><b>2.2</b> Sessions and environment</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>3</b> Data types</a><ul>
 <li class="chapter" data-level="3.1" data-path="data-types.html"><a href="data-types.html#exotic-data-types"><i class="fa fa-check"></i><b>3.1</b> Exotic data types</a></li>
@@ -247,12 +246,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="data-types" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Data types</h1>
-<p>R support different “<em>atomic</em>” object classes, this can be seen as data types. these are:
-* character
-* numeric
-* integer
-* complex
-* logical</p>
+<p>R support different “<em>atomic</em>” object classes, this can be seen as data types. these are:</p>
+<ul>
+<li>character</li>
+<li>numeric</li>
+<li>integer</li>
+<li>complex</li>
+<li>logical</li>
+</ul>
 <p><strong>Note:</strong> When writing numbers they are <strong>numeric</strong> as default, but can forced to become integer type by ending the number with an L. It is interesting to note that the integer type makes part of the numeric one this can be seen using the <code>is.numeric</code> function member of the <code>is.x()</code> family of functions which allow to identify if a variable is of a particular class.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">class</span>(<span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
@@ -447,7 +448,7 @@ Are an special type of vector which can contain elements of different type.</p>
           </div>
         </div>
       </div>
-<a href="intro-to-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="getting-acquainted-with-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="miscellaneous.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

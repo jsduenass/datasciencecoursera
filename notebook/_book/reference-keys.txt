@@ -5,8 +5,7 @@ eq:binom
 fig:coin-flip
 module1
 final-assessment
-intro-to-r
-getting-to-know-r
+getting-acquainted-with-r
 looking-at-data
 sessions-and-environment
 data-types

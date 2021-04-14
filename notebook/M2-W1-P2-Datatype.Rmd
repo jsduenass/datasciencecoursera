@@ -1,6 +1,7 @@
 #  Data types
 
 R support different "_atomic_"  object classes, this can be seen as data types. these are:
+
 * character 
 * numeric
 * integer
