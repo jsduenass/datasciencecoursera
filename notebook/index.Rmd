@@ -28,7 +28,7 @@ meta() %>%
   meta_description("My awesome presentation")
   meta_social(
     title = "R for Data Science",
-    image = "https://raw.githubusercontent.com/jsduenass/datasciencecoursera/master/media/vector/coursera_and_jhu.svg",
+    image = "https://raw.githubusercontent.com/jsduenass/datasciencecoursera/master/notebook/media/vector/coursera_and_jhu.svg",
     image_alt = "Data Science chart ",
     og_type = "book",
     og_author = "Juan Sebastian D"

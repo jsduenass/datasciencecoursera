@@ -1,5 +1,7 @@
-book_filename: "Data_Science_Notes"
+book_filename: "Build_Notes"
 delete_merged_file: true
+output_dir: "../deploy"
+#rmd_files: ["index.Rmd", "chapters/*.Rmd"]
 language:
   ui:
     chapter_name: "Chapter "

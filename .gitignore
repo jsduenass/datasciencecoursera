@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+/deploy/
 /nonTrackable/
 /data/Large/Files/
 /notebook/_book/
