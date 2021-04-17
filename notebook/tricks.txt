@@ -1,3 +1,18 @@
+// configure project 
+
+gh-pages
+```
+git clone -b gh-pages https://github.com/jsduenass/datasciencecoursera.git deploy
+
+```
+// remove remote commits [DANGER!!!!! unless you are al loner]
+
+git rebase -i HEAD~3 gh-pages
+
+drop 
+
+git push -fs
+
 // build sequence
 ```
 git checkout draft
@@ -5,11 +20,9 @@ git checkout draft
 
 # 
 git add .
-git reset /notebook/_book /notebook/_bookdown_files
+
 git commit -m " features"
 
-git add .
-git commit -m "build book"
 
 git checkout master
 git pull 
@@ -17,7 +30,10 @@ git merge master merge draft
 git push 
 
 # send to gh-pages branch in order to create a web page 
-git subtree push --prefix notebook/_book origin gh-pages
+cd deploy 
+git add .
+git commit -m " build book"
+git push 
 
 ```
 
