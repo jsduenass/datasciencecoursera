@@ -2,14 +2,13 @@
 title: " Data Science course notes"
 author: "Juan Sebastian D"
 date: "`r Sys.Date()`"
-description: ''
-documentclass: book
 link-citations: yes
 bibliography: bibliography.bib
 site: bookdown::bookdown_site
 github-repo: jsduenass/datasciencecoursera
 biblio-style: apalike
 #description: " a small description" 
+image : "https://raw.githubusercontent.com/jsduenass/datasciencecoursera/gh-pages/media/vector/coursera_and_jhu.svg"
 ---
 
 
@@ -22,15 +21,15 @@ These are notes taken and work done while coursing the [Data Science specializat
 
 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE,warning=FALSE}
 library(metathis)
 meta() %>% 
-  meta_description("My awesome presentation")
+  meta_description("Notes taken while attending a John Hopkins and Coursera course specialization")
   meta_social(
-    title = "R for Data Science",
-    image = "https://raw.githubusercontent.com/jsduenass/datasciencecoursera/master/notebook/media/vector/coursera_and_jhu.svg",
+    title = "Data Sciences Notebook",
+    image = "https://raw.githubusercontent.com/jsduenass/datasciencecoursera/gh-pages/media/vector/coursera_and_jhu.svg",
     image_alt = "Data Science chart ",
-    og_type = "book",
+    og_type = "website",
     og_author = "Juan Sebastian D"
   )
 ```
